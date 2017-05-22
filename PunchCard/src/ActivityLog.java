@@ -1,5 +1,8 @@
-import java.util.Date;
-import java.util.ArrayList;
+import java.util.*;
+
+
+
+
 
 public class ActivityLog {
 	private ArrayList<Date> start_log = new ArrayList<Date>();
@@ -7,15 +10,37 @@ public class ActivityLog {
 	
 	private Date start_active;
 	private long active_duration = 0;
+	public TimerTask printActiveTimer;
 	
+	
+	public void punch_card_active(){
+    	update_active();
+		System.out.println(active_duration / 1000);
+	}
+	
+
 	
 	public void punch_in(){
 		start_active = new Date();
 		start_log.add(new Date());
+		
+		 Timer timerObj = new Timer();
+		    printActiveTimer = new TimerTask() {
+		        public void run() {
+		        	punch_card_active();
+		        }
+		    };
+		    timerObj.schedule(printActiveTimer, 0, 1000);
+
+	}
+	public void update_active(){
+		active_duration += active_time();
+		start_active = new Date();
 	}
 	
 	public void punch_out(){
-		active_duration += active_time();
+		update_active();
+		printActiveTimer.cancel();
 		end_log.add(new Date());
 	}
 	

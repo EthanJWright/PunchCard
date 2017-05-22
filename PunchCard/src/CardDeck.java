@@ -31,12 +31,22 @@ public class CardDeck {
 	}
 
     public void removeCard(PunchCard card){
-		card.setCategoryName("No Category");
+		card.setCategoryName("default");
 		totalCount -= 1;
         deck.remove(card);
     }
 
 	public PunchCard findCard(String name){
+	    if(deck.size() == 1){
+    		System.out.println("before return");
+    		System.out.println(deck.get(0).getName());
+	    	if(deck.get(0).getName().equals(name)){
+	    		return deck.get(0);
+	    	}
+	    	else{
+	    		return null;
+	    	}
+	    }
 		/* Find a card in the list of deck */
 	    ArrayList<PunchCard> list = deck;
 		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {

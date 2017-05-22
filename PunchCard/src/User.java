@@ -44,6 +44,9 @@ public class User {
 	
 	public CardDeck findDeck(String category){
 		/* Find a category in the list of decks */
+		if(deck_set.size() == 1){
+			return deck_set.get(0);
+		}
 	    ArrayList<CardDeck> list = deck_set;
 		for (Iterator<CardDeck> iter = list.listIterator(); iter.hasNext(); ) {
 		    CardDeck a = iter.next();

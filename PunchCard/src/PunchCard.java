@@ -39,14 +39,14 @@ public class PunchCard {
 		return active;
 	}
 
-	public void setActive(boolean active) {
-		if(active){
+	public void setActive(boolean _active) {
+		if(_active){
 			logger.punch_in();
 		}
-		if(!active){
+		if(!_active){
 			logger.punch_out();
 		}
-		this.active = active;
+		this.active = _active;
 	}
 
 
