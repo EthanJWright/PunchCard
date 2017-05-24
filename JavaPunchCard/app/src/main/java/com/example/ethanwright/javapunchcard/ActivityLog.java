@@ -9,22 +9,35 @@ import java.util.*;
 
 
 public class ActivityLog {
+	private boolean isCurrent = false;
 	private ArrayList<Date> start_log = new ArrayList<Date>();
 	private ArrayList<Date> end_log = new ArrayList<Date>();
 	
 	private Date start_active;
 	private long active_duration = 0;
 	public TimerTask printActiveTimer;
-	
+	private PunchCard logged_card;
+
+
+	public void setLogged_card(PunchCard _logged_card){
+		// set card object
+		logged_card = _logged_card;
+	}
 	
 	public void punch_card_active(){
+		// Called form punch in, this is called every second of timer tick
     	update_active();
-        CurrentCard.setCurrent_duration(active_duration);
+		// Don't update the static object current card if not current card
+		if(logged_card.equals(CurrentCard.getCard())){
+			CurrentCard.setCurrent_duration(active_duration);
+		}
+
 	}
 	
 
 	
 	public void punch_in(){
+		// To be run when a card timer is supposed to start
 		start_active = new Date();
 		start_log.add(new Date());
 		 Timer timerObj = new Timer();
@@ -37,6 +50,7 @@ public class ActivityLog {
 
 	}
 	public void update_active(){
+		// update logger active duration (time between last tick and now)
 		active_duration += active_time();
 		start_active = new Date();
 	}

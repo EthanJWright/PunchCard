@@ -36,19 +36,23 @@ class CardView {
         }
         PunchCard adding = new PunchCard();
         adding.generateNewCard(name, 3);
+
+        // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){
             CardDeck new_deck = new CardDeck();
             new_deck.setNewDeck(category);
             new_deck.addCard(adding);
             model.addDeck(new_deck);
         }
-        else{
-            model.findDeck(category).addCard(adding);
-        }
+        // Now that we definitely have the deck, check to see if card exists already
         if(model.findDeck(category).findCard(name) == null){
+            CurrentCard.setCurrentCard(adding);
             model.findDeck(category).addCard(adding);
         }
-        CurrentCard.setCurrentCard(adding);
+        else{
+            // If it did exist, Set it as current card
+            CurrentCard.setCurrentCard(model.findDeck(category).findCard(name));
+        }
     }
 
     public void PunchOut(){

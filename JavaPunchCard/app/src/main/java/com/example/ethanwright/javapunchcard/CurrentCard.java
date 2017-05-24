@@ -9,21 +9,18 @@ public class CurrentCard {
     private static String name = "";
     private static PunchCard card = new PunchCard();
     private static boolean active = false;
-    private static String formatedTime = "";
 
 
     public static String getFormatedTime(){
         long time = current_duration;
         FormatTime ftime = new FormatTime();
-        formatedTime = ftime.getTime(time);
-        return formatedTime;
+        return ftime.getTime(time);
     }
 
     public static void setCurrentCard(PunchCard current){
         name = current.getName();
         card = current;
         current_duration = current.getLogger().getActive_duration();
-        active = current.isActive();
     }
 
     public static long getCurrent_duration() {
