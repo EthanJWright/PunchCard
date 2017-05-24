@@ -21,7 +21,6 @@ public class PunchCard {
 		goal = endDate.getTime() - beginDate.getTime();
 		active = false;
 		categoryName = "default";
-		logger.setLogged_card(this);
 	}
 	
 
@@ -49,7 +48,6 @@ public class PunchCard {
 			logger.punch_out();
 		}
 		this.active = _active;
-        CurrentCard.setActive(_active);
 	}
 
 

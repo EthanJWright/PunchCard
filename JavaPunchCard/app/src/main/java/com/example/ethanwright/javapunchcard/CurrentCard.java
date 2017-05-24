@@ -5,30 +5,29 @@ package com.example.ethanwright.javapunchcard;
  */
 
 public class CurrentCard {
-    private static long current_duration = 0;
-    private static String name = "";
-    private static PunchCard card = new PunchCard();
-    private static boolean active = false;
+    private static String name;
+    private static String category;
+    private static User model;
 
-
-    public static String getFormatedTime(){
-        long time = current_duration;
+    public static String getFormattedTime(){
+        long time = model.findDeck(category).findCard(name).getLogger().getActive_duration();
         FormatTime ftime = new FormatTime();
         return ftime.getTime(time);
     }
 
-    public static void setCurrentCard(PunchCard current){
-        name = current.getName();
-        card = current;
-        current_duration = current.getLogger().getActive_duration();
+    public static void setCurrentCard(PunchCard current, User _model){
+        // Updates the current card to be worked with
+        model = _model;
+        PunchCard tempCard = _model.findDeck(current.getCategoryName()).findCard(current.getName());
+        name = tempCard.getName();
+        category = tempCard.getCategoryName();
     }
 
     public static long getCurrent_duration() {
+        long current_duration = model.findDeck(category).findCard(name).getLogger().getActive_duration();
         return current_duration;
     }
-    public static void setCurrent_duration(long current_duration) {
-        CurrentCard.current_duration = current_duration;
-    }
+
     public static String getName() {
         return name;
     }
@@ -36,16 +35,10 @@ public class CurrentCard {
         CurrentCard.name = name;
     }
     public static PunchCard getCard() {
-        return card;
-    }
-    public static void setCard(PunchCard card) {
-        CurrentCard.card = card;
+        return model.findDeck(category).findCard(name);
     }
     public static boolean isActive() {
-        return active;
-    }
-    public static void setActive(boolean active) {
-        CurrentCard.active = active;
+        return model.findDeck(category).findCard(name).isActive();
     }
 }
 

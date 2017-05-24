@@ -18,31 +18,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.os.CountDownTimer;
-
-
-import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import android.os.Handler;
-
-import org.w3c.dom.Text;
-
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.LogRecord;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    final CardView testView = new CardView();
+    final CardView punchCardInterface = new CardView();
     public Button but;
+
+    private void updateUI(){
+        but.setText(CurrentCard.getCard().getName() + "\n" + CurrentCard.getFormattedTime());
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -53,56 +43,53 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        // Create Card
+        // Create Button
         final Button card = (Button) findViewById(R.id.current_card);
         but = card;
-        testView.Current_Card_Time();
-        // Task to be executed every second
 
+        // Set Up Initial Current Card
+        punchCardInterface.Current_Card_Time();
+
+        // Get values set up for button
         card.setTextSize(20);
-        card.setText(CurrentCard.getName() + "\n" + CurrentCard.getFormatedTime());
+        updateUI();
+
+        // color the button correctly
         int color = Color.argb(255, 55, 79, 79);
         card.setBackgroundTintList(ColorStateList.valueOf(color));
-
-
-
-
         // Done Creating Card
-        // Setup click actions
 
-        // Try threading
 
-        // Done try threading
-
-        // Check if card is active, either punch in or out
-
+        // Set up options on
         card.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
                 Timer timer = new Timer();
-                if(CurrentCard.isActive() == false) {
-                    testView.PunchIn();
+                // Check to see if it has been set to active or not
+                if(CurrentCard.getCard().isActive() == false) {
+                    // If it isn't active, a click means punch in
+                    punchCardInterface.PunchIn();
+                    // On punch in we need to update the display every second, we will do that here
                     timer.scheduleAtFixedRate(new TimerTask() {
                         @Override
                         public void run() {
                             MainActivity.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    //update ui here
-                                    String name_of_button = CurrentCard.getName();
-                                    card.setText(name_of_button + "\n" + CurrentCard.getFormatedTime());
+                                    // Update the UI
+                                    updateUI();
+
                                 }
                             });
                         }
-                    }, 1000, 1000);
+                    }, 0, 1000);
                 }
                 else{
-                    testView.PunchOut();
+                    // If card is already active, we need to punch out
+                    punchCardInterface.PunchOut();
+                    // Since it was active there is running timer, cancel that
                     timer.cancel();
-                    long time = CurrentCard.getCurrent_duration();
-                    FormatTime ftime = new FormatTime();
-                    String response = ftime.getTime(time);
-                    String name_of_button = CurrentCard.getName();
-                    card.setText(name_of_button + "\n" +response);
+                    // Now update the new UI
+                    updateUI();
 
                 }
 
@@ -111,28 +98,32 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-
+        // Create our Floating Action Button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(R.drawable.ic_card);
-
-
-
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
+
+        // Designate what to do when clicked
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Currently set to nothing
                 Snackbar.make(view, "filler", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
 
             }
         });
 
+        // Create the menu drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        // Open and close the drawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        // Wait for user to click on menu option
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -174,10 +165,11 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation view item clicks
         int id = item.getItemId();
 
         if (id == R.id.nav_new_card) {
+            // Create a new activity, store results with request code 1
             Intent intent = new Intent(this, CreateCard.class);
             startActivityForResult(intent, 1);
 
@@ -198,18 +190,19 @@ public class MainActivity extends AppCompatActivity
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // This means returning from new card create
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
+                // Get the name from the created card
                 String name = data.getStringExtra("name");
                 String category = data.getStringExtra("category");
-                //but.setText(name + "\n" + category);
-                testView.addCard(name, category);
-                but.setText(CurrentCard.getName() + "\n" + CurrentCard.getFormatedTime());
+                // Add the results to our cards
+                punchCardInterface.addCard(name, category);
+                updateUI();
 
             }
         }
     }
-
 
 
     @Override

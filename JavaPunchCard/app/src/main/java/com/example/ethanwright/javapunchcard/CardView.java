@@ -25,7 +25,7 @@ class CardView {
         model.findDeck("default").addCard(card);
     //    model.findDeck("default").findCard("work").setActive(true);
 
-        CurrentCard.setCurrentCard(card);
+        CurrentCard.setCurrentCard(card, model);
 
 
     }
@@ -46,23 +46,30 @@ class CardView {
         }
         // Now that we definitely have the deck, check to see if card exists already
         if(model.findDeck(category).findCard(name) == null){
-            CurrentCard.setCurrentCard(adding);
             model.findDeck(category).addCard(adding);
+            CurrentCard.setCurrentCard(adding, model);
         }
         else{
+            CurrentCard.setCurrentCard(adding, model);
             // If it did exist, Set it as current card
-            CurrentCard.setCurrentCard(model.findDeck(category).findCard(name));
+          //  CurrentCard.setCurrentCard(model.findDeck(category).findCard(name));
         }
     }
 
     public void PunchOut(){
         CurrentCard.getCard().setActive(false);
+        /*
+        CurrentCard.getCard().setActive(false);
         CurrentCard.setActive(false);
+        */
     }
 
     public void PunchIn(){
         CurrentCard.getCard().setActive(true);
+        /*
+        CurrentCard.getCard().setActive(true);
         CurrentCard.setActive(true);
+        */
     }
 
 
