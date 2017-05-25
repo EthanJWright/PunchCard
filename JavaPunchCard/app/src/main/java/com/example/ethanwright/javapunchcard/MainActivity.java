@@ -21,6 +21,8 @@ import android.content.Intent;
 import android.view.View.OnClickListener;
 import java.util.Timer;
 import java.util.TimerTask;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 
 
 public class MainActivity extends AppCompatActivity
@@ -64,6 +66,15 @@ public class MainActivity extends AppCompatActivity
         card.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
+                // Create an animation for button when clicked
+                final Animation animation = new TranslateAnimation(0,5,0,0);
+                // set Animation for 5 sec
+                animation.setDuration(500);
+                //for button stops in the new position.
+                animation.setFillAfter(true);
+                card.startAnimation(animation);
+
+                // Create the timer to set on click
                 Timer timer = new Timer();
                 // Check to see if it has been set to active or not
                 if(CurrentCard.getCard().isActive() == false) {
@@ -81,7 +92,7 @@ public class MainActivity extends AppCompatActivity
                                 }
                             });
                         }
-                    }, 0, 1000);
+                    }, 0, 500);
                 }
                 else{
                     // If card is already active, we need to punch out

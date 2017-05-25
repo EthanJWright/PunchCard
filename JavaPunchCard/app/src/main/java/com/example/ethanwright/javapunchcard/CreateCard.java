@@ -14,11 +14,39 @@ import android.view.View.OnKeyListener;
 import android.text.Selection;
 import android.text.Editable;
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
+import android.app.Dialog;
+import android.support.v7.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 
 public class CreateCard extends AppCompatActivity {
 
-    public void returning(String name, String category){
+
+    public void returning(final String name, String category){
+            final String _category = "default";
+            //here
+        if(category.toLowerCase().equals("category") || category.toLowerCase().equals("")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("No Category Set")
+                    .setMessage("Would you like to create your card without a category?")
+                    .setNegativeButton(android.R.string.cancel, null) // dismisses by default
+                    .setPositiveButton(android.R.string.ok, new OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do the acknowledged action, beware, this is run on UI thread
+                            doFinish(name, _category);
+                        }
+                    })
+                    .create()
+                    .show();
+            //here
+        }
+        else{
+            doFinish(name, category);
+        }
+    }
+
+    public void doFinish(String name, String category){
         Intent intent = new Intent();
         intent.putExtra("name", name);
         intent.putExtra("category", category);
@@ -28,6 +56,8 @@ public class CreateCard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_card);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -83,10 +113,8 @@ public class CreateCard extends AppCompatActivity {
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Move focus to category
-                    Selection.setSelection((Editable) new_category.getText(),new_name.getSelectionStart());
-                    new_category.setText("");
-                    new_category.requestFocus();
+                    // Enter Submission
+                    returning(new_name.getText().toString(), new_category.getText().toString());
                     return true;
                 }
                 return false;
@@ -98,16 +126,18 @@ public class CreateCard extends AppCompatActivity {
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Move focus to category
-                    //Selection.setSelection((Editable) new_category.getText(),new_name.getSelectionStart());
-                    String name = new_name.getText().toString();
-                    String category = new_category.getText().toString();
-                    returning(name, category);
+                    // Enter Submission
+                    returning(new_name.getText().toString(), new_category.getText().toString());
                     return true;
                 }
                 return false;
             }
         });
+
+
+
+
+
 
         }
 
