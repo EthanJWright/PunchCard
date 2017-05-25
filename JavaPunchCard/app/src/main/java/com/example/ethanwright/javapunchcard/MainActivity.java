@@ -23,18 +23,56 @@ import java.util.Timer;
 import java.util.TimerTask;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-
+import android.os.Parcelable;
+import android.os.Parcel;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    final CardView punchCardInterface = new CardView();
+    final public CardView punchCardInterface = new CardView();
     public Button but;
 
     private void updateUI(){
-        but.setText(CurrentCard.getCard().getName() + "\n" + CurrentCard.getFormattedTime());
+        but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
+
+    // simple class that just has one member property as an example
+    public class MyParcelable implements Parcelable {
+        private int mData;
+
+    /* everything below here is for implementing Parcelable */
+
+        // 99.9% of the time you can just ignore this
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        // write your object's data to the passed-in Parcel
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            out.writeInt(mData);
+        }
+
+        // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+        public final Parcelable.Creator<MyParcelable> CREATOR = new Parcelable.Creator<MyParcelable>() {
+            public MyParcelable createFromParcel(Parcel in) {
+                return new MyParcelable(in);
+            }
+
+            public MyParcelable[] newArray(int size) {
+                return new MyParcelable[size];
+            }
+        };
+
+        // example constructor that takes a Parcel and gives you an object populated with it's values
+        private MyParcelable(Parcel in) {
+            mData = in.readInt();
+        }
+    }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -43,7 +81,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         // Create Button
         final Button card = (Button) findViewById(R.id.current_card);
@@ -69,15 +106,19 @@ public class MainActivity extends AppCompatActivity
                 // Create an animation for button when clicked
                 final Animation animation = new TranslateAnimation(0,5,0,0);
                 // set Animation for 5 sec
-                animation.setDuration(500);
+                animation.setDuration(200);
                 //for button stops in the new position.
                 animation.setFillAfter(true);
                 card.startAnimation(animation);
 
+                // Create a Parcelable
+
+
+
                 // Create the timer to set on click
                 Timer timer = new Timer();
                 // Check to see if it has been set to active or not
-                if(CurrentCard.getCard().isActive() == false) {
+                if(punchCardInterface.current.isActive() == false) {
                     // If it isn't active, a click means punch in
                     punchCardInterface.PunchIn();
                     // On punch in we need to update the display every second, we will do that here
@@ -115,10 +156,15 @@ public class MainActivity extends AppCompatActivity
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
         // Designate what to do when clicked
+        final Intent allCards = new Intent(this, ViewAllCards.class);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(allCards);
                 // Currently set to nothing
+             //   Intent allCardIntent = new Intent(ViewAllCards.class, this);
+               // startActivityForResult(allCardIntent, 2);
+
                 Snackbar.make(view, "filler", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
 

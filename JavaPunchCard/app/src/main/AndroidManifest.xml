@@ -23,6 +23,10 @@
             android:name=".CreateCard"
             android:label="@string/title_activity_create_card"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewAllCards"
+            android:label="@string/title_activity_view_all_cards"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

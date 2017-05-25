@@ -1,11 +1,13 @@
 package com.example.ethanwright.javapunchcard;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
 class CardView {
 	private static Scanner scanner;
 	public String card_print;
-    static public User model = new User();
+    public User model = new User();
+    public CurrentCard current = new CurrentCard();
 
 
     public void Current_Card_Time(){
@@ -25,11 +27,14 @@ class CardView {
         model.findDeck("default").addCard(card);
     //    model.findDeck("default").findCard("work").setActive(true);
 
-        CurrentCard.setCurrentCard(card, model);
+
+
+        current.setCurrentCard(card, model);
 
 
     }
 
+    // Add a new card to the model (given a deck)
     public void addCard(String name, String category){
         if(category == ""){
             category = "default";
@@ -47,29 +52,50 @@ class CardView {
         // Now that we definitely have the deck, check to see if card exists already
         if(model.findDeck(category).findCard(name) == null){
             model.findDeck(category).addCard(adding);
-            CurrentCard.setCurrentCard(adding, model);
+            current.setCurrentCard(adding, model);
         }
         else{
-            CurrentCard.setCurrentCard(adding, model);
+            current.setCurrentCard(adding, model);
             // If it did exist, Set it as current card
           //  CurrentCard.setCurrentCard(model.findDeck(category).findCard(name));
         }
     }
 
+    public String activeNames(){
+        CardDeck allActive = model.getActive();
+        String returning = "";
+        for(int i = 0; i < allActive.getTotalCount(); i++){
+            returning += allActive.getDeck().get(i) + " , ";
+        }
+        return returning;
+    }
+
+    // Android interface for getting active cards
+    public CardDeck getActive(){
+        CardDeck allActive = model.getActive();
+        return allActive;
+    }
+
+    // Android interface for punching in
     public void PunchOut(){
-        CurrentCard.getCard().setActive(false);
+        current.getCard().setActive(false);
         /*
         CurrentCard.getCard().setActive(false);
         CurrentCard.setActive(false);
         */
     }
 
+    // Android interface for punching out
     public void PunchIn(){
-        CurrentCard.getCard().setActive(true);
+        current.getCard().setActive(true);
         /*
         CurrentCard.getCard().setActive(true);
         CurrentCard.setActive(true);
         */
+    }
+
+    public CurrentCard getCurrent(){
+        return current;
     }
 
 
