@@ -26,7 +26,12 @@ public class ViewAllCards extends AppCompatActivity {
         ParcelPackageManager manager = new ParcelPackageManager();
         manager.insertAll(user_parcel.getCards());
 
-        String printing = Integer.toString(user_parcel.getCards().size()) + user_parcel.getCards().get(1).getCategoryName();
+        String printing = "";
+        for(int i = 0; i < user_parcel.getCards().size(); i++){
+            printing += user_parcel.getCards().get(i).getName() + " -- " + user_parcel.getCards().get(i).getCategoryName() + "\n";
+        }
+
+//        printing = Integer.toString(user_parcel.getCards().size()) + user_parcel.getCards().get(1).getCategoryName();
         cardText.setText(printing);
 
 
