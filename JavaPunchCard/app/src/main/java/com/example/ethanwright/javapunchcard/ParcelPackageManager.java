@@ -11,6 +11,9 @@ public class ParcelPackageManager {
     private ArrayList<PunchCard> UserCards = new ArrayList<>();
     private User model = new User();
 
+    public User getModel() {
+        return model;
+    }
 
     public ArrayList<PunchCard> getUserCards() {
         return UserCards;
@@ -20,6 +23,13 @@ public class ParcelPackageManager {
         UserCards = userCards;
     }
 
+   public void insertAll(ArrayList<PunchCard> allCards){
+       ArrayList<PunchCard> list = allCards;
+       for(Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ){
+           PunchCard card = iter.next();
+           makeDecks(card);
+       }
+   }
 
    private void makeDecks(PunchCard card){
        ArrayList<CardDeck> list = model.getDeck_set();

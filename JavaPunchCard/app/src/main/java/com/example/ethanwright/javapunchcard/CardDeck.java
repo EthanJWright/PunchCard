@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class CardDeck {
 	private ArrayList<PunchCard> deck = new ArrayList<>();
-	private String category = "default";
+	private String category;
 	private Integer totalCount = 0;
 	private Date dateCreated = new Date();
 	

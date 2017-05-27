@@ -23,8 +23,11 @@ public class ViewAllCards extends AppCompatActivity {
         BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
         final TextView cardText = (TextView) findViewById(R.id.nav_card_text);
 
-        String results = user_parcel.getCards().get(0).getName();
-        cardText.setText(results);
+        ParcelPackageManager manager = new ParcelPackageManager();
+        manager.insertAll(user_parcel.getCards());
+
+        String printing = Integer.toString(user_parcel.getCards().size()) + user_parcel.getCards().get(1).getCategoryName();
+        cardText.setText(printing);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

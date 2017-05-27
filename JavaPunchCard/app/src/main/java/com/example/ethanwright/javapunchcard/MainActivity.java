@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
 
     private void updateUI(){
         punchCardInterface.getCurrent().getCard().getLogger().getActive_duration();
-        but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
+        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() +"\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
 
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.addCard("Default Card", "default");
+        punchCardInterface.addCard("Default Card", "defaultOther");
 
 
         // Get values set up for button
@@ -230,6 +230,7 @@ public class MainActivity extends AppCompatActivity
                 // Get the name from the created card
                 String name = data.getStringExtra("name");
                 String category = data.getStringExtra("category");
+                but.setText(category);
                 // Add the results to our cards
                 punchCardInterface.addCard(name, category);
                 updateUI();

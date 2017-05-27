@@ -25,7 +25,7 @@ public class PunchCard implements Parcelable {
         endDate.setTime(endDate.getTime() + (day_number * milliseconds_day));
         goal = endDate.getTime() - beginDate.getTime();
         active = false;
-        categoryName = "default";
+        categoryName = "default3";
     }
 
 

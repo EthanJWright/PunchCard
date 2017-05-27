@@ -15,19 +15,9 @@ class CardView {
 
     // Add a new card to the model (given a deck)
     public void addCard(String name, String category){
-        if(category == ""){
-            category = "default";
-        }
         PunchCard adding = new PunchCard();
         adding.generateNewCard(name, 3);
-
-        /*
-        //If there is no deck set
-        if(model.getDeck_set().size() == 0){
-            ArrayList<CardDeck> new_deck_set = new ArrayList<>();
-            model.setDeck_set(new_deck_set);
-        }
-        */
+        adding.setCategoryName(category);
 
         // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){
@@ -46,6 +36,7 @@ class CardView {
             // If it did exist, Set it as current card
           //  CurrentCard.setCurrentCard(model.findDeck(category).findCard(name));
         }
+
     }
 
     public String activeNames(){
