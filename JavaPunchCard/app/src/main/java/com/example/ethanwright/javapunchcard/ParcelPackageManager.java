@@ -1,6 +1,5 @@
 package com.example.ethanwright.javapunchcard;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -9,11 +8,20 @@ import java.util.Iterator;
  */
 
 public class ParcelPackageManager {
-    private ParcelableUser userParcel = new ParcelableUser();
+    private ArrayList<PunchCard> UserCards = new ArrayList<>();
     private User model = new User();
 
 
-   private ArrayList<CardDeck> makeDecks(PunchCard card){
+    public ArrayList<PunchCard> getUserCards() {
+        return UserCards;
+    }
+
+    public void setUserCards(ArrayList<PunchCard> userCards) {
+        UserCards = userCards;
+    }
+
+
+   private void makeDecks(PunchCard card){
        ArrayList<CardDeck> list = model.getDeck_set();
        Boolean added = false;
 		for (Iterator<CardDeck> iter = list.listIterator(); iter.hasNext(); ) {
@@ -29,21 +37,7 @@ public class ParcelPackageManager {
             new_deck.addCard(card);
             list.add(new_deck);
         }
-		return list;
+        model.setDeck_set(list);
    }
 
-   // TODO Still in progress
-   private PunchCard makeCard(int index){
-       int dayNumber = 3;
-       PunchCard newCard = new PunchCard();
-       newCard.generateNewCard(userParcel.getNames().get(index), dayNumber);
-       newCard.setCategoryName(userParcel.getCategories().get(index));
-       return newCard;
-   }
-
-    public void getUserFromParcel(ParcelableUser parcel){
-        userParcel = parcel;
-        ArrayList<String> names = userParcel.getNames();
-
-    }
 }

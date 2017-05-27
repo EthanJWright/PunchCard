@@ -4,11 +4,33 @@ import java.util.Date;
 import java.util.Iterator;
 
 public class User {
-	private ArrayList<CardDeck> deck_set;
-	private String name;
-	private Date registrationDate;
-	private int number_of_decks;
-	private CardDeck active;
+	private ArrayList<CardDeck> deck_set = new ArrayList<>();
+	private String name = "";
+	private Date registrationDate = new Date();
+	private int number_of_decks = 0;
+	private CardDeck active = new CardDeck();
+
+
+
+
+    public ArrayList<PunchCard> getAllCards () {
+        ArrayList<PunchCard> allCards = new ArrayList<>();
+        ArrayList<CardDeck> list = deck_set;
+    /* Iterate through all card decks  */
+        for (Iterator<CardDeck> iter = list.listIterator(); iter.hasNext(); ) {
+            CardDeck check_deck = iter.next();
+            ArrayList<PunchCard> list_card = check_deck.getDeck();
+        /* Iterate through all cards  */
+            for (Iterator<PunchCard> iter_card = list_card.listIterator(); iter_card.hasNext(); ) {
+                PunchCard new_card = iter_card.next();
+                allCards.add(new_card);
+
+            }
+
+        }
+        return allCards;
+    }
+
 	
 	public CardDeck getActive(){
 		/* Find a card in the list of deck */

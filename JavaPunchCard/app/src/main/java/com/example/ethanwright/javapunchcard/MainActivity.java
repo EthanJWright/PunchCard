@@ -19,6 +19,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View.OnClickListener;
+
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.view.animation.Animation;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity
     public Button but;
 
     private void updateUI(){
+        punchCardInterface.getCurrent().getCard().getLogger().getActive_duration();
         but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
 
@@ -51,7 +54,8 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.Current_Card_Time();
+        punchCardInterface.addCard("Default Card", "default");
+
 
         // Get values set up for button
         card.setTextSize(20);
@@ -119,13 +123,20 @@ public class MainActivity extends AppCompatActivity
         fab.setImageResource(R.drawable.ic_card);
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
+        ActivityLog logger = new ActivityLog();
         // Designate what to do when clicked
         final Intent allCards = new Intent(this, ViewAllCards.class);
-        ParcelableUser testUser = new ParcelableUser();
-        allCards.putExtra("parcelable_extra", testUser);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                BundleCards cards = new BundleCards();
+                ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
+                cards.setCards(make_stack);
+
+                allCards.putExtra("parcelable_extra", cards);
+
                 startActivity(allCards);
                 // Currently set to nothing
              //   Intent allCardIntent = new Intent(ViewAllCards.class, this);

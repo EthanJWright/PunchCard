@@ -1,36 +1,16 @@
 package com.example.ethanwright.javapunchcard;
 
-import java.util.Scanner;
+
+import java.util.ArrayList;
 
 class CardView {
-	private static Scanner scanner;
-	public String card_print;
     public User model = new User();
     public CurrentCard current = new CurrentCard();
 
 
     public void Current_Card_Time(){
         model.setNewUser("John Smith");
-
-        // Create first deck
-        CardDeck deck = new CardDeck();
-        deck.setNewDeck();
-
-        //Give deck to user
-        model.addDeck(deck);
-
-        // Create card
-        PunchCard card = new PunchCard();
-        /* Set end date in three days  */
-        card.generateNewCard("work", 3);
-        model.findDeck("default").addCard(card);
-    //    model.findDeck("default").findCard("work").setActive(true);
-
-
-
-        current.setCurrentCard(card, model);
-
-
+        addCard("Default Card", "");
     }
 
     // Add a new card to the model (given a deck)
@@ -40,6 +20,14 @@ class CardView {
         }
         PunchCard adding = new PunchCard();
         adding.generateNewCard(name, 3);
+
+        /*
+        //If there is no deck set
+        if(model.getDeck_set().size() == 0){
+            ArrayList<CardDeck> new_deck_set = new ArrayList<>();
+            model.setDeck_set(new_deck_set);
+        }
+        */
 
         // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){

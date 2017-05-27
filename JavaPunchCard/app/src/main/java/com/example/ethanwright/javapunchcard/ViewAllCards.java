@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ViewAllCards extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +20,12 @@ public class ViewAllCards extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent get = getIntent();
-        ParcelableUser user_parcel = get.getParcelableExtra("parcelable_extra");
-
+        BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
         final TextView cardText = (TextView) findViewById(R.id.nav_card_text);
-        cardText.setText(user_parcel.getNames().get(0));
+
+        String results = user_parcel.getCards().get(0).getName();
+        cardText.setText(results);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
