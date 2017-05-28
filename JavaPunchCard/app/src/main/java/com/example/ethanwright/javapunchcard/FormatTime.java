@@ -41,7 +41,7 @@ public class FormatTime {
         }
 
 
-        String time_string =  day_str + removeExtra(hours) + removeExtra(minutes) + addZero(seconds);
+        String time_string =  day_str + removeExtra(hours) + addZero(minutes) + ":" + addZero(seconds);
         return time_string;
     }
 }

@@ -50,4 +50,16 @@ public class ParcelPackageManager {
         model.setDeck_set(list);
    }
 
+   // Return the List with all active cards at the top (For ListView)
+   public ArrayList<PunchCard> activeFirst(ArrayList<PunchCard> cards) {
+       ArrayList<PunchCard> newCards = cards;
+       for (int i = 0; i < cards.size(); i++) {
+           if (cards.get(i).isActive()) {
+               PunchCard temp = newCards.get(i);
+               newCards.remove(i);
+               newCards.add(0, temp);
+           }
+       }
+       return newCards;
+   }
 }
