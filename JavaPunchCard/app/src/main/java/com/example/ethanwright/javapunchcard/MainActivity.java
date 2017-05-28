@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.addCard("Default Card", "");
+        punchCardInterface.addCard("Default Card", "other");
 
 
         // Get values set up for button
@@ -232,11 +232,8 @@ public class MainActivity extends AppCompatActivity
        if(requestCode == 2) {
                 // If returning from select all cards screen
            if(resultCode == RESULT_OK){
-               String new_current = data.getStringExtra("name");
-               String new_current_category = data.getStringExtra("category");
-               PunchCard new_card = punchCardInterface.model.findDeck(new_current_category).findCard(new_current);
-               punchCardInterface.current.setCurrentCard(new_card, punchCardInterface.model);
- //              but.setText(new_current);
+               PunchCard new_current = data.getParcelableExtra("card_parcel");
+               punchCardInterface.current.setCurrentCard(new_current, punchCardInterface.model);
                updateUI();
                 }
 
