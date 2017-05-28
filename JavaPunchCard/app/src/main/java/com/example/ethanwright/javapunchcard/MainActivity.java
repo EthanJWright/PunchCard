@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity
                 Timer timer = new Timer();
                 // Check to see if it has been set to active or not
                 if(punchCardInterface.current.isActive() == false) {
+                    int background_color = Color.argb(255, 75, 99, 99);
+                    card.setBackgroundTintList(ColorStateList.valueOf(background_color));
+                    int color = Color.argb(255, 255, 255, 255);
+                    card.setTextColor(color);
+
                     // If it isn't active, a click means punch in
                     punchCardInterface.PunchIn();
                     // On punch in we need to update the display every second, we will do that here
@@ -103,6 +108,10 @@ public class MainActivity extends AppCompatActivity
                     }, 0, 500);
                 }
                 else{
+                    int initial_color = Color.argb(255, 55, 79, 79);
+                    card.setBackgroundTintList(ColorStateList.valueOf(initial_color));
+                    int color = Color.argb(255, 0, 0, 0);
+                    card.setTextColor(color);
                     // If card is already active, we need to punch out
                     punchCardInterface.PunchOut();
                     // Since it was active there is running timer, cancel that
