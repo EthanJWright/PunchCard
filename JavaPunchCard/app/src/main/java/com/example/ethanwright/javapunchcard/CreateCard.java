@@ -23,7 +23,7 @@ public class CreateCard extends AppCompatActivity {
 
 
     public void returning(final String name, String category){
-            final String _category = "default4";
+            final String _category = "default";
             //here
         if(category.toLowerCase().equals("category") || category.toLowerCase().equals("")) {
             new AlertDialog.Builder(this)

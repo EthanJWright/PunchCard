@@ -100,4 +100,6 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_view_all_cards2">ViewAllCards2</string>
+    <string name="running_cards">Running Cards</string>
 </resources>

@@ -43,4 +43,10 @@
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
+    <ListView
+        android:id="@+id/card_list_view"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    </ListView>
+
 </android.support.design.widget.CoordinatorLayout>

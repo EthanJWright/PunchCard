@@ -15,9 +15,12 @@ class CardView {
 
     // Add a new card to the model (given a deck)
     public void addCard(String name, String category){
+        if(category == ""){
+            category = "default";
+        }
         PunchCard adding = new PunchCard();
         adding.generateNewCard(name, 3);
-        adding.setCategoryName(category);
+//        adding.setCategoryName(category);
 
         // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){

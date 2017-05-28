@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity
     public Button but;
 
     private void updateUI(){
-        punchCardInterface.getCurrent().getCard().getLogger().getActive_duration();
-        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() +"\n" + punchCardInterface.getCurrent().getFormattedTime());
+//        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() +"\n" + punchCardInterface.getCurrent().getFormattedTime());
+        but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
 
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.addCard("Default Card", "defaultOther");
+        punchCardInterface.addCard("Default Card", "");
 
 
         // Get values set up for button
@@ -123,27 +123,18 @@ public class MainActivity extends AppCompatActivity
         fab.setImageResource(R.drawable.ic_card);
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
-        ActivityLog logger = new ActivityLog();
         // Designate what to do when clicked
-        final Intent allCards = new Intent(this, ViewAllCards.class);
+
+        final Intent allCards = new Intent(this, ViewAllCards2.class);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 BundleCards cards = new BundleCards();
                 ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
                 cards.setCards(make_stack);
-
                 allCards.putExtra("parcelable_extra", cards);
-
-                startActivity(allCards);
-                // Currently set to nothing
-             //   Intent allCardIntent = new Intent(ViewAllCards.class, this);
-               // startActivityForResult(allCardIntent, 2);
-
-                Snackbar.make(view, "filler", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
+                startActivityForResult(allCards, 2);
 
             }
         });
@@ -234,9 +225,22 @@ public class MainActivity extends AppCompatActivity
                 // Add the results to our cards
                 punchCardInterface.addCard(name, category);
                 updateUI();
+            }
+
+        }
+        // go here
+       if(requestCode == 2) {
+                // If returning from select all cards screen
+           if(resultCode == RESULT_OK){
+               String new_current = data.getStringExtra("name");
+               String new_current_category = data.getStringExtra("category");
+               PunchCard new_card = punchCardInterface.model.findDeck(new_current_category).findCard(new_current);
+               punchCardInterface.current.setCurrentCard(new_card, punchCardInterface.model);
+ //              but.setText(new_current);
+               updateUI();
+                }
 
             }
-        }
     }
 
 

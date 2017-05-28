@@ -34,6 +34,7 @@
 
     <Button
         android:id="@+id/current_card"
+        android:textAllCaps="false"
         android:layout_width="314dp"
         android:layout_height="170dp"
         android:layout_gravity="top|center_horizontal"
