@@ -54,8 +54,14 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.addCard("Default Card", "other");
-
+        punchCardInterface.addCard("Default Card1", "other");
+        punchCardInterface.addCard("Default Card2", "other");
+        punchCardInterface.addCard("Default Card3", "other");
+        punchCardInterface.addCard("Default Card4", "other");
+        punchCardInterface.addCard("Default Card5", "other");
+        punchCardInterface.addCard("Default Card6", "other");
+        punchCardInterface.addCard("Default Card7", "other");
+        punchCardInterface.addCard("Default Card8", "other");
 
         // Get values set up for button
         card.setTextSize(20);
