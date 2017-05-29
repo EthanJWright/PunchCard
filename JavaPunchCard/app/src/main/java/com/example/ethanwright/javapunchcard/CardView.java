@@ -8,18 +8,38 @@ class CardView {
     public CurrentCard current = new CurrentCard();
 
 
-    public void Current_Card_Time(){
-        model.setNewUser("John Smith");
-        addCard("Default Card", "");
-    }
-
-    // Add a new card to the model (given a deck)
-    public void addCard(String name, String category){
+        // Add a new card to the model (given a deck)
+    public void removeCard(PunchCard card){
+        String category = card.getCategoryName();
+        String name = card.getName();
         if(category == ""){
             category = "default";
         }
-        PunchCard adding = new PunchCard();
-        adding.generateNewCard(name, 3);
+
+        // If the category doesn't exist, make the category
+        if(model.findDeck(category) == null){
+            return;
+        }
+        // Now that we definitely have the deck, check to see if card exists already
+        if(model.findDeck(category).findCard(name) == null){
+            return;
+        }
+        else{
+            PunchCard temp_card = model.findDeck(category).findCard(name);
+            model.findDeck(category).removeCard(temp_card);
+        }
+
+    }
+
+
+    // Add a new card to the model (given a deck)
+    public void addCard(PunchCard card){
+        String name = card.getName();
+        String category = card.getCategoryName();
+        if(category == ""){
+            category = "default";
+        }
+        PunchCard adding = card;
 //        adding.setCategoryName(category);
 
         // If the category doesn't exist, make the category

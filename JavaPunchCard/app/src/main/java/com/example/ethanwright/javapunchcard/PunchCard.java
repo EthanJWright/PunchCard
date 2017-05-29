@@ -12,6 +12,15 @@ public class PunchCard implements Parcelable {
     private String name = "";
     private String categoryName = "";
     private ActivityLog logger = new ActivityLog();
+    private Boolean modified = false;
+
+    public boolean isModified(){
+        return modified;
+    }
+
+    public void setModified(Boolean _modified){
+        modified = _modified;
+    }
 
 
 

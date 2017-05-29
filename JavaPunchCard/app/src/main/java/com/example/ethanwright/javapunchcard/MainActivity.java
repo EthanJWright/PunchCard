@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,26 +18,117 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View.OnClickListener;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.os.Parcelable;
-import android.os.Parcel;
+import java.util.Iterator;
+import android.support.v7.app.AlertDialog;
+import android.content.DialogInterface;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     final public CardView punchCardInterface = new CardView();
     public Button but;
 
-    private void updateUI(){
-//        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() +"\n" + punchCardInterface.getCurrent().getFormattedTime());
-        but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void updateUI() {
+        // color the button correctly
+        int color = Color.argb(255, 55, 79, 79);
+        // If not active
+        if (!punchCardInterface.getCurrent().isActive()) {
+            // Color with dark colors
+            but.setBackgroundTintList(ColorStateList.valueOf(color));
+            int text = Color.argb(255, 0, 0, 0);
+            but.setTextColor(text);
+        } else {
+            // Otherwise color with light colors
+            int background_color = Color.argb(255, 75, 99, 99);
+            but.setBackgroundTintList(ColorStateList.valueOf(background_color));
+            int text = Color.argb(255, 255, 255, 255);
+            but.setTextColor(text);
+        }
+        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
+
+    public void deletePrompt(final PunchCard card) {
+        if (punchCardInterface.model.getAllCards().size() == 1) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Last Card")
+                    .setMessage("You must have one card")
+                    .setNegativeButton(android.R.string.cancel, null);// dismisses by default
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm Deleted Card")
+                    .setMessage("Are you sure you want to delete this card?")
+                    .setNegativeButton(android.R.string.cancel, null) // dismisses by default
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do the acknowledged action, beware, this is run on UI thread
+                            punchCardInterface.removeCard(card);
+                            punchCardInterface.getCurrent().setCurrentCard(punchCardInterface.model.getAllCards().get(0), punchCardInterface.model);
+                            updateUI();
+                        }
+                    })
+                    .create()
+                    .show();
+            //here
+            //here
+        }
+    }
+
+    // Fucking here
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public void startInterfaceTimer(){
+    // Create the timer to set on click
+    Timer timer = new Timer();
+    // Check to see if it has been set to active or not
+    if(!punchCardInterface.current.isActive()) {
+        int background_color = Color.argb(255, 75, 99, 99);
+        but.setBackgroundTintList(ColorStateList.valueOf(background_color));
+        int color = Color.argb(255, 255, 255, 255);
+        but.setTextColor(color);
+
+        // If it isn't active, a click means punch in
+        punchCardInterface.PunchIn();
+        // On punch in we need to update the display every second, we will do that here
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update the UI
+                        updateUI();
+
+                    }
+                });
+            }
+        }, 0, 500);
+    }
+                else
+
+    {
+        int initial_color = Color.argb(255, 55, 79, 79);
+        but.setBackgroundTintList(ColorStateList.valueOf(initial_color));
+        int color = Color.argb(255, 0, 0, 0);
+        but.setTextColor(color);
+        // If card is already active, we need to punch out
+        punchCardInterface.PunchOut();
+        // Since it was active there is running timer, cancel that
+        timer.cancel();
+        // Now update the new UI
+        updateUI();
+
+    }
+
+}
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -54,16 +144,29 @@ public class MainActivity extends AppCompatActivity
         but = card;
 
         // Set Up Initial Current Card
-        punchCardInterface.addCard("Default Card", "other");
+        PunchCard default_card = new PunchCard();
+        default_card.generateNewCard("Default Card", 4);
+        default_card.setCategoryName("other");
+        punchCardInterface.addCard(default_card);
 
         // Get values set up for button
         card.setTextSize(20);
+
+        // Setup the UI
         updateUI();
 
-        // color the button correctly
-        int color = Color.argb(255, 55, 79, 79);
-        card.setBackgroundTintList(ColorStateList.valueOf(color));
-        // Done Creating Card
+
+
+        // Set up delete button
+        final Button deleteButton = (Button) findViewById(R.id.delete_button);
+        deleteButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final PunchCard delete_card = punchCardInterface.getCurrent().getCard();
+                deletePrompt(delete_card);
+
+            }
+        });
 
 
         // Set up options on
@@ -78,10 +181,12 @@ public class MainActivity extends AppCompatActivity
                 animation.setFillAfter(true);
                 card.startAnimation(animation);
 
+                startInterfaceTimer();
+
                 // Create a Parcelable
 
-
-
+// Fucking here
+/*
                 // Create the timer to set on click
                 Timer timer = new Timer();
                 // Check to see if it has been set to active or not
@@ -120,7 +225,7 @@ public class MainActivity extends AppCompatActivity
                     updateUI();
 
                 }
-
+*/
             }
 
 
@@ -129,6 +234,8 @@ public class MainActivity extends AppCompatActivity
         // Create our Floating Action Button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(R.drawable.ic_card);
+
+        int color = Color.argb(255, 55, 79, 79);
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
         // Designate what to do when clicked
@@ -221,6 +328,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // This means returning from new card create
@@ -231,7 +339,12 @@ public class MainActivity extends AppCompatActivity
                 String category = data.getStringExtra("category");
                 but.setText(category);
                 // Add the results to our cards
-                punchCardInterface.addCard(name, category);
+                PunchCard new_card = new PunchCard();
+                new_card.generateNewCard(name, 4);
+                new_card.setCategoryName(category);
+                new_card.setActive(false);
+                punchCardInterface.addCard(new_card);
+                but.setText(punchCardInterface.getCurrent().getCard().getName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
                 updateUI();
             }
 
@@ -240,8 +353,18 @@ public class MainActivity extends AppCompatActivity
        if(requestCode == 2) {
                 // If returning from select all cards screen
            if(resultCode == RESULT_OK){
-               PunchCard new_current = data.getParcelableExtra("card_parcel");
-               punchCardInterface.current.setCurrentCard(new_current, punchCardInterface.model);
+               // Get bundle of all modified cards
+               BundleCards new_current = data.getParcelableExtra("card_parcel");
+               PunchCard current_card = data.getParcelableExtra("current_card");
+
+               // Iterate through modified cards and add them to interface
+               ArrayList<PunchCard> list = new_current.getCards();
+               for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+                   PunchCard a = iter.next();
+                   punchCardInterface.removeCard(a);
+                   punchCardInterface.addCard(a);
+               }
+               punchCardInterface.current.setCurrentCard(current_card, punchCardInterface.model);
                updateUI();
                 }
 

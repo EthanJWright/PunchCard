@@ -44,6 +44,14 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|center_horizontal" />
 
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/ic_delete"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|right" />
 
 
 </android.support.design.widget.CoordinatorLayout>
