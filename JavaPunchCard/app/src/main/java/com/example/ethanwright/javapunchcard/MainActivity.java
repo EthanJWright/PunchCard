@@ -330,7 +330,7 @@ public void startInterfaceTimer(){
             BundleCards cards = new BundleCards();
             ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
             cards.setCards(make_stack);
-            categories.putExtra("parcelable_extra", cards);
+            categories.putExtra("card_parcel", cards);
             startActivityForResult(categories, 2);
 //            startActivity(categories);
 

@@ -5,8 +5,10 @@ package com.example.ethanwright.javapunchcard;
  */
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -56,7 +58,8 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
             TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
             TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_detail);
             ImageView image = (ImageView) v.findViewById(R.id.list_view_image);
-            image.setBackgroundColor(p.getColor());
+
+            image.setColorFilter(p.getColor());
 
             if (tt1 != null) {
                 String result = "Category: " + p.getCategory();
@@ -92,6 +95,7 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
             if(tt3 != null){
                 FormatTime ftime = new FormatTime();
                 String result = ftime.getTime(p.getTimeWorked());
+
                 tt3.setText(result);
                  if(p.getDeck().get(0).isActive()){
                     int color = Color.argb(255, 255, 255, 255);

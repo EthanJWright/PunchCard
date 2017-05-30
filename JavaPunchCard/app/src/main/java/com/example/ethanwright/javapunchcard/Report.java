@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Report extends AppCompatActivity {
 
@@ -35,22 +33,6 @@ public class Report extends AppCompatActivity {
         tv2.setText(current.getCategoryName());
         FormatTime ftime = new FormatTime();
         tv3.setText(ftime.getTime(current.getLogger().getActive_duration()));
-
-
-        /*
-        final Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Report.this.runOnUiThread(new Runnable() {
-                    public void run() {
-                        // Update the UI
-                        updateUI(current);
-                    }
-                });
-            }
-        }, 0, 500);
-        */
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

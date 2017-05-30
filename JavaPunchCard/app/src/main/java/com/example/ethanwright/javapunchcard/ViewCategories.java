@@ -16,6 +16,9 @@ import java.util.Iterator;
 
 public class ViewCategories extends AppCompatActivity {
 
+    public boolean returningFromCardView = false;
+    public BundleCards user_parcel = new BundleCards();
+
     public void doFinish(BundleCards cards) {
         final Intent allCards = new Intent(this, ViewAllCards2.class);
         allCards.putExtra("parcelable_extra", cards);
@@ -33,6 +36,10 @@ public class ViewCategories extends AppCompatActivity {
             // This means returning from new card create
             if (requestCode == 1) {
                 if (resultCode == RESULT_OK) {
+
+                    String returnStyle = data.getStringExtra("return_style");
+                    // If a listclick was executed return to home screen
+                    if(returnStyle.equals("listclicked")) {
                     // Get data from view
                     BundleCards card = data.getParcelableExtra("card_parcel");
                     PunchCard currentCard = data.getParcelableExtra("current_card");
@@ -43,24 +50,31 @@ public class ViewCategories extends AppCompatActivity {
                     intent.putExtra("current_card", currentCard);
                     setResult(RESULT_OK, intent);
                     finish();
+                   }
+                    else{
+                        // Otherwise update category info with current screen
+                        user_parcel = data.getParcelableExtra("card_parcel");
+                        buildListView(user_parcel);
+                    }
                 }
             }
             // go here
         }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_categories);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public void onBackPressed() {
+        // your code.
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+    }
 
 
-        Intent get = getIntent();
-        BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
-
-
-
+    public void buildListView(BundleCards user_parcel){
 
         final ParcelPackageManager manager = new ParcelPackageManager();
 
@@ -102,7 +116,19 @@ public class ViewCategories extends AppCompatActivity {
             }
 
         });
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_categories);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        Intent get = getIntent();
+        BundleCards user_parcel = get.getParcelableExtra("card_parcel");
+        buildListView(user_parcel);
     }
 
 }

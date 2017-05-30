@@ -15,14 +15,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ViewAllCards2 extends AppCompatActivity {
-
-    public void doFinish(BundleCards card, PunchCard currentCard) {
+    ArrayList<PunchCard> cardList;
+    public void doFinish(BundleCards card, PunchCard currentCard, String returnStyle) {
         Intent intent = new Intent();
         intent.putExtra("card_parcel", card);
         intent.putExtra("current_card", currentCard);
+        intent.putExtra("return_style", returnStyle);
         setResult(RESULT_OK, intent);
         finish();
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +40,14 @@ public class ViewAllCards2 extends AppCompatActivity {
         BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
 
 
-
-
+        ArrayList<PunchCard> getCards = user_parcel.getCards();
         ParcelPackageManager manager = new ParcelPackageManager();
+        cardList = manager.activeFirst(manager.sortByCategory(getCards));
+
         manager.insertAll(user_parcel.getCards());
 
 // 1
-        final ArrayList<PunchCard> getCards = user_parcel.getCards();
-        final ArrayList<PunchCard> cardList = manager.activeFirst(manager.sortByCategory(getCards));
+
 
         final ListView listView = (ListView)findViewById(R.id.card_list_view2);
         final CardAdapter CardAdapter = new CardAdapter(this, R.layout.list_item_recipe, cardList);
@@ -79,12 +82,20 @@ public class ViewAllCards2 extends AppCompatActivity {
 
                 PunchCard current_card = card;
 
-                doFinish(cards, current_card);
+                doFinish(cards, current_card, "listclicked");
                 return;
             }
 
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        PunchCard voidCard = new PunchCard();
+        BundleCards temp = new BundleCards();
+        temp.setCards(cardList);
+        doFinish(temp, voidCard, "backpressed");
     }
 
 }
