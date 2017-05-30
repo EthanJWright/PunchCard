@@ -1,4 +1,5 @@
 package com.example.ethanwright.javapunchcard;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Date;
@@ -8,8 +9,19 @@ public class CardDeck {
 	private String category;
 	private Integer totalCount = 0;
 	private Date dateCreated = new Date();
-	
-	public void setNewDeck(String... args){
+    private int color;
+
+
+    public int getColor(){
+        return color;
+    }
+
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public void setNewDeck(String... args){
 		if(args.length == 0){
 			category = "default";
 		}
@@ -23,6 +35,18 @@ public class CardDeck {
 		totalCount = 0;
 	
 	}
+
+	public Long getTimeWorked(){
+        long timeWorked = 0;
+	    ArrayList<PunchCard> list = deck;
+		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+		    PunchCard a = iter.next();
+			timeWorked += a.getLogger().getActive_duration();
+		    }
+        return timeWorked;
+	   	}
+
+
 	
 	public void addCard(PunchCard card){
 		card.setCategoryName(category);

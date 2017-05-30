@@ -6,8 +6,9 @@ import android.os.Parcelable;
 
 public class ActivityLog implements Parcelable {
     // Currently not doing anything with this, can be used for logging information
-    private ArrayList<Date> start_log = new ArrayList<Date>();
-    private ArrayList<Date> end_log = new ArrayList<Date>();
+    private ArrayList<Date> start_log = new ArrayList<>();
+    private ArrayList<Date> end_log = new ArrayList<>();
+    private ArrayList<Long> amount_accomplished = new ArrayList<>();
 
     // This is time that is set when user 'punches in'
     private Date start_active = new Date();
@@ -17,6 +18,17 @@ public class ActivityLog implements Parcelable {
 
     // This allows for user to punch in and out without issue
     private long previous_active = 0;
+
+    public ArrayList<Long> getAmount_accomplished(){
+        return amount_accomplished;
+    }
+
+    public void reset(){
+        amount_accomplished.add(active_duration);
+        increasing = 0;
+        active_duration = 0;
+        previous_active = 0;
+    }
 
     public ActivityLog() {
 
@@ -83,6 +95,8 @@ public class ActivityLog implements Parcelable {
         active_duration = in.readLong();
         increasing = in.readInt();
         previous_active = in.readLong();
+        //TODO add amount accomplished to parcelable
+
     }
 
     @Override
@@ -108,6 +122,7 @@ public class ActivityLog implements Parcelable {
         dest.writeLong(active_duration);
         dest.writeInt(increasing);
         dest.writeLong(previous_active);
+        //TODO add amount accomplished to parcelable
     }
 
     @SuppressWarnings("unused")

@@ -5,14 +5,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Time Card"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:screenOrientation="locked"
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Time Card"
+            android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +21,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="locked"
             android:name=".CreateCard"
             android:label="@string/title_activity_create_card"
+            android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:screenOrientation="locked"
             android:name=".ViewAllCards"
             android:label="@string/title_activity_view_all_cards"
+            android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:screenOrientation="locked"
             android:name=".ViewAllCards2"
             android:label="@string/title_activity_view_all_cards2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewCategories"
+            android:label="ViewCategories"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Report"
+            android:label="Report"
+            android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".ViewPunchHistory"
+            android:label="ViewPunchHistory"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.NoActionBar" />
+        </activity>
     </application>
 
 </manifest>

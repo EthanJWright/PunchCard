@@ -53,7 +53,12 @@ public class MainActivity extends AppCompatActivity
             int text = Color.argb(255, 255, 255, 255);
             but.setTextColor(text);
         }
-        but.setText(punchCardInterface.getCurrent().getCard().getName() + "  " + punchCardInterface.getCurrent().getCard().getCategoryName() + "\n" + punchCardInterface.getCurrent().getFormattedTime());
+        String name = punchCardInterface.getCurrent().getCard().getName();
+        String category = punchCardInterface.getCurrent().getCard().getCategoryName();
+        if(category.equals("default")){
+            category = "";
+        }
+        but.setText(name + "  " + "\n" + category + "\n" + punchCardInterface.getCurrent().getFormattedTime());
     }
 
     public void deletePrompt(final PunchCard card) {
@@ -61,7 +66,9 @@ public class MainActivity extends AppCompatActivity
             new AlertDialog.Builder(this)
                     .setTitle("Last Card")
                     .setMessage("You must have one card")
-                    .setNegativeButton(android.R.string.cancel, null);// dismisses by default
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create()
+                    .show();
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Confirm Deleted Card")
@@ -73,6 +80,36 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                             // do the acknowledged action, beware, this is run on UI thread
                             punchCardInterface.removeCard(card);
+                            punchCardInterface.getCurrent().setCurrentCard(punchCardInterface.model.getAllCards().get(0), punchCardInterface.model);
+                            updateUI();
+                        }
+                    })
+                    .create()
+                    .show();
+            //here
+            //here
+        }
+    }
+
+     public void archivePrompt(final PunchCard card) {
+        if (punchCardInterface.model.getAllCards().size() == 1) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Last Card")
+                    .setMessage("You must have one card")
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create()
+                    .show();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm Archive Card")
+                    .setMessage("Are you sure you want to archive this card?")
+                    .setNegativeButton(android.R.string.cancel, null) // dismisses by default
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do the acknowledged action, beware, this is run on UI thread
+                            punchCardInterface.model.archive(card);
                             punchCardInterface.getCurrent().setCurrentCard(punchCardInterface.model.getAllCards().get(0), punchCardInterface.model);
                             updateUI();
                         }
@@ -168,6 +205,24 @@ public void startInterfaceTimer(){
             }
         });
 
+        final Button clearAndSave = (Button) findViewById(R.id.clear_all);
+         clearAndSave.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                punchCardInterface.getCurrent().getCard().clearProgress();
+                updateUI();
+            }
+        });
+
+        final Button archiveButton = (Button) findViewById(R.id.archive_button);
+        archiveButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final PunchCard archive_card = punchCardInterface.getCurrent().getCard();
+                archivePrompt(archive_card);
+
+            }
+        });
 
         // Set up options on
         card.setOnClickListener(new OnClickListener() {
@@ -183,49 +238,6 @@ public void startInterfaceTimer(){
 
                 startInterfaceTimer();
 
-                // Create a Parcelable
-
-// Fucking here
-/*
-                // Create the timer to set on click
-                Timer timer = new Timer();
-                // Check to see if it has been set to active or not
-                if(punchCardInterface.current.isActive() == false) {
-                    int background_color = Color.argb(255, 75, 99, 99);
-                    card.setBackgroundTintList(ColorStateList.valueOf(background_color));
-                    int color = Color.argb(255, 255, 255, 255);
-                    card.setTextColor(color);
-
-                    // If it isn't active, a click means punch in
-                    punchCardInterface.PunchIn();
-                    // On punch in we need to update the display every second, we will do that here
-                    timer.scheduleAtFixedRate(new TimerTask() {
-                        @Override
-                        public void run() {
-                            MainActivity.this.runOnUiThread(new Runnable() {
-                                public void run() {
-                                    // Update the UI
-                                    updateUI();
-
-                                }
-                            });
-                        }
-                    }, 0, 500);
-                }
-                else{
-                    int initial_color = Color.argb(255, 55, 79, 79);
-                    card.setBackgroundTintList(ColorStateList.valueOf(initial_color));
-                    int color = Color.argb(255, 0, 0, 0);
-                    card.setTextColor(color);
-                    // If card is already active, we need to punch out
-                    punchCardInterface.PunchOut();
-                    // Since it was active there is running timer, cancel that
-                    timer.cancel();
-                    // Now update the new UI
-                    updateUI();
-
-                }
-*/
             }
 
 
@@ -314,9 +326,23 @@ public void startInterfaceTimer(){
             startActivityForResult(intent, 1);
 
         } else if (id == R.id.nav_categories) {
+            Intent categories = new Intent(this, ViewCategories.class);
+            BundleCards cards = new BundleCards();
+            ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
+            cards.setCards(make_stack);
+            categories.putExtra("parcelable_extra", cards);
+            startActivityForResult(categories, 2);
+//            startActivity(categories);
 
         } else if (id == R.id.nav_stats) {
-
+            Intent report = new Intent(this, Report.class);
+            BundleCards cards = new BundleCards();
+            ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
+            cards.setCards(make_stack);
+            PunchCard current = punchCardInterface.getCurrent().getCard();
+            report.putExtra("parcelable_extra", current);
+            report.putExtra("card_bundle", cards);
+            startActivity(report);
         } else if (id == R.id.nav_account) {
 
         } else if (id == R.id.nav_settings){
@@ -369,6 +395,16 @@ public void startInterfaceTimer(){
                 }
 
             }
+            /*
+            if(requestCode == 3){
+                if(resultCode == RESULT_OK){
+                    BundleCards category_cards = data.getParcelableExtra("card_parcel");
+                    final Intent category = new Intent(this, ViewAllCards2.class);
+                    category.putExtra("parcelable_extra", category_cards);
+                    startActivityForResult(category, 2);
+                }
+            }
+            */
     }
 
 

@@ -5,10 +5,39 @@ import java.util.Iterator;
 
 public class User {
 	private ArrayList<CardDeck> deck_set = new ArrayList<>();
+	private ArrayList<PunchCard> archive = new ArrayList<>();
 	private String name = "";
 	private Date registrationDate = new Date();
 	private int number_of_decks = 0;
 	private CardDeck active = new CardDeck();
+
+
+	public void archive(PunchCard card){
+		archive.add(card);
+		String category = card.getCategoryName();
+        String name = card.getName();
+        if(category == ""){
+            category = "default";
+        }
+
+        // If the category doesn't exist, make the category
+        if(findDeck(category) == null){
+            return;
+        }
+        // Now that we definitely have the deck, check to see if card exists already
+        if(findDeck(category).findCard(name) == null){
+            return;
+        }
+        else{
+            PunchCard temp_card = findDeck(category).findCard(name);
+            findDeck(category).removeCard(temp_card);
+        }
+
+	}
+
+	public ArrayList<PunchCard> getArchive(){
+		return archive;
+	}
 
 
 

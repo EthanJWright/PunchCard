@@ -13,6 +13,32 @@ public class PunchCard implements Parcelable {
     private String categoryName = "";
     private ActivityLog logger = new ActivityLog();
     private Boolean modified = false;
+    private int numberInCategory = 1;
+    // here
+    public int color;
+    private long lifeTime = 0;
+
+    public void clearProgress(){
+        lifeTime += logger.getActive_duration();
+        logger.reset();
+        active = false;
+    }
+
+    public long getLifeTime() {
+        return lifeTime;
+    }
+
+    public void setLifeTime(long lifeTime) {
+        this.lifeTime = lifeTime;
+    }
+
+    public int getNumberInCategory() {
+        return numberInCategory;
+    }
+
+    public void setNumberInCategory(int numberInCategory) {
+        this.numberInCategory = numberInCategory;
+    }
 
     public boolean isModified(){
         return modified;
@@ -35,6 +61,7 @@ public class PunchCard implements Parcelable {
         goal = endDate.getTime() - beginDate.getTime();
         active = false;
         categoryName = "default";
+        lifeTime = 0;
     }
 
 
@@ -112,6 +139,8 @@ public class PunchCard implements Parcelable {
         name = in.readString();
         categoryName = in.readString();
         logger = (ActivityLog) in.readValue(ActivityLog.class.getClassLoader());
+        color = in.readInt();
+        lifeTime = in.readLong();
     }
 
     @Override
@@ -128,6 +157,8 @@ public class PunchCard implements Parcelable {
         dest.writeString(name);
         dest.writeString(categoryName);
         dest.writeValue(logger);
+        dest.writeInt(color);
+        dest.writeLong(lifeTime);
     }
 
     @SuppressWarnings("unused")

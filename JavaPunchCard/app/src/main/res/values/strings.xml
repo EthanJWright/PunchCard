@@ -102,4 +102,5 @@
     </string>
     <string name="title_activity_view_all_cards2">ViewAllCards2</string>
     <string name="running_cards">Running Cards</string>
+    <string name="title_activity_report">Report</string>
 </resources>

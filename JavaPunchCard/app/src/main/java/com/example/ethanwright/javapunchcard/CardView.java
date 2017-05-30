@@ -2,6 +2,8 @@ package com.example.ethanwright.javapunchcard;
 
 
 import java.util.ArrayList;
+import java.util.Random;
+import android.graphics.Color;
 
 class CardView {
     public User model = new User();
@@ -31,6 +33,17 @@ class CardView {
 
     }
 
+    private int randColor(){
+        Random rand = new Random();
+        double r = rand.nextDouble() * 255;
+        double b = rand.nextDouble() * 255;
+        double g = rand.nextDouble() * 255;
+        int red = ((int) r);
+        int blue = ((int) b);
+        int green = ((int) g);
+        return Color.argb(255, red, blue, green);
+    }
+
 
     // Add a new card to the model (given a deck)
     public void addCard(PunchCard card){
@@ -42,14 +55,21 @@ class CardView {
         PunchCard adding = card;
 //        adding.setCategoryName(category);
 
+        Boolean firstInCategory = false;
         // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){
+            adding.color = randColor();
+            firstInCategory = true;
             CardDeck new_deck = new CardDeck();
             new_deck.setNewDeck(category);
             new_deck.addCard(adding);
+            new_deck.setColor(adding.color);
             model.addDeck(new_deck);
         }
         // Now that we definitely have the deck, check to see if card exists already
+        if(!firstInCategory){
+            adding.color = model.findDeck(category).getColor();
+        }
         if(model.findDeck(category).findCard(name) == null){
             model.findDeck(category).addCard(adding);
             current.setCurrentCard(adding, model);

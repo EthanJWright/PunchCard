@@ -74,35 +74,28 @@ public class CreateCard extends AppCompatActivity {
         final EditText new_category = (EditText) findViewById(R.id.new_card_category);
 
         new_name.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 new_name.setText("");
-
             }
         });
 
         new_category.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 new_category.setText("");
-
             }
         });
 
 
 
+        // Set up action when added is pressed
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = new_name.getText().toString();
                 String category = new_category.getText().toString();
-                String response = name + " in category " + category + " created.";
-                 Snackbar.make(view, response, Snackbar.LENGTH_LONG)
-                       .setAction("Action", null).show();
                 returning(name, category);
-
             }
         });
 

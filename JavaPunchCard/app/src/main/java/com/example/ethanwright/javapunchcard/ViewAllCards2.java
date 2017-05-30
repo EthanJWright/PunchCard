@@ -44,12 +44,12 @@ public class ViewAllCards2 extends AppCompatActivity {
 
 // 1
         final ArrayList<PunchCard> getCards = user_parcel.getCards();
-        final ArrayList<PunchCard> cardList = manager.activeFirst(getCards);
-
+        final ArrayList<PunchCard> cardList = manager.activeFirst(manager.sortByCategory(getCards));
 
         final ListView listView = (ListView)findViewById(R.id.card_list_view2);
         final CardAdapter CardAdapter = new CardAdapter(this, R.layout.list_item_recipe, cardList);
         listView.setAdapter(CardAdapter);
+
 
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override

@@ -4,6 +4,9 @@ package com.example.ethanwright.javapunchcard;
  * Created by ethanwright on 5/28/17.
  */
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,6 +34,7 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
     }
 
     //4
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -50,6 +54,9 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
             final TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_detail);
             final TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
             Button cards_buttons = (Button) v.findViewById(R.id.list_view_button);
+//            cards_buttons.setBackgroundColor(p.color);
+            cards_buttons.setBackgroundTintList(ColorStateList.valueOf(p.color));
+
 
 
 
@@ -80,7 +87,13 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
                 }
             }
              if (tt3 != null) {
-                tt3.setText(p.getCategoryName());
+                  if(p.getCategoryName().equals("default")){
+                      tt3.setText("");
+                 }
+                 else{
+                      tt3.setText(p.getCategoryName());
+                  }
+
                 if(p.isActive()){
                     int color = Color.argb(255, 255, 255, 255);
                     tt3.setTextColor(color);

@@ -21,9 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -52,6 +49,28 @@
         android:background="@drawable/ic_delete"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|right" />
+
+    <Button
+        android:id="@+id/archive_button"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/ic_archive"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|center_horizontal" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
+
+    <Button
+        android:id="@+id/clear_all"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/ic_refresh"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|left" />
 
 
 </android.support.design.widget.CoordinatorLayout>
