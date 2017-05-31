@@ -15,12 +15,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ViewAllCards2 extends AppCompatActivity {
+    BundleCards allCards = new BundleCards();
     ArrayList<PunchCard> cardList;
-    public void doFinish(BundleCards card, PunchCard currentCard, String returnStyle) {
+    PunchCard currentCard;
+
+    public void doFinish(BundleCards card, PunchCard current, String returnStyle) {
         Intent intent = new Intent();
         intent.putExtra("card_parcel", card);
-        intent.putExtra("current_card", currentCard);
+        intent.putExtra("current_card", current);
         intent.putExtra("return_style", returnStyle);
+        intent.putExtra("actual_all_cards", allCards);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -38,6 +42,12 @@ public class ViewAllCards2 extends AppCompatActivity {
 
         Intent get = getIntent();
         BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
+        currentCard = get.getParcelableExtra("current_card");
+
+        if (getIntent().hasExtra("actual_all_cards")) {
+            allCards = get.getParcelableExtra("actual_all_cards");
+        }
+
 
 
         ArrayList<PunchCard> getCards = user_parcel.getCards();
@@ -92,10 +102,9 @@ public class ViewAllCards2 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        PunchCard voidCard = new PunchCard();
         BundleCards temp = new BundleCards();
         temp.setCards(cardList);
-        doFinish(temp, voidCard, "backpressed");
+        doFinish(temp, currentCard, "backpressed");
     }
 
 }

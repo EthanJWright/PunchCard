@@ -58,7 +58,9 @@ class CardView {
         Boolean firstInCategory = false;
         // If the category doesn't exist, make the category
         if(model.findDeck(category) == null){
-            adding.color = randColor();
+            if(adding.color == -1) {
+                adding.color = randColor();
+            }
             firstInCategory = true;
             CardDeck new_deck = new CardDeck();
             new_deck.setNewDeck(category);

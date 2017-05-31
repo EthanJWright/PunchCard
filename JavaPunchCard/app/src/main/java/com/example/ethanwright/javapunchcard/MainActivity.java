@@ -149,9 +149,7 @@ public void startInterfaceTimer(){
             }
         }, 0, 500);
     }
-                else
-
-    {
+    else {
         int initial_color = Color.argb(255, 55, 79, 79);
         but.setBackgroundTintList(ColorStateList.valueOf(initial_color));
         int color = Color.argb(255, 0, 0, 0);
@@ -261,6 +259,7 @@ public void startInterfaceTimer(){
                 ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
                 cards.setCards(make_stack);
                 allCards.putExtra("parcelable_extra", cards);
+                allCards.putExtra("current_card", punchCardInterface.current.getCard());
                 startActivityForResult(allCards, 2);
 
             }
@@ -382,6 +381,7 @@ public void startInterfaceTimer(){
                // Get bundle of all modified cards
                BundleCards new_current = data.getParcelableExtra("card_parcel");
                PunchCard current_card = data.getParcelableExtra("current_card");
+               String returnStyle = data.getStringExtra("return_style");
 
                // Iterate through modified cards and add them to interface
                ArrayList<PunchCard> list = new_current.getCards();
@@ -390,21 +390,15 @@ public void startInterfaceTimer(){
                    punchCardInterface.removeCard(a);
                    punchCardInterface.addCard(a);
                }
-               punchCardInterface.current.setCurrentCard(current_card, punchCardInterface.model);
+
+               //TODO super fucked up here
+               if(!returnStyle.equals("backpressed")) {
+                   punchCardInterface.current.setCurrentCard(current_card, punchCardInterface.model);
+               }
                updateUI();
                 }
 
             }
-            /*
-            if(requestCode == 3){
-                if(resultCode == RESULT_OK){
-                    BundleCards category_cards = data.getParcelableExtra("card_parcel");
-                    final Intent category = new Intent(this, ViewAllCards2.class);
-                    category.putExtra("parcelable_extra", category_cards);
-                    startActivityForResult(category, 2);
-                }
-            }
-            */
     }
 
 

@@ -15,20 +15,19 @@ import java.util.TimerTask;
 import java.util.Iterator;
 
 public class ViewCategories extends AppCompatActivity {
-
-    public boolean returningFromCardView = false;
+    ArrayList<CardDeck> cardList = new ArrayList<>();
     public BundleCards user_parcel = new BundleCards();
+    public BundleCards returnedCards = new BundleCards();
+    public PunchCard currentCard;
 
     public void doFinish(BundleCards cards) {
         final Intent allCards = new Intent(this, ViewAllCards2.class);
         allCards.putExtra("parcelable_extra", cards);
+        ArrayList<PunchCard> shipping = user_parcel.getCards();
+        BundleCards shipCards = new BundleCards();
+        shipCards.setCards(shipping);
+        allCards.putExtra("actual_all_cards", shipCards);
         startActivityForResult(allCards, 1);
-        /*
-        Intent intent = new Intent();
-        intent.putExtra("card_parcel", card);
-        setResult(RESULT_OK, intent);
-        finish();
-        */
     }
 
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -36,25 +35,48 @@ public class ViewCategories extends AppCompatActivity {
             // This means returning from new card create
             if (requestCode == 1) {
                 if (resultCode == RESULT_OK) {
-
                     String returnStyle = data.getStringExtra("return_style");
                     // If a listclick was executed return to home screen
                     if(returnStyle.equals("listclicked")) {
-                    // Get data from view
-                    BundleCards card = data.getParcelableExtra("card_parcel");
-                    PunchCard currentCard = data.getParcelableExtra("current_card");
-
-                    // Package simulating ViewAllCards
-                    Intent intent = new Intent();
-                    intent.putExtra("card_parcel", card);
-                    intent.putExtra("current_card", currentCard);
-                    setResult(RESULT_OK, intent);
-                    finish();
+                        BundleCards card = data.getParcelableExtra("card_parcel");
+                        returnedCards = card;
+                        // Get data from view
+                        PunchCard currentCard = data.getParcelableExtra("current_card");
+                        // Package simulating ViewAllCards
+                        Intent intent = new Intent();
+                        intent.putExtra("card_parcel", card);
+                        intent.putExtra("current_card", currentCard);
+                        intent.putExtra("return_style", returnStyle);
+                        setResult(RESULT_OK, intent);
+                        finish();
                    }
                     else{
-                        // Otherwise update category info with current screen
-                        user_parcel = data.getParcelableExtra("card_parcel");
-                        buildListView(user_parcel);
+                        // This is what happens on backpress
+                        BundleCards card = data.getParcelableExtra("actual_all_cards");
+//                        BundleCards card = data.getParcelableExtra("parcelable_extra");
+
+                        // Insert the list of all cards to the punch card interface
+                        CardView punchCardInterface = new CardView();
+                        for(int i = 0; i < card.getCards().size(); i++){
+                            punchCardInterface.addCard(card.getCards().get(i));
+                        }
+                        // Get the list of all cards modified in ViewAllCards
+                        BundleCards modifiedCards = data.getParcelableExtra("card_parcel");
+                        ArrayList<PunchCard> list = modifiedCards.getCards();
+
+                        // Take the original cards, insert the newly changed cards from the return
+                        for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+                            PunchCard a = iter.next();
+                            punchCardInterface.removeCard(a);
+                            punchCardInterface.addCard(a);
+                        }
+
+                        // Send the list of all cards with the newly modified cards to the listView
+                        BundleCards cardsWithChanges = new BundleCards();
+                        cardsWithChanges.setCards(punchCardInterface.model.getAllCards());
+                        returnedCards = cardsWithChanges;
+                        user_parcel = cardsWithChanges;
+                        buildListView();
                     }
                 }
             }
@@ -62,10 +84,7 @@ public class ViewCategories extends AppCompatActivity {
         }
 
 
-    @Override
-    public void onBackPressed() {
-        // your code.
-    }
+
 
     @Override
     protected void onResume(){
@@ -74,15 +93,14 @@ public class ViewCategories extends AppCompatActivity {
     }
 
 
-    public void buildListView(BundleCards user_parcel){
+    public void buildListView(){
 
         final ParcelPackageManager manager = new ParcelPackageManager();
 
         manager.insertAll(user_parcel.getCards());
 
-// 1
         // From the bundle, get the cards sorted by category with active cards at the top
-        ArrayList<CardDeck> cardList = manager.getModel().getDeck_set();
+         cardList = manager.getModel().getDeck_set();
 
 
         final ListView listView = (ListView)findViewById(R.id.categories_list);
@@ -125,10 +143,21 @@ public class ViewCategories extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         Intent get = getIntent();
-        BundleCards user_parcel = get.getParcelableExtra("card_parcel");
-        buildListView(user_parcel);
+        user_parcel = get.getParcelableExtra("card_parcel");
+        currentCard = get.getParcelableExtra("current_card");
+        buildListView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("card_parcel", returnedCards);
+        intent.putExtra("current_card", currentCard);
+        intent.putExtra("return_style", "backpressed");
+        setResult(RESULT_OK, intent);
+        finish();
+
     }
 
 }

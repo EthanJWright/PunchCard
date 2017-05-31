@@ -15,7 +15,7 @@ public class PunchCard implements Parcelable {
     private Boolean modified = false;
     private int numberInCategory = 1;
     // here
-    public int color;
+    public int color = -1;
     private long lifeTime = 0;
 
     public void clearProgress(){
