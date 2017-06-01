@@ -121,21 +121,18 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    // Fucking here
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public void startInterfaceTimer(){
-    // Create the timer to set on click
+     // Create the timer to set on click
     Timer timer = new Timer();
     // Check to see if it has been set to active or not
-    if(!punchCardInterface.current.isActive()) {
+    if(punchCardInterface.current.isActive()) {
         int background_color = Color.argb(255, 75, 99, 99);
         but.setBackgroundTintList(ColorStateList.valueOf(background_color));
         int color = Color.argb(255, 255, 255, 255);
         but.setTextColor(color);
 
-        // If it isn't active, a click means punch in
-        punchCardInterface.PunchIn();
-        // On punch in we need to update the display every second, we will do that here
+        // If punched in we need to update the display every second, we will do that here
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -161,6 +158,22 @@ public void startInterfaceTimer(){
         // Now update the new UI
         updateUI();
 
+    }
+   }
+
+    // Fucking here
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public void punchInOut(){
+    // Create the timer to set on click
+    Timer timer = new Timer();
+    // Check to see if it has been set to active or not
+    if(!punchCardInterface.current.isActive()) {
+        punchCardInterface.PunchIn();
+        startInterfaceTimer();
+    }
+    else {
+        punchCardInterface.PunchOut();
+        startInterfaceTimer();
     }
 
 }
@@ -234,7 +247,7 @@ public void startInterfaceTimer(){
                 animation.setFillAfter(true);
                 card.startAnimation(animation);
 
-                startInterfaceTimer();
+                punchInOut();
 
             }
 
@@ -392,10 +405,12 @@ public void startInterfaceTimer(){
                }
 
                //TODO super fucked up here
-               if(!returnStyle.equals("backpressed")) {
+              if(!returnStyle.equals("backpressed")) {
                    punchCardInterface.current.setCurrentCard(current_card, punchCardInterface.model);
                }
-               updateUI();
+
+               // Kind of hacky, this just punches in and punches out really quickly
+               startInterfaceTimer();
                 }
 
             }

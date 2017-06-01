@@ -62,7 +62,14 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
             image.setColorFilter(p.getColor());
 
             if (tt1 != null) {
-                String result = "Category: " + p.getCategory();
+                String catName;
+                if(p.getCategory().length() > 20) {
+                    catName = p.getCategory().substring(0, 20) + "...";
+                }
+                else{
+                    catName = p.getCategory();
+                }
+                String result = "Category: " + catName;
                 tt1.setText(result);
                 if(p.getDeck().get(0).isActive()){
                     int color = Color.argb(255, 255, 255, 255);
