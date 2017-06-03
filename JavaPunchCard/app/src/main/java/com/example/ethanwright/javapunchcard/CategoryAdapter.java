@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.util.TypedValue;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -62,14 +63,15 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
             image.setColorFilter(p.getColor());
 
             if (tt1 != null) {
-                String catName;
-                if(p.getCategory().length() > 20) {
-                    catName = p.getCategory().substring(0, 20) + "...";
+
+
+                String catName = p.getCategory();
+                if(p.getCategory().length() > 17) {
+                    catName = catName.substring(0, 13) + "...";
+
                 }
-                else{
-                    catName = p.getCategory();
-                }
-                String result = "Category: " + catName;
+
+                String result =  catName;
                 tt1.setText(result);
                 if(p.getDeck().get(0).isActive()){
                     int color = Color.argb(255, 255, 255, 255);
@@ -95,7 +97,7 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
                 }
 
 
-                String result = "Number in Category: " + Integer.toString(p.getTotalCount());
+                String result = "Count: " + Integer.toString(p.getTotalCount());
 //                String result = "Random: " + Double.toString(p.random);
                 tt2.setText(result);
             }
