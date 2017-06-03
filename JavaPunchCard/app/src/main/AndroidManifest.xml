@@ -44,12 +44,16 @@
             android:name=".Report"
             android:label="Report"
             android:theme="@style/AppTheme.NoActionBar">
+            <activity
+                android:name=".ViewPunchHistory"
+                android:label="ViewPunchHistory"
+                android:screenOrientation="locked"
+                android:theme="@style/AppTheme.NoActionBar" />
+        </activity>
         <activity
             android:name=".ViewPunchHistory"
-            android:label="ViewPunchHistory"
-            android:screenOrientation="locked"
-            android:theme="@style/AppTheme.NoActionBar" />
-        </activity>
+            android:label="@string/title_activity_view_punch_history"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

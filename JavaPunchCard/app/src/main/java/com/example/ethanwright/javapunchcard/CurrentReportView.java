@@ -9,6 +9,15 @@ import java.util.Date;
 public class CurrentReportView {
     private Date startTime;
     private Date endTime;
+    private long totalTime;
+
+    public void setTotalTime(long time){
+        totalTime = time;
+    }
+
+    public long getTotalTime(){
+        return totalTime;
+    }
 
     public Date getStartTime() {
         return startTime;

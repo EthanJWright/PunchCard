@@ -11,6 +11,10 @@ public class ParcelPackageManager {
     private ArrayList<PunchCard> UserCards = new ArrayList<>();
     private User model = new User();
 
+    public void setModel(User _model){
+        model = _model;
+    }
+
     public User getModel() {
         return model;
     }

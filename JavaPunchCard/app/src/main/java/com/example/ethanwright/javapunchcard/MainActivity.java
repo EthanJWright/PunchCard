@@ -1,5 +1,6 @@
 package com.example.ethanwright.javapunchcard;
 
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -18,6 +19,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View.OnClickListener;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +29,9 @@ import android.view.animation.TranslateAnimation;
 import java.util.Iterator;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 
 public class MainActivity extends AppCompatActivity
@@ -191,17 +197,41 @@ public void punchInOut(){
         final Button card = (Button) findViewById(R.id.current_card);
         but = card;
 
-        // Set Up Initial Current Card
-        PunchCard default_card = new PunchCard();
-        default_card.generateNewCard("Default Card", 4);
-        default_card.setCategoryName("other");
-        punchCardInterface.addCard(default_card);
+        ArrayList<PunchCard> getCards = new ArrayList<>();
+
+        SharedPreferences settings = getSharedPreferences("cards", 0);
+
+        if(settings.contains("punchcard")) {
+            String JSONgetCards = settings.getString("punchcard", null);
+            Type type = new TypeToken<ArrayList<PunchCard>>() {
+            }.getType();
+            getCards = new Gson().fromJson(JSONgetCards, type);
+
+            ParcelPackageManager manager = new ParcelPackageManager();
+            manager.setModel(punchCardInterface.model);
+            manager.insertAll(getCards);
+        }
+
+        if(settings.contains("current")) {
+            Gson cgson = new Gson();
+            String currentJSON = settings.getString("current", null);
+            PunchCard currentCard = cgson.fromJson(currentJSON, PunchCard.class);
+            punchCardInterface.current.setCurrentCard(currentCard, punchCardInterface.model);
+        }
+
+        if(getCards.size() == 0) {
+            // Set Up Initial Current Card
+            PunchCard default_card = new PunchCard();
+            default_card.generateNewCard("Default Card", 4);
+            default_card.setCategoryName("other");
+            punchCardInterface.addCard(default_card);
+        }
 
         // Get values set up for button
         card.setTextSize(20);
 
         // Setup the UI
-        updateUI();
+        startInterfaceTimer();
 
 
 
@@ -416,6 +446,25 @@ public void punchInOut(){
             }
     }
 
+    @Override
+    protected void onStop(){
+        super .onStop();
+
+        SharedPreferences settings = getSharedPreferences("cards", 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        Gson gson = new Gson();
+
+        ArrayList<PunchCard> storeCards = punchCardInterface.model.getAllCards();
+        PunchCard current = punchCardInterface.getCurrent().getCard();
+        String JSONcurrent = gson.toJson(current);
+
+        String json = gson.toJson(storeCards);
+
+        editor.putString("punchcard", json);
+        editor.putString("current", JSONcurrent);
+        editor.apply();
+    }
 
     @Override
     public void onDestroy() {

@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
@@ -42,7 +43,7 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
 
         if (v == null) {
             LayoutInflater vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.list_item_recipe, null);
+            v = vi.inflate(R.layout.list_item_punch, null);
         }
 
         final CurrentReportView p = getItem(position);
@@ -52,15 +53,23 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
             v.setBackgroundColor(initial_color);
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
+            TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_detail);
 
 
 
 
             if (tt1 != null) {
-                tt1.setText("you");
+                String results = p.getEndTime().toString();
+                tt1.setText(results);
             }
             if(tt2 != null){
-                tt2.setText("hey");
+                String results = p.getStartTime().toString();
+                tt2.setText(results);
+            }
+            if(tt3 != null){
+                FormatTime ftime = new FormatTime();
+                long time = p.getTotalTime();
+                tt3.setText(ftime.getTime(time));
             }
 
 

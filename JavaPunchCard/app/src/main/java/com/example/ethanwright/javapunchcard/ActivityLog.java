@@ -10,11 +10,16 @@ public class ActivityLog implements Parcelable {
     private ArrayList<Date> end_log = new ArrayList<>();
     private ArrayList<Long> amount_accomplished = new ArrayList<>();
 
+    private ArrayList<Date> firstPunch = new ArrayList<>();
+    private ArrayList<Date> lastPunch = new ArrayList<>();
+
     // This is time that is set when user 'punches in'
     private Date start_active = new Date();
     // This is updated every second by timer process
     private long active_duration = 0;
     private int increasing = 0;
+
+    private long total_worked;
 
     // This allows for user to punch in and out without issue
     private long previous_active = 0;
@@ -23,8 +28,35 @@ public class ActivityLog implements Parcelable {
         return amount_accomplished;
     }
 
+    public ArrayList<Date> getFirstPunch() {
+        return firstPunch;
+    }
+
+    public void setFirstPunch(ArrayList<Date> firstPunch) {
+        this.firstPunch = firstPunch;
+    }
+
+    public ArrayList<Date> getLastPunch() {
+        return lastPunch;
+    }
+
+    public void setLastPunch(ArrayList<Date> lastPunch) {
+        this.lastPunch = lastPunch;
+    }
+
+    public long getTotal_worked() {
+        return total_worked + active_duration;
+    }
+
+    public void setTotal_worked(long total_worked) {
+        this.total_worked = total_worked;
+    }
+
     public void reset(){
         amount_accomplished.add(active_duration);
+        firstPunch.add(start_log.get(0));
+        lastPunch.add(new Date());
+        total_worked += active_duration;
         increasing = 0;
         active_duration = 0;
         previous_active = 0;
@@ -96,6 +128,26 @@ public class ActivityLog implements Parcelable {
         increasing = in.readInt();
         previous_active = in.readLong();
         //TODO add amount accomplished to parcelable
+         if (in.readByte() == 0x01) {
+            firstPunch = new ArrayList<Date>();
+            in.readList(firstPunch, Date.class.getClassLoader());
+        } else {
+            firstPunch = null;
+        }
+         if (in.readByte() == 0x01) {
+            lastPunch = new ArrayList<Date>();
+            in.readList(lastPunch, Date.class.getClassLoader());
+        } else {
+            firstPunch = null;
+        }
+        if (in.readByte() == 0x01) {
+            amount_accomplished = new ArrayList<>();
+            in.readList(amount_accomplished, Date.class.getClassLoader());
+        } else {
+            amount_accomplished = null;
+        }
+
+        total_worked = in.readLong();
 
     }
 
@@ -123,6 +175,26 @@ public class ActivityLog implements Parcelable {
         dest.writeInt(increasing);
         dest.writeLong(previous_active);
         //TODO add amount accomplished to parcelable
+         if (firstPunch == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(firstPunch);
+        }
+        if (lastPunch == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(lastPunch);
+        }
+        if (amount_accomplished == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(amount_accomplished);
+        }
+        dest.writeLong(total_worked);
+
     }
 
     @SuppressWarnings("unused")

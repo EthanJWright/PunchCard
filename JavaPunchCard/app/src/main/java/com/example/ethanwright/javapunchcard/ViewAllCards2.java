@@ -1,7 +1,9 @@
 package com.example.ethanwright.javapunchcard;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
@@ -11,6 +13,9 @@ import android.widget.AdapterView;
 import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
 import android.app.Activity;
+
+import com.google.gson.Gson;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -97,7 +102,6 @@ public class ViewAllCards2 extends AppCompatActivity {
             }
 
         });
-
     }
 
     @Override
@@ -105,6 +109,28 @@ public class ViewAllCards2 extends AppCompatActivity {
         BundleCards temp = new BundleCards();
         temp.setCards(cardList);
         doFinish(temp, currentCard, "backpressed");
+    }
+
+        @Override
+    protected void onStop(){
+        super .onStop();
+
+//            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences();
+//        SharedPreferences settings = getPreferences(0);
+            SharedPreferences settings = getSharedPreferences("cards", 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        Gson gson = new Gson();
+
+        ArrayList<PunchCard> storeCards = cardList;
+        PunchCard current = currentCard;
+        String JSONcurrent = gson.toJson(current);
+
+        String json = gson.toJson(storeCards);
+
+        editor.putString("punchcard", json);
+        editor.putString("current", JSONcurrent);
+        editor.apply();
     }
 
 }

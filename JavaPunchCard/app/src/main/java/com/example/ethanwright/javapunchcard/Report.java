@@ -1,17 +1,26 @@
 package com.example.ethanwright.javapunchcard;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Report extends AppCompatActivity {
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,23 +37,38 @@ public class Report extends AppCompatActivity {
         final Intent viewPunch = new Intent(this, ViewPunchHistory.class);
         TextView tv1 = (TextView) findViewById(R.id.report_card_name);
         TextView tv2 = (TextView) findViewById(R.id.report_card_category);
-        TextView tv3 = (TextView) findViewById(R.id.report_card_time);
+        final TextView tv3 = (TextView) findViewById(R.id.report_card_time);
+        final TextView tv4 = (TextView) findViewById(R.id.total_time);
         tv1.setText(current.getName());
         tv2.setText(current.getCategoryName());
-        FormatTime ftime = new FormatTime();
-        tv3.setText(ftime.getTime(current.getLogger().getActive_duration()));
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
-            public void onClick(View view) {
+            public void run() {
+                Report.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update the UI
+                        FormatTime ftime = new FormatTime();
+                        tv3.setText(ftime.getTime(current.getLogger().getActive_duration()));
+                        tv4.setText(ftime.getTime(current.getLogger().getTotal_worked()));
 
-                viewPunch.putExtra("parcelable_extra", current);
-                viewPunch.putExtra("card_bundle", cards);
+
+                    }
+                });
+            }
+        }, 0, 500);
+
+
+        final Button log = (Button) findViewById(R.id.view_log);
+        int background_color = Color.argb(255, 75, 99, 99);
+        log.setBackgroundTintList(ColorStateList.valueOf(background_color));
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPunch.putExtra("current_card", current);
+                viewPunch.putExtra("card_parcel", cards);
                 startActivity(viewPunch);
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
     }
