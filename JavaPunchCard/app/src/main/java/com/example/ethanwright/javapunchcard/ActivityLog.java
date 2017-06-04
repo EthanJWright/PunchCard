@@ -19,6 +19,8 @@ public class ActivityLog implements Parcelable {
     private long active_duration = 0;
     private int increasing = 0;
 
+    private long userOffset = 0;
+
     private long total_worked;
 
     // This allows for user to punch in and out without issue
@@ -53,13 +55,18 @@ public class ActivityLog implements Parcelable {
     }
 
     public void reset(){
-        amount_accomplished.add(active_duration);
+        amount_accomplished.add(active_duration + userOffset);
         firstPunch.add(start_log.get(0));
         lastPunch.add(new Date());
-        total_worked += active_duration;
+        total_worked += active_duration + userOffset;
         increasing = 0;
         active_duration = 0;
         previous_active = 0;
+        userOffset = 0;
+    }
+
+    public void addToActive(long addMills){
+        userOffset += addMills;
     }
 
     public ActivityLog() {
@@ -105,19 +112,19 @@ public class ActivityLog implements Parcelable {
 
     public long getActive_duration() {
         punch_card_active();
-        return active_duration;
+        return active_duration + userOffset;
     }
 
 
     protected ActivityLog(Parcel in) {
         if (in.readByte() == 0x01) {
-            start_log = new ArrayList<Date>();
+            start_log = new ArrayList<>();
             in.readList(start_log, Date.class.getClassLoader());
         } else {
             start_log = null;
         }
         if (in.readByte() == 0x01) {
-            end_log = new ArrayList<Date>();
+            end_log = new ArrayList<>();
             in.readList(end_log, Date.class.getClassLoader());
         } else {
             end_log = null;
@@ -129,13 +136,13 @@ public class ActivityLog implements Parcelable {
         previous_active = in.readLong();
         //TODO add amount accomplished to parcelable
          if (in.readByte() == 0x01) {
-            firstPunch = new ArrayList<Date>();
+            firstPunch = new ArrayList<>();
             in.readList(firstPunch, Date.class.getClassLoader());
         } else {
             firstPunch = null;
         }
          if (in.readByte() == 0x01) {
-            lastPunch = new ArrayList<Date>();
+            lastPunch = new ArrayList<>();
             in.readList(lastPunch, Date.class.getClassLoader());
         } else {
             firstPunch = null;
@@ -148,6 +155,7 @@ public class ActivityLog implements Parcelable {
         }
 
         total_worked = in.readLong();
+        userOffset = in.readLong();
 
     }
 
@@ -194,6 +202,7 @@ public class ActivityLog implements Parcelable {
             dest.writeList(amount_accomplished);
         }
         dest.writeLong(total_worked);
+        dest.writeLong(userOffset);
 
     }
 

@@ -59,11 +59,11 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
 
 
             if (tt1 != null) {
-                String results = p.getEndTime().toString();
+                String results = "Start Time: \n" + p.getStartTime().toString();
                 tt1.setText(results);
             }
             if(tt2 != null){
-                String results = p.getStartTime().toString();
+                String results = "End Time: \n" + p.getEndTime().toString();
                 tt2.setText(results);
             }
             if(tt3 != null){

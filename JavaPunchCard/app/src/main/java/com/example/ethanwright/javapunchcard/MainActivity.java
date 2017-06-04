@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity
         if(category.equals("default")){
             category = "";
         }
-        but.setText(name + "  " + "\n" + category + "\n" + punchCardInterface.getCurrent().getFormattedTime());
+        FormatTime ftime = new FormatTime();
+        String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getLogger().getActive_duration());
+        but.setText(name + "  " + "\n" + category + "\n" + result);
     }
 
     public void deletePrompt(final PunchCard card) {
@@ -185,6 +187,8 @@ public void punchInOut(){
 }
 
 
+    private int subtracting = 1;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,6 +237,73 @@ public void punchInOut(){
         // Setup the UI
         startInterfaceTimer();
 
+
+
+
+        final Button addMin = (Button) findViewById(R.id.add_one);
+         addMin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long mill_in_min = 60000 * subtracting;
+                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_min);
+                updateUI();
+            }
+        });
+
+        final Button addFifteen = (Button) findViewById(R.id.add_fifteen);
+         addFifteen.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long mill_in_fifteen = 900000 * subtracting;
+                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_fifteen);
+                updateUI();
+            }
+        });
+
+        final Button addThirty = (Button) findViewById(R.id.add_thirty);
+         addThirty.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long mill_in_thirty_min = 1800000 * subtracting;
+                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_thirty_min);
+                updateUI();
+            }
+        });
+
+        final Button addHour = (Button) findViewById(R.id.add_hour);
+         addHour.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long mill_in_hour = 3600000 * subtracting;
+                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_hour);
+                updateUI();
+            }
+        });
+
+
+        final Button setSubtract = (Button) findViewById(R.id.minus_sign);
+        setSubtract.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addMin.setText("-" + "1 min");
+                addFifteen.setText("-" + "15 min");
+                addThirty.setText("-" + "30 min");
+                addHour.setText("-" + "1 hour");
+                subtracting = -1;
+            }
+        });
+
+        final Button setAdd = (Button) findViewById(R.id.plus_sign);
+        setAdd.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addMin.setText("+" + "1 min");
+                addFifteen.setText("+" + "15 min");
+                addThirty.setText("+" + "30 min");
+                addHour.setText("+" + "1 hour");
+                subtracting = 1;
+            }
+        });
 
 
         // Set up delete button

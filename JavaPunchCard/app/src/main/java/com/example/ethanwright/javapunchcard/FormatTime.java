@@ -1,6 +1,5 @@
 package com.example.ethanwright.javapunchcard;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 /**

@@ -2,13 +2,11 @@ package com.example.ethanwright.javapunchcard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 
 public class ViewPunchHistory extends AppCompatActivity {
@@ -21,7 +19,8 @@ public class ViewPunchHistory extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent get = getIntent();
-        PunchCard current = get.getParcelableExtra("current_card");
+        final PunchCard current = get.getParcelableExtra("current_card");
+        final BundleCards card_parcel = get.getParcelableExtra("card_parcel");
 
         ArrayList<CurrentReportView> report = new ArrayList<>();
         for(int i = 0; i < current.getLogger().getFirstPunch().size(); i++){
@@ -39,6 +38,25 @@ public class ViewPunchHistory extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-    }
+        /*
+        final Intent intent = new Intent(this, EditCardLog.class);
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                CurrentReportView report = (CurrentReportView) listView.getItemAtPosition(position);
 
+                intent.putExtra("current_card", current);
+                intent.putExtra("card_parcel", card_parcel);
+                intent.putExtra("cardLog", report);
+                startActivity(intent);
+
+
+
+            }
+
+        });
+        */
+    }
 }
+
+

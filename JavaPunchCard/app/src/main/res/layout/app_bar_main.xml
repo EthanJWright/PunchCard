@@ -59,10 +59,6 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|center_horizontal" />
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_main" />
-
     <Button
         android:id="@+id/clear_all"
         android:layout_width="42dp"
@@ -71,6 +67,135 @@
         android:background="@drawable/ic_refresh"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|left" />
+
+
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+        android:id="@+id/add_hour"
+        android:layout_width="77dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|left"
+        android:textAllCaps="false"
+        android:backgroundTint="#2f4f4f"
+        android:text="+1 hour"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|right"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintVertical_bias="0.596" />
+
+        <Button
+        android:id="@+id/add_one"
+        android:layout_width="71dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|right"
+        android:backgroundTint="#2f4f4f"
+        android:text="+1 min"
+        android:textAllCaps="false"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|left"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.596" />
+
+        <Button
+        android:id="@+id/add_thirty"
+        android:layout_width="77dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|right"
+        android:backgroundTint="#2f4f4f"
+        android:text="+30 min"
+        android:textAllCaps="false"
+        app:layout_anchorGravity="center_vertical|center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.659"
+            app:layout_constraintVertical_bias="0.596" />
+
+    <Button
+        android:id="@+id/add_fifteen"
+        android:layout_width="82dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|left"
+        android:text="+15 min"
+        android:backgroundTint="#2f4f4f"
+        android:textAllCaps="false"
+        app:layout_anchorGravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.596" />
+
+        <Button
+            android:id="@+id/plus_sign"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/ic_add_circle_in"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.321"
+            app:layout_constraintVertical_bias="0.719" />
+
+        <Button
+            android:id="@+id/minus_sign"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/ic_remove_circle_in"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintHorizontal_bias="0.696"
+            app:layout_constraintVertical_bias="0.719" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
