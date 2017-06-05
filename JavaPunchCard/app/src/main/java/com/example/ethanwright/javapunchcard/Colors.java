@@ -7,12 +7,16 @@ import android.graphics.Color;
  */
 
 public class Colors {
-    public static int light_color = Color.argb(255, 55, 79, 79);
-    public static int dark_color = Color.argb(255, 75, 99, 99);
+    public static int light_color = Color.argb(255, 255, 255, 255);
+    public static int dark_color = Color.argb(255, 128, 255, 191);
 //    public static int light_color = Color.argb(255, 255, 255, 255);
 //    public static int dark_color = Color.argb(255, 168, 168, 168);
     public static int black = Color.argb(255, 0, 0, 0);
-    public static int white = Color.argb(255, 255, 255, 255);
+
+
+    // Removing white option for text, if this is set this changes when cards are active
+    public static int white = Color.argb(255, 0, 0, 0);
+//    public static int white = Color.argb(255, 255, 255, 255);
 
 
 }

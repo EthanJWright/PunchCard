@@ -8,6 +8,11 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
 
+    <!--
     <color name="light_interface">#696969</color>
     <color name="dark_interface">#2f4f4f</color>
+   -->
+
+    <color name="light_interface">#ffffff</color>
+    <color name="dark_interface">#80ffbf</color>
 </resources>

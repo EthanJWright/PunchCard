@@ -49,7 +49,7 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
         final CurrentReportView p = getItem(position);
 
         if (p != null) {
-            int initial_color = Color.argb(255, 55, 79, 79);
+            int initial_color = Colors.dark_color;
             v.setBackgroundColor(initial_color);
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_subtitle);

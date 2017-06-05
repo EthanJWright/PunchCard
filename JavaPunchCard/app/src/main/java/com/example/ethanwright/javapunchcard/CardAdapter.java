@@ -48,7 +48,7 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
         final PunchCard p = getItem(position);
 
         if (p != null) {
-            int initial_color = Color.argb(255, 55, 79, 79);
+            int initial_color = Colors.light_color;
             v.setBackgroundColor(initial_color);
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             final TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_detail);
@@ -63,11 +63,11 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
             if (tt1 != null) {
                 tt1.setText(p.getName());
                 if(p.isActive()){
-                    int color = Color.argb(255, 255, 255, 255);
+                    int color = Colors.white;
                     tt1.setTextColor(color);
                 }
                 else{
-                    int color = Color.argb(255, 0, 0, 0);
+                    int color = Colors.black;
                     tt1.setTextColor(color);
                 }
             }
@@ -76,13 +76,13 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
                 FormatTime time = new FormatTime();
                 String results = time.getTime(p.getLogger().getActive_duration());
                 tt2.setText(results);
-                int color = Color.argb(255, 0, 0, 0);
+                int color = Colors.black;
                 tt2.setTextColor(color);
                 if(p.isActive()) {
-                    int background_color = Color.argb(255, 75, 99, 99);
+                    int background_color = Colors.dark_color;
                     v.setBackgroundColor(background_color);
 
-                    color = Color.argb(255, 255, 255, 255);
+                    color = Colors.white;
                     tt2.setTextColor(color);
                 }
             }
@@ -95,11 +95,11 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
                   }
 
                 if(p.isActive()){
-                    int color = Color.argb(255, 255, 255, 255);
+                    int color = Colors.white;
                     tt3.setTextColor(color);
                 }
                 else{
-                    int color = Color.argb(255, 0, 0, 0);
+                    int color = Colors.black;
                     tt3.setTextColor(color);
                 }
             }
@@ -120,8 +120,6 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
                 });
 
                 //here
-
-
             }
 
         }

@@ -24,9 +24,9 @@ public class ViewAllCards2 extends AppCompatActivity {
     ArrayList<PunchCard> cardList;
     PunchCard currentCard;
 
-    public void doFinish(BundleCards card, PunchCard current, String returnStyle) {
+    public void doFinish(BundleCards cards, PunchCard current, String returnStyle) {
         Intent intent = new Intent();
-        intent.putExtra("card_parcel", card);
+        intent.putExtra("card_parcel", cards);
         intent.putExtra("current_card", current);
         intent.putExtra("return_style", returnStyle);
         intent.putExtra("actual_all_cards", allCards);
@@ -88,16 +88,17 @@ public class ViewAllCards2 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 timer.cancel();
                 PunchCard card = (PunchCard) listView.getItemAtPosition(position);
-                ArrayList<PunchCard> returnCards = new ArrayList<>();
-                returnCards.add(card);
+//                ArrayList<PunchCard> returnCards = new ArrayList<>();
+//                returnCards.add(card);
 
                 BundleCards cards = new BundleCards();
-                ArrayList<PunchCard> make_stack = returnCards;
-                cards.setCards(make_stack);
+//                ArrayList<PunchCard> make_stack = returnCards;
+//                cards.setCards(make_stack);
+                cards.setCards(cardList);
 
-                PunchCard current_card = card;
 
-                doFinish(cards, current_card, "listclicked");
+
+                doFinish(cards, card, "listclicked");
                 return;
             }
 

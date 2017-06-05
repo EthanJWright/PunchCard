@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
             // Otherwise color with light colors
             int background_color = Colors.dark_color;
             but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-            int text = Colors.white;
+            int text = Colors.black;
             but.setTextColor(text);
         }
         String name = punchCardInterface.getCurrent().getCard().getName();
@@ -137,7 +137,7 @@ public void startInterfaceTimer(){
     if(punchCardInterface.current.isActive()) {
         int background_color = Colors.dark_color;
         but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-        int color = Colors.white;
+        int color = Colors.black; //white
         but.setTextColor(color);
 
         // If punched in we need to update the display every second, we will do that here
@@ -487,31 +487,23 @@ public void punchInOut(){
                 updateUI();
             }
 
-        }
-        // go here
-       if(requestCode == 2) {
-                // If returning from select all cards screen
-           if(resultCode == RESULT_OK){
-               // Get bundle of all modified cards
-               BundleCards new_current = data.getParcelableExtra("card_parcel");
-               PunchCard current_card = data.getParcelableExtra("current_card");
-               String returnStyle = data.getStringExtra("return_style");
-
-               // Iterate through modified cards and add them to interface
-               ArrayList<PunchCard> list = new_current.getCards();
-               for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
-                   PunchCard a = iter.next();
-                   punchCardInterface.removeCard(a);
-                   punchCardInterface.addCard(a);
-               }
-
-               //TODO super fucked up here
-              if(!returnStyle.equals("backpressed")) {
+           }
+           // go here
+           if(requestCode == 2) {
+               // If returning from select all cards screen
+               if(resultCode == RESULT_OK){
+                   // Get bundle of all modified cards
+                   BundleCards new_current = data.getParcelableExtra("card_parcel");
+                   PunchCard current_card = data.getParcelableExtra("current_card");
+                   String returnStyle = data.getStringExtra("return_style");
+                   ParcelPackageManager manager = new ParcelPackageManager();
+                   manager.insertAll(new_current.getCards());
+                   // rebuild the model
+                   punchCardInterface.model = manager.getModel();
                    punchCardInterface.current.setCurrentCard(current_card, punchCardInterface.model);
-               }
 
-               // Kind of hacky, this just punches in and punches out really quickly
-               startInterfaceTimer();
+                   // Start updating the UI
+                   startInterfaceTimer();
                 }
 
             }

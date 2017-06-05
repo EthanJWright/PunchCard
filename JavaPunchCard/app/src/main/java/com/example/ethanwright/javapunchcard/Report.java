@@ -61,7 +61,7 @@ public class Report extends AppCompatActivity {
 
 
         final Button log = (Button) findViewById(R.id.view_log);
-        int background_color = Color.argb(255, 75, 99, 99);
+        int background_color = Colors.dark_color;
         log.setBackgroundTintList(ColorStateList.valueOf(background_color));
         log.setOnClickListener(new View.OnClickListener() {
             @Override
