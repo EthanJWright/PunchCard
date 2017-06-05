@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#2f4f4f"
+            android:background="@color/dark_interface"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -36,7 +36,7 @@
         android:layout_height="170dp"
         android:layout_gravity="top|center_horizontal"
         android:padding="10dp"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:background="@drawable/curve_button"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|center_horizontal" />
@@ -87,7 +87,7 @@
         android:layout_height="35dp"
         android:layout_gravity="bottom|left"
         android:textAllCaps="false"
-        android:backgroundTint="#2f4f4f"
+        android:backgroundTint="@color/dark_interface"
         android:text="+1 hour"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|right"
@@ -107,7 +107,7 @@
         android:layout_width="71dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|right"
-        android:backgroundTint="#2f4f4f"
+        android:backgroundTint="@color/dark_interface"
         android:text="+1 min"
         android:textAllCaps="false"
         app:layout_anchor="@+id/include"
@@ -128,7 +128,7 @@
         android:layout_width="77dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|right"
-        android:backgroundTint="#2f4f4f"
+        android:backgroundTint="@color/dark_interface"
         android:text="+30 min"
         android:textAllCaps="false"
         app:layout_anchorGravity="center_vertical|center_horizontal"
@@ -149,7 +149,7 @@
         android:layout_height="35dp"
         android:layout_gravity="bottom|left"
         android:text="+15 min"
-        android:backgroundTint="#2f4f4f"
+        android:backgroundTint="@color/dark_interface"
         android:textAllCaps="false"
         app:layout_anchorGravity="center_vertical|center_horizontal"
         android:layout_marginLeft="8dp"

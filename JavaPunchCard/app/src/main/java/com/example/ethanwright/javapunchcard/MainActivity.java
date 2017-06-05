@@ -45,18 +45,18 @@ public class MainActivity extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
         // color the button correctly
-        int color = Color.argb(255, 55, 79, 79);
+        int color = Colors.light_color;
         // If not active
         if (!punchCardInterface.getCurrent().isActive()) {
             // Color with dark colors
             but.setBackgroundTintList(ColorStateList.valueOf(color));
-            int text = Color.argb(255, 0, 0, 0);
+            int text = Colors.black;
             but.setTextColor(text);
         } else {
             // Otherwise color with light colors
-            int background_color = Color.argb(255, 75, 99, 99);
+            int background_color = Colors.dark_color;
             but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-            int text = Color.argb(255, 255, 255, 255);
+            int text = Colors.white;
             but.setTextColor(text);
         }
         String name = punchCardInterface.getCurrent().getCard().getName();
@@ -135,9 +135,9 @@ public void startInterfaceTimer(){
     Timer timer = new Timer();
     // Check to see if it has been set to active or not
     if(punchCardInterface.current.isActive()) {
-        int background_color = Color.argb(255, 75, 99, 99);
+        int background_color = Colors.dark_color;
         but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-        int color = Color.argb(255, 255, 255, 255);
+        int color = Colors.white;
         but.setTextColor(color);
 
         // If punched in we need to update the display every second, we will do that here
@@ -155,9 +155,9 @@ public void startInterfaceTimer(){
         }, 0, 500);
     }
     else {
-        int initial_color = Color.argb(255, 55, 79, 79);
+        int initial_color = Colors.light_color;
         but.setBackgroundTintList(ColorStateList.valueOf(initial_color));
-        int color = Color.argb(255, 0, 0, 0);
+        int color = Colors.black;
         but.setTextColor(color);
         // If card is already active, we need to punch out
         punchCardInterface.PunchOut();
@@ -359,7 +359,7 @@ public void punchInOut(){
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(R.drawable.ic_card);
 
-        int color = Color.argb(255, 55, 79, 79);
+        int color = Colors.light_color;
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
         // Designate what to do when clicked

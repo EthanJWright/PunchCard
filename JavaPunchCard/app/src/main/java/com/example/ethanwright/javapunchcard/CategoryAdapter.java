@@ -53,7 +53,7 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
 
         if (p != null) {
 //            v.setBackgroundColor(p.getColor());
-            int initial_color = Color.argb(255, 55, 79, 79);
+            int initial_color = Colors.light_color;
             v.setBackgroundColor(initial_color);
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
@@ -74,13 +74,13 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
                 String result =  catName;
                 tt1.setText(result);
                 if(p.getDeck().get(0).isActive()){
-                    int color = Color.argb(255, 255, 255, 255);
+                    int color = Colors.white;
                     tt1.setTextColor(color);
-                    int background_color = Color.argb(255, 75, 99, 99);
+                    int background_color = Colors.dark_color;
                     v.setBackgroundColor(background_color);
                 }
                 else{
-                    int color = Color.argb(255, 0, 0, 0);
+                    int color = Colors.black;
                     tt1.setTextColor(color);
                 }
 
@@ -88,11 +88,11 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
 
             if (tt2 != null) {
                 if(p.getDeck().get(0).isActive()){
-                    int color = Color.argb(255, 255, 255, 255);
+                    int color = Colors.white;
                     tt2.setTextColor(color);
                 }
                 else{
-                    int color = Color.argb(255, 0, 0, 0);
+                    int color = Colors.black;
                     tt2.setTextColor(color);
                 }
 
@@ -107,11 +107,11 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
 
                 tt3.setText(result);
                  if(p.getDeck().get(0).isActive()){
-                    int color = Color.argb(255, 255, 255, 255);
+                    int color = Colors.white;
                     tt3.setTextColor(color);
                 }
                 else{
-                    int color = Color.argb(255, 0, 0, 0);
+                    int color = Colors.black;
                     tt3.setTextColor(color);
                 }
 

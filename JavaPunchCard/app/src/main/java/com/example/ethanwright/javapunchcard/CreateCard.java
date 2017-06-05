@@ -65,7 +65,7 @@ public class CreateCard extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_card);
         fab.setImageResource(R.drawable.ic_add_car);
-        int color = Color.argb(255, 55, 79, 79);
+        int color = Colors.light_color;
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
 

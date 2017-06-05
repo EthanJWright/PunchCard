@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:paddingEnd="4dp"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="20sp"
         tools:text="Detail"
         android:paddingLeft="8dp"
@@ -31,7 +31,7 @@
             android:id="@+id/recipe_list_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:layout_marginLeft="10dp"
             android:textSize="20sp"
             android:layout_marginBottom="20sp"
@@ -49,7 +49,7 @@
             android:ellipsize="end"
             android:maxLines="3"
             android:textSize="20sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             tools:text="Subtitle" />
 
     </RelativeLayout>
