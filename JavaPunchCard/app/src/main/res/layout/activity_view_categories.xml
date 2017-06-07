@@ -5,12 +5,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:background="@color/light_interface"
+android:padding="2dp"
 android:layout_height="match_parent">
 tools:context="com.example.ethanwright.javapunchcard.ViewCategories">
     <ListView
         android:id="@+id/categories_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/draw_border"
         android:divider="@color/black"
         android:dividerHeight="2px"
         android:layout_weight="1" />
