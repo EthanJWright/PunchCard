@@ -444,6 +444,7 @@ public void punchInOut(){
             ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
             cards.setCards(make_stack);
             categories.putExtra("card_parcel", cards);
+            categories.putExtra("current_card", punchCardInterface.getCurrent().getCard());
             startActivityForResult(categories, 2);
 //            startActivity(categories);
 
@@ -495,7 +496,6 @@ public void punchInOut(){
                    // Get bundle of all modified cards
                    BundleCards new_current = data.getParcelableExtra("card_parcel");
                    PunchCard current_card = data.getParcelableExtra("current_card");
-                   String returnStyle = data.getStringExtra("return_style");
                    ParcelPackageManager manager = new ParcelPackageManager();
                    manager.insertAll(new_current.getCards());
                    // rebuild the model

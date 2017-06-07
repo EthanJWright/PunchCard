@@ -15,6 +15,8 @@ import java.util.TimerTask;
 import java.util.Iterator;
 
 public class ViewCategories extends AppCompatActivity {
+    //TODO hacky code here, refactor
+    public boolean returnedSet = false;
     ArrayList<CardDeck> cardList = new ArrayList<>();
     public BundleCards user_parcel = new BundleCards();
     public BundleCards returnedCards = new BundleCards();
@@ -40,6 +42,7 @@ public class ViewCategories extends AppCompatActivity {
                     if(returnStyle.equals("listclicked")) {
                         BundleCards card = data.getParcelableExtra("card_parcel");
                         returnedCards = card;
+                        returnedSet = true;
                         // Get data from view
                         PunchCard currentCard = data.getParcelableExtra("current_card");
                         // Package simulating ViewAllCards
@@ -99,6 +102,7 @@ public class ViewCategories extends AppCompatActivity {
 
         manager.insertAll(user_parcel.getCards());
 
+
         // From the bundle, get the cards sorted by category with active cards at the top
          cardList = manager.getModel().getDeck_set();
 
@@ -145,6 +149,7 @@ public class ViewCategories extends AppCompatActivity {
 
         Intent get = getIntent();
         user_parcel = get.getParcelableExtra("card_parcel");
+        returnedSet = false;
         currentCard = get.getParcelableExtra("current_card");
         buildListView();
     }
@@ -152,6 +157,9 @@ public class ViewCategories extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent();
+        if(!returnedSet){
+            returnedCards.setCards(user_parcel.getCards());
+        }
         intent.putExtra("card_parcel", returnedCards);
         intent.putExtra("current_card", currentCard);
         intent.putExtra("return_style", "backpressed");
