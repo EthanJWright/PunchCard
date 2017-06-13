@@ -1,26 +1,24 @@
 package com.example.ethanwright.javapunchcard;
 
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.view.KeyEvent;
 import android.view.View.OnKeyListener;
-import android.text.Selection;
-import android.text.Editable;
 import android.content.Intent;
-import android.app.Dialog;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.widget.TextView;
 
 public class CreateCard extends AppCompatActivity {
 
+    long setGoal = 0;
 
     public void returning(final String name, String category){
             final String _category = "default";
@@ -50,6 +48,7 @@ public class CreateCard extends AppCompatActivity {
         Intent intent = new Intent();
         intent.putExtra("name", name);
         intent.putExtra("category", category);
+        intent.putExtra("goal", setGoal);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -69,24 +68,19 @@ public class CreateCard extends AppCompatActivity {
         fab.setBackgroundTintList(ColorStateList.valueOf(color));
 
 
+        final Button goal = (Button) findViewById(R.id.set_goal);
+        final TextView goalText = (TextView) findViewById(R.id.goal_text_create);
+        goal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setGoal += 3600000;
+                FormatTime ftime = new FormatTime();
+                goalText.setText(ftime.getTime(setGoal));
+            }
+        });
 
         final EditText new_name = (EditText) findViewById(R.id.new_card_name);
         final EditText new_category = (EditText) findViewById(R.id.new_card_category);
-
-        new_name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new_name.setText("");
-            }
-        });
-
-        new_category.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new_category.setText("");
-            }
-        });
-
 
 
         // Set up action when added is pressed
@@ -126,10 +120,6 @@ public class CreateCard extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
 
 
         }

@@ -1,7 +1,6 @@
 package com.example.ethanwright.javapunchcard;
 
 
-import java.util.ArrayList;
 import java.util.Random;
 import android.graphics.Color;
 
@@ -44,6 +43,14 @@ class CardView {
         return Color.argb(255, red, blue, green);
     }
 
+
+    public String getGoalPercent(PunchCard card){
+        double worked = card.getLogger().getActive_duration();
+        double goals = card.getGoal();
+        goals = Math.round((worked/goals) * 100);
+        String extra = Double.toString(goals);
+        return extra;
+    }
 
     // Add a new card to the model (given a deck)
     public void addCard(PunchCard card){

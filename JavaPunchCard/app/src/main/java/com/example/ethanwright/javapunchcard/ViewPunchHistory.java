@@ -37,25 +37,6 @@ public class ViewPunchHistory extends AppCompatActivity {
         final ListView listView = (ListView)findViewById(R.id.punch_list);
         listView.setAdapter(adapter);
 
-
-        /*
-        final Intent intent = new Intent(this, EditCardLog.class);
-        listView.setClickable(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                CurrentReportView report = (CurrentReportView) listView.getItemAtPosition(position);
-
-                intent.putExtra("current_card", current);
-                intent.putExtra("card_parcel", card_parcel);
-                intent.putExtra("cardLog", report);
-                startActivity(intent);
-
-
-
-            }
-
-        });
-        */
     }
 }
 

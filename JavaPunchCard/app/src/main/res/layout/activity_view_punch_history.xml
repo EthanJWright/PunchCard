@@ -11,8 +11,6 @@
         android:id="@+id/punch_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/black"
         android:background="@drawable/draw_border"
-        android:dividerHeight="2px"
         android:layout_weight="1" />
 </RelativeLayout>

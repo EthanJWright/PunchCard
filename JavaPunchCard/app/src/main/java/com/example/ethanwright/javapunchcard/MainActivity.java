@@ -29,6 +29,7 @@ import android.view.animation.TranslateAnimation;
 import java.util.Iterator;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     final public CardView punchCardInterface = new CardView();
+//    final TextView goalText = (TextView) findViewById(R.id.goal_text);
     public Button but;
 
 
@@ -64,9 +66,25 @@ public class MainActivity extends AppCompatActivity
         if(category.equals("default")){
             category = "";
         }
+        else{
+            category = "\n" + category;
+        }
         FormatTime ftime = new FormatTime();
         String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getLogger().getActive_duration());
-        but.setText(name + "  " + "\n" + category + "\n" + result);
+
+        // Add TextView for Goal
+        String extra;
+        if(punchCardInterface.current.getCard().getGoal() != 0){
+            extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
+            extra = "Accomplished: " + extra + "%";
+        }
+        else{
+            extra = "";
+        }
+
+        but.setText(name + "  " + category + "\n" + result + "\n" + extra);
+
+
     }
 
     public void deletePrompt(final PunchCard card) {
@@ -238,8 +256,6 @@ public void punchInOut(){
         startInterfaceTimer();
 
 
-
-
         final Button addMin = (Button) findViewById(R.id.add_one);
          addMin.setOnClickListener(new OnClickListener() {
             @Override
@@ -395,12 +411,7 @@ public void punchInOut(){
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
     @Override
@@ -477,9 +488,11 @@ public void punchInOut(){
                 // Get the name from the created card
                 String name = data.getStringExtra("name");
                 String category = data.getStringExtra("category");
+               long newGoal = data.getLongExtra("goal", 0);
                 but.setText(category);
                 // Add the results to our cards
                 PunchCard new_card = new PunchCard();
+                new_card.setGoal(newGoal);
                 new_card.generateNewCard(name, 4);
                 new_card.setCategoryName(category);
                 new_card.setActive(false);

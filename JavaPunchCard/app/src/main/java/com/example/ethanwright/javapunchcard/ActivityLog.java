@@ -66,7 +66,13 @@ public class ActivityLog implements Parcelable {
     }
 
     public void addToActive(long addMills){
-        userOffset += addMills;
+       if((active_duration + userOffset + addMills) < 0) {
+           long extra = active_duration + userOffset + addMills;
+           userOffset += (addMills - extra);
+       }
+       else {
+           userOffset += addMills;
+       }
     }
 
     public ActivityLog() {
