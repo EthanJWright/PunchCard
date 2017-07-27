@@ -1,0 +1,5 @@
+BUG:
+categories -> toggle -> select card = Loss of other categories 
+
+main activity -> 241 : null pointer exception on getCategoryName (shared
+prefs issue, look into error handling)

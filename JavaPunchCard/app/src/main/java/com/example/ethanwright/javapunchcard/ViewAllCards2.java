@@ -49,16 +49,18 @@ public class ViewAllCards2 extends AppCompatActivity {
         BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
         currentCard = get.getParcelableExtra("current_card");
 
-        if (getIntent().hasExtra("actual_all_cards")) {
-            allCards = get.getParcelableExtra("actual_all_cards");
-        }
+
 
 
 
         ArrayList<PunchCard> getCards = user_parcel.getCards();
         ParcelPackageManager manager = new ParcelPackageManager();
         cardList = manager.activeFirst(manager.sortByCategory(getCards));
-
+        if (getIntent().hasExtra("actual_all_cards")) {
+            allCards = get.getParcelableExtra("actual_all_cards");
+        } else {
+           allCards.setCards(cardList);
+        }
         manager.insertAll(user_parcel.getCards());
 
 // 1

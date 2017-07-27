@@ -12,7 +12,7 @@ public class PunchCard implements Parcelable {
     private String name = "";
     private String categoryName = "";
     private ActivityLog logger = new ActivityLog();
-    private Boolean modified = false;
+//    private Boolean modified = false;
     private int numberInCategory = 1;
     // here
     public int color = -1;
@@ -39,15 +39,16 @@ public class PunchCard implements Parcelable {
     public void setNumberInCategory(int numberInCategory) {
         this.numberInCategory = numberInCategory;
     }
-
+/*
     public boolean isModified(){
         return modified;
     }
+    */
 
-    public void setModified(Boolean _modified){
+/*    public void setModified(Boolean _modified){
         modified = _modified;
     }
-
+*/
 
 
 
@@ -69,7 +70,11 @@ public class PunchCard implements Parcelable {
     }
 
     public String getCategoryName() {
-        return categoryName;
+        if(categoryName == null){
+            return "default";
+        } else{
+            return categoryName;
+        }
     }
 
     public void setCategoryName(String categoryName) {

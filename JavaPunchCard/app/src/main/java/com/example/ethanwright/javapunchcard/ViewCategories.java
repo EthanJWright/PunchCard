@@ -38,35 +38,30 @@ public class ViewCategories extends AppCompatActivity {
             if (requestCode == 1) {
                 if (resultCode == RESULT_OK) {
                     String returnStyle = data.getStringExtra("return_style");
+                    BundleCards all_cards = data.getParcelableExtra("actual_all_cards");
+                    BundleCards card_parcel = data.getParcelableExtra("card_parcel");
+                    PunchCard currentCard = data.getParcelableExtra("current_card");
+                    returnedCards = card_parcel;
                     // If a listclick was executed return to home screen
                     if(returnStyle.equals("listclicked")) {
-                        BundleCards card = data.getParcelableExtra("card_parcel");
-                        returnedCards = card;
                         returnedSet = true;
                         // Get data from view
-                        PunchCard currentCard = data.getParcelableExtra("current_card");
                         // Package simulating ViewAllCards
                         Intent intent = new Intent();
-                        intent.putExtra("card_parcel", card);
+                        intent.putExtra("actual_all_cards", all_cards);
                         intent.putExtra("current_card", currentCard);
                         intent.putExtra("return_style", returnStyle);
                         setResult(RESULT_OK, intent);
                         finish();
                    }
                     else{
-                        // This is what happens on backpress
-                        BundleCards card = data.getParcelableExtra("actual_all_cards");
-//                        BundleCards card = data.getParcelableExtra("parcelable_extra");
-
                         // Insert the list of all cards to the punch card interface
                         CardView punchCardInterface = new CardView();
-                        for(int i = 0; i < card.getCards().size(); i++){
-                            punchCardInterface.addCard(card.getCards().get(i));
+                        for(int i = 0; i < all_cards.getCards().size(); i++){
+                            punchCardInterface.addCard(all_cards.getCards().get(i));
                         }
                         // Get the list of all cards modified in ViewAllCards
-                        BundleCards modifiedCards = data.getParcelableExtra("card_parcel");
-                        ArrayList<PunchCard> list = modifiedCards.getCards();
-
+                        ArrayList<PunchCard> list = card_parcel.getCards();
                         // Take the original cards, insert the newly changed cards from the return
                         for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
                             PunchCard a = iter.next();

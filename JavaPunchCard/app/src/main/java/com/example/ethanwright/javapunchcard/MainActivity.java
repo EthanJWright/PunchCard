@@ -507,7 +507,7 @@ public void punchInOut(){
                // If returning from select all cards screen
                if(resultCode == RESULT_OK){
                    // Get bundle of all modified cards
-                   BundleCards new_current = data.getParcelableExtra("card_parcel");
+                   BundleCards new_current = data.getParcelableExtra("actual_all_cards");
                    PunchCard current_card = data.getParcelableExtra("current_card");
                    ParcelPackageManager manager = new ParcelPackageManager();
                    manager.insertAll(new_current.getCards());
