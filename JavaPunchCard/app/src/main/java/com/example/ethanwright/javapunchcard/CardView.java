@@ -45,7 +45,7 @@ class CardView {
 
 
     public String getGoalPercent(PunchCard card){
-        double worked = card.getLogger().getActive_duration();
+        double worked = card.getActiveDuration();
         double goals = card.getGoal();
         goals = Math.round((worked/goals) * 100);
         String extra = Double.toString(goals);

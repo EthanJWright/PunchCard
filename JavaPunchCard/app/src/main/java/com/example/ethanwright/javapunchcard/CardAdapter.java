@@ -74,7 +74,7 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
 
             if (tt2 != null) {
                 FormatTime time = new FormatTime();
-                String results = time.getTime(p.getLogger().getActive_duration());
+                String results = time.getTime(p.getActiveDuration());
                 tt2.setText(results);
                 int color = Colors.black;
                 tt2.setTextColor(color);

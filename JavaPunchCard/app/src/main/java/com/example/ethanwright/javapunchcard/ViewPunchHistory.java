@@ -25,9 +25,10 @@ public class ViewPunchHistory extends AppCompatActivity {
         ArrayList<CurrentReportView> report = new ArrayList<>();
         for(int i = 0; i < current.getLogger().getFirstPunch().size(); i++){
             CurrentReportView newReport = new CurrentReportView();
-            newReport.setStartTime(current.getLogger().getFirstPunch().get(i));
-            newReport.setEndTime(current.getLogger().getLastPunch().get(i));
-            newReport.setTotalTime(current.getLogger().getAmount_accomplished().get(i));
+            /* Get values for report */
+            newReport.setStartTime(current.getFirstPunch().get(i));
+            newReport.setEndTime(current.getLastPunch().get(i));
+            newReport.setTotalTime(current.getAmountAccomplished().get(i));
             report.add(newReport);
         }
 

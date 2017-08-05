@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
             category = "\n" + category;
         }
         FormatTime ftime = new FormatTime();
-        String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getLogger().getActive_duration());
+        String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration());
 
         // Add TextView for Goal
         String extra;
@@ -261,7 +261,7 @@ public void punchInOut(){
             @Override
             public void onClick(View v) {
                 long mill_in_min = 60000 * subtracting;
-                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_min);
+                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_min);
                 updateUI();
             }
         });
@@ -271,7 +271,7 @@ public void punchInOut(){
             @Override
             public void onClick(View v) {
                 long mill_in_fifteen = 900000 * subtracting;
-                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_fifteen);
+                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_fifteen);
                 updateUI();
             }
         });
@@ -281,7 +281,7 @@ public void punchInOut(){
             @Override
             public void onClick(View v) {
                 long mill_in_thirty_min = 1800000 * subtracting;
-                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_thirty_min);
+                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_thirty_min);
                 updateUI();
             }
         });
@@ -291,7 +291,7 @@ public void punchInOut(){
             @Override
             public void onClick(View v) {
                 long mill_in_hour = 3600000 * subtracting;
-                punchCardInterface.getCurrent().getCard().getLogger().addToActive(mill_in_hour);
+                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_hour);
                 updateUI();
             }
         });
@@ -380,7 +380,7 @@ public void punchInOut(){
 
         // Designate what to do when clicked
 
-        final Intent allCards = new Intent(this, ViewAllCards2.class);
+        final Intent allCards = new Intent(this, ViewAllCards.class);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

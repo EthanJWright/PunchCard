@@ -23,7 +23,7 @@ public class ViewCategories extends AppCompatActivity {
     public PunchCard currentCard;
 
     public void doFinish(BundleCards cards) {
-        final Intent allCards = new Intent(this, ViewAllCards2.class);
+        final Intent allCards = new Intent(this, ViewAllCards.class);
         allCards.putExtra("parcelable_extra", cards);
         ArrayList<PunchCard> shipping = user_parcel.getCards();
         BundleCards shipCards = new BundleCards();

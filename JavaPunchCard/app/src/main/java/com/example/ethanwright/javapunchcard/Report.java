@@ -50,8 +50,8 @@ public class Report extends AppCompatActivity {
                     public void run() {
                         // Update the UI
                         FormatTime ftime = new FormatTime();
-                        tv3.setText(ftime.getTime(current.getLogger().getActive_duration()));
-                        tv4.setText(ftime.getTime(current.getLogger().getTotal_worked()));
+                        tv3.setText(ftime.getTime(current.getActiveDuration()));
+                        tv4.setText(ftime.getTime(current.getActiveDuration()));
 
 
                     }

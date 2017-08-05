@@ -1,4 +1,5 @@
 package com.example.ethanwright.javapunchcard;
+import java.util.ArrayList;
 import java.util.Date;
 import android.os.Parcelable;
 import android.os.Parcel;
@@ -23,6 +24,15 @@ public class PunchCard implements Parcelable {
         logger.reset();
         active = false;
     }
+
+    public long getActiveDuration(){
+        return this.getLogger().getActive_duration();
+    }
+
+    public void addUserBuffer(long mill){
+        this.getLogger().addToActive(mill);
+    }
+
 
     public long getLifeTime() {
         return lifeTime;
@@ -87,14 +97,25 @@ public class PunchCard implements Parcelable {
 
     public void setActive(boolean _active) {
         if(_active){
-            logger.punch_in();
+            logger.punchIn();
         }
         if(!_active){
-            logger.punch_out();
+            logger.punchOut();
         }
         this.active = _active;
     }
 
+    public ArrayList<Long> getAmountAccomplished(){
+        return this.getLogger().getAmountAccomplished();
+    }
+
+    public ArrayList<Date> getLastPunch(){
+        return this.getLogger().getLastPunch();
+    }
+
+    public ArrayList<Date> getFirstPunch(){
+        return this.getLogger().getLastPunch();
+    }
 
     public ActivityLog getLogger() {
         return logger;

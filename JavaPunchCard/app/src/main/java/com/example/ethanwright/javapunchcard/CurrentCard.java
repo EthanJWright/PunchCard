@@ -10,8 +10,8 @@ public class CurrentCard {
     private User model;
 
     public String getFormattedTime(){
-        ActivityLog logger = model.findDeck(category).findCard(name).getLogger();
-        long time = logger.getActive_duration();
+        PunchCard card = model.findDeck(category).findCard(name);
+        long time = card.getActiveDuration();
         FormatTime ftime = new FormatTime();
         return ftime.getTime(time);
     }
@@ -25,8 +25,8 @@ public class CurrentCard {
     }
 
     public long getCurrent_duration() {
-        ActivityLog logger = model.findDeck(category).findCard(name).getLogger();
-        long current_duration = logger.getActive_duration();
+        PunchCard card = model.findDeck(category).findCard(name);
+        long current_duration = card.getActiveDuration();
         return current_duration;
     }
 

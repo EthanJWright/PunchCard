@@ -31,11 +31,6 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ViewAllCards2"
-            android:label="@string/title_activity_view_all_cards2"
-            android:screenOrientation="locked"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ViewCategories"
             android:label="ViewCategories"
             android:screenOrientation="locked"

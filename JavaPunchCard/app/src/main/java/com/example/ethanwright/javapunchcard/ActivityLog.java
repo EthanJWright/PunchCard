@@ -6,68 +6,52 @@ import android.os.Parcelable;
 
 public class ActivityLog implements Parcelable {
     // Currently not doing anything with this, can be used for logging information
-    private ArrayList<Date> start_log = new ArrayList<>();
-    private ArrayList<Date> end_log = new ArrayList<>();
-    private ArrayList<Long> amount_accomplished = new ArrayList<>();
+    private ArrayList<Date> startLog = new ArrayList<>();
+    private ArrayList<Date> endLog = new ArrayList<>();
+    private ArrayList<Long> amountAccomplished = new ArrayList<>();
 
     private ArrayList<Date> firstPunch = new ArrayList<>();
     private ArrayList<Date> lastPunch = new ArrayList<>();
 
     // This is time that is set when user 'punches in'
-    private Date start_active = new Date();
+    private Date startActive = new Date();
     // This is updated every second by timer process
-    private long active_duration = 0;
+    private long activeDuration = 0;
     private int increasing = 0;
 
     private long userOffset = 0;
 
-    private long total_worked;
+    private long totalWorked;
 
     // This allows for user to punch in and out without issue
-    private long previous_active = 0;
+    private long previousActive = 0;
 
-    public ArrayList<Long> getAmount_accomplished(){
-        return amount_accomplished;
+    public ArrayList<Long> getAmountAccomplished(){
+        return amountAccomplished;
     }
 
     public ArrayList<Date> getFirstPunch() {
         return firstPunch;
     }
 
-    public void setFirstPunch(ArrayList<Date> firstPunch) {
-        this.firstPunch = firstPunch;
-    }
-
     public ArrayList<Date> getLastPunch() {
         return lastPunch;
     }
 
-    public void setLastPunch(ArrayList<Date> lastPunch) {
-        this.lastPunch = lastPunch;
-    }
-
-    public long getTotal_worked() {
-        return total_worked + active_duration;
-    }
-
-    public void setTotal_worked(long total_worked) {
-        this.total_worked = total_worked;
-    }
-
     public void reset(){
-        amount_accomplished.add(active_duration + userOffset);
-        firstPunch.add(start_log.get(0));
+        amountAccomplished.add(activeDuration + userOffset);
+        firstPunch.add(startLog.get(0));
         lastPunch.add(new Date());
-        total_worked += active_duration + userOffset;
+        totalWorked += activeDuration + userOffset;
         increasing = 0;
-        active_duration = 0;
-        previous_active = 0;
+        activeDuration = 0;
+        previousActive = 0;
         userOffset = 0;
     }
 
     public void addToActive(long addMills){
-       if((active_duration + userOffset + addMills) < 0) {
-           long extra = active_duration + userOffset + addMills;
+       if((activeDuration + userOffset + addMills) < 0) {
+           long extra = activeDuration + userOffset + addMills;
            userOffset += (addMills - extra);
        }
        else {
@@ -79,67 +63,67 @@ public class ActivityLog implements Parcelable {
 
     }
 
-    public void punch_card_active(){
-        active_duration = previous_active + active_time();
+    public void punchCardActive(){
+        activeDuration = previousActive + active_time();
 
     }
 
     // To be run when a card timer is supposed to start
-    public void punch_in(){
+    public void punchIn(){
         increasing = 1;
-        start_active = new Date();
-        start_log.add(new Date());
+        startActive = new Date();
+        startLog.add(new Date());
     }
 
     // Run when card timer is supposed to end
-    public void punch_out(){
+    public void punchOut(){
         increasing = 0;
-        previous_active = active_duration;
+        previousActive = activeDuration;
         // log the changes
-        end_log.add(new Date());
+        endLog.add(new Date());
     }
 
     // This will return the difference in time between when card was punched in  and now
     private long active_time(){
         long current_time = new Date().getTime();
         long current_active;
-        current_active = (current_time - start_active.getTime()) * increasing;
+        current_active = (current_time - startActive.getTime()) * increasing;
         return current_active;
     }
 
     public ArrayList<Date> getStart_log() {
-        return start_log;
+        return startLog;
     }
 
     public ArrayList<Date> getEnd_log() {
-        return end_log;
+        return endLog;
     }
 
 
     public long getActive_duration() {
-        punch_card_active();
-        return active_duration + userOffset;
+        punchCardActive();
+        return activeDuration + userOffset;
     }
 
 
     protected ActivityLog(Parcel in) {
         if (in.readByte() == 0x01) {
-            start_log = new ArrayList<>();
-            in.readList(start_log, Date.class.getClassLoader());
+            startLog = new ArrayList<>();
+            in.readList(startLog, Date.class.getClassLoader());
         } else {
-            start_log = null;
+            startLog = null;
         }
         if (in.readByte() == 0x01) {
-            end_log = new ArrayList<>();
-            in.readList(end_log, Date.class.getClassLoader());
+            endLog = new ArrayList<>();
+            in.readList(endLog, Date.class.getClassLoader());
         } else {
-            end_log = null;
+            endLog = null;
         }
         long tmpStart_active = in.readLong();
-        start_active = tmpStart_active != -1 ? new Date(tmpStart_active) : null;
-        active_duration = in.readLong();
+        startActive = tmpStart_active != -1 ? new Date(tmpStart_active) : null;
+        activeDuration = in.readLong();
         increasing = in.readInt();
-        previous_active = in.readLong();
+        previousActive = in.readLong();
         //TODO add amount accomplished to parcelable
          if (in.readByte() == 0x01) {
             firstPunch = new ArrayList<>();
@@ -154,13 +138,13 @@ public class ActivityLog implements Parcelable {
             firstPunch = null;
         }
         if (in.readByte() == 0x01) {
-            amount_accomplished = new ArrayList<>();
-            in.readList(amount_accomplished, Date.class.getClassLoader());
+            amountAccomplished = new ArrayList<>();
+            in.readList(amountAccomplished, Date.class.getClassLoader());
         } else {
-            amount_accomplished = null;
+            amountAccomplished = null;
         }
 
-        total_worked = in.readLong();
+        totalWorked = in.readLong();
         userOffset = in.readLong();
 
     }
@@ -172,22 +156,22 @@ public class ActivityLog implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        if (start_log == null) {
+        if (startLog == null) {
             dest.writeByte((byte) (0x00));
         } else {
             dest.writeByte((byte) (0x01));
-            dest.writeList(start_log);
+            dest.writeList(startLog);
         }
-        if (end_log == null) {
+        if (endLog == null) {
             dest.writeByte((byte) (0x00));
         } else {
             dest.writeByte((byte) (0x01));
-            dest.writeList(end_log);
+            dest.writeList(endLog);
         }
-        dest.writeLong(start_active != null ? start_active.getTime() : -1L);
-        dest.writeLong(active_duration);
+        dest.writeLong(startActive != null ? startActive.getTime() : -1L);
+        dest.writeLong(activeDuration);
         dest.writeInt(increasing);
-        dest.writeLong(previous_active);
+        dest.writeLong(previousActive);
         //TODO add amount accomplished to parcelable
          if (firstPunch == null) {
             dest.writeByte((byte) (0x00));
@@ -201,13 +185,13 @@ public class ActivityLog implements Parcelable {
             dest.writeByte((byte) (0x01));
             dest.writeList(lastPunch);
         }
-        if (amount_accomplished == null) {
+        if (amountAccomplished == null) {
             dest.writeByte((byte) (0x00));
         } else {
             dest.writeByte((byte) (0x01));
-            dest.writeList(amount_accomplished);
+            dest.writeList(amountAccomplished);
         }
-        dest.writeLong(total_worked);
+        dest.writeLong(totalWorked);
         dest.writeLong(userOffset);
 
     }

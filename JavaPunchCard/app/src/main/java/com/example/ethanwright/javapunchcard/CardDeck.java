@@ -41,7 +41,7 @@ public class CardDeck {
 	    ArrayList<PunchCard> list = deck;
 		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
 		    PunchCard a = iter.next();
-			timeWorked += a.getLogger().getActive_duration();
+			timeWorked += a.getActiveDuration();
 		    }
         return timeWorked;
 	   	}

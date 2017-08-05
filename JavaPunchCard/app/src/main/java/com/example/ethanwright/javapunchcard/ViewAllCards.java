@@ -1,19 +1,41 @@
 package com.example.ethanwright.javapunchcard;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.ArrayAdapter;
-
 import java.util.ArrayList;
+import android.widget.AdapterView;
+import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
+import android.app.Activity;
+
+import com.google.gson.Gson;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ViewAllCards extends AppCompatActivity {
+    BundleCards allCards = new BundleCards();
+    ArrayList<PunchCard> cardList;
+    PunchCard currentCard;
+
+    public void doFinish(BundleCards cards, PunchCard current, String returnStyle) {
+        Intent intent = new Intent();
+        intent.putExtra("card_parcel", cards);
+        intent.putExtra("current_card", current);
+        intent.putExtra("return_style", returnStyle);
+        intent.putExtra("actual_all_cards", allCards);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,47 +43,97 @@ public class ViewAllCards extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final Timer timer = new Timer();
+
         Intent get = getIntent();
         BundleCards user_parcel = get.getParcelableExtra("parcelable_extra");
-        final TextView cardText = (TextView) findViewById(R.id.nav_card_text);
+        currentCard = get.getParcelableExtra("current_card");
 
+
+
+
+
+        ArrayList<PunchCard> getCards = user_parcel.getCards();
         ParcelPackageManager manager = new ParcelPackageManager();
+        cardList = manager.activeFirst(manager.sortByCategory(getCards));
+        if (getIntent().hasExtra("actual_all_cards")) {
+            allCards = get.getParcelableExtra("actual_all_cards");
+        } else {
+           allCards.setCards(cardList);
+        }
         manager.insertAll(user_parcel.getCards());
 
-        String printing = "";
-        for(int i = 0; i < user_parcel.getCards().size(); i++){
-            printing += user_parcel.getCards().get(i).getName() + " -- " + user_parcel.getCards().get(i).getCategoryName() + " -- " + Boolean.toString(user_parcel.getCards().get(i).isActive()) + "\n";
-        }
-
-//        printing = Integer.toString(user_parcel.getCards().size()) + user_parcel.getCards().get(1).getCategoryName();
-       // cardText.setText(printing);
-        ListView mListView;
-        mListView = (ListView) findViewById(R.id.card_list_view);
 // 1
-        final ArrayList<PunchCard> cardList = user_parcel.getCards();
-// 2
-        String[] listItems = new String[cardList.size()];
-// 3
-        for(int i = 0; i < cardList.size(); i++){
-//            PunchCard myCard = cardList.get(i);
-            printing = user_parcel.getCards().get(i).getName() + " -- " + user_parcel.getCards().get(i).getCategoryName() + " -- " + Boolean.toString(user_parcel.getCards().get(i).isActive()) + "\n";
-//            listItems[i] = myCard.getName();
-            listItems[i] = printing;
-        }
-// 4
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
-        mListView.setAdapter(adapter);
 
 
+        final ListView listView = (ListView)findViewById(R.id.card_list_view2);
+        final CardAdapter CardAdapter = new CardAdapter(this, R.layout.list_item_recipe, cardList);
+        listView.setAdapter(CardAdapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void run() {
+                ViewAllCards.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update the UI
+                        ((CardAdapter) listView.getAdapter()).notifyDataSetChanged();
+                    }
+                });
             }
+        }, 0, 500);
+
+
+
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                timer.cancel();
+                PunchCard card = (PunchCard) listView.getItemAtPosition(position);
+//                ArrayList<PunchCard> returnCards = new ArrayList<>();
+//                returnCards.add(card);
+
+                BundleCards cards = new BundleCards();
+//                ArrayList<PunchCard> make_stack = returnCards;
+//                cards.setCards(make_stack);
+                cards.setCards(cardList);
+
+
+
+                doFinish(cards, card, "listclicked");
+                return;
+            }
+
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        BundleCards temp = new BundleCards();
+        temp.setCards(cardList);
+        doFinish(temp, currentCard, "backpressed");
+    }
+
+        @Override
+    protected void onStop(){
+        super .onStop();
+
+//            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences();
+//        SharedPreferences settings = getPreferences(0);
+            SharedPreferences settings = getSharedPreferences("cards", 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        Gson gson = new Gson();
+
+        ArrayList<PunchCard> storeCards = cardList;
+        PunchCard current = currentCard;
+        String JSONcurrent = gson.toJson(current);
+
+        String json = gson.toJson(storeCards);
+
+        editor.putString("punchcard", json);
+        editor.putString("current", JSONcurrent);
+        editor.apply();
+    }
+
 }
