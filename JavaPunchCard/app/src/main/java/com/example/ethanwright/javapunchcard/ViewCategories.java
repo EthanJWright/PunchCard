@@ -48,7 +48,7 @@ public class ViewCategories extends AppCompatActivity {
                         // Get data from view
                         // Package simulating ViewAllCards
                         Intent intent = new Intent();
-                        intent.putExtra("actual_all_cards", all_cards);
+                        intent.putExtra("card_parcel", all_cards);
                         intent.putExtra("current_card", currentCard);
                         intent.putExtra("return_style", returnStyle);
                         setResult(RESULT_OK, intent);
