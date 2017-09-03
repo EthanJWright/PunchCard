@@ -1,5 +1,8 @@
 package com.example.ethanwright.javapunchcard;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -8,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -36,6 +40,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -44,23 +49,54 @@ public class MainActivity extends AppCompatActivity
     public Button but;
 
 
+    private void startNotification(){
+        FormatTime ftime = new FormatTime();
+                // Set notification
+                NotificationCompat.Builder mBuilder =
+                        (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                                .setSmallIcon(R.drawable.ic_stat_current_card)
+                                .setContentTitle(punchCardInterface.getCurrent().getName())
+                                .setContentText(ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration()));
+                // Sets an ID for the notification
+                int mNotificationId = 001;
+
+            // Create pending intent, mention the Activity which needs to be
+            //triggered when user clicks on notification(StopScript.class in this case)
+                // Gets an instance of the NotificationManager service
+                NotificationManager mNotifyMgr =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                 // Builds the notification and issues it.
+
+                mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+            }
+
+    private void stopNotification(){
+        NotificationManager notifManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notifManager.cancelAll();
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
         Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
         but.setTypeface(roboto);
         // color the button correctly
         int color = Colors.light_color;
+        FormatTime ftime = new FormatTime();
         // If not active
         if (!punchCardInterface.getCurrent().isActive()) {
+            stopNotification();
             // Color with dark colors
             but.setBackgroundTintList(ColorStateList.valueOf(color));
             int text = Colors.black;
             but.setTextColor(text);
         } else {
+            startNotification();
             // Otherwise color with light colors
             int background_color = Colors.dark_color;
             but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-            int text = Colors.black;
+            int text = Colors.white;
             but.setTextColor(text);
         }
         String name = punchCardInterface.getCurrent().getCard().getName();
@@ -74,21 +110,22 @@ public class MainActivity extends AppCompatActivity
             category = "\n" + category;
         }
 
-        FormatTime ftime = new FormatTime();
         String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration());
 
         // Add TextView for Goal
         String extra;
+        String returning;
         if(punchCardInterface.current.getCard().getGoal() != 0){
             extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
             String substr = extra.substring(0,extra.indexOf("."));
             extra = "Accomplished: " + substr + "%" + "\n Total Goal: " + ftime.getTime(punchCardInterface.getCurrent().getCard().getGoal());
+            returning = name + "  " + category + "\n" + result + "\n" + extra;
         }
         else{
-            extra = "";
+            returning = name +  category + "\n" + result;
         }
 
-        but.setText(name + "  " + category + "\n" + result + "\n" + extra);
+        but.setText(returning);
 
 
 
@@ -141,7 +178,7 @@ public void startInterfaceTimer(){
     if(punchCardInterface.current.isActive()) {
         int background_color = Colors.dark_color;
         but.setBackgroundTintList(ColorStateList.valueOf(background_color));
-        int color = Colors.black; //white
+        int color = Colors.white; //white
         but.setTextColor(color);
 
         // If punched in we need to update the display every second, we will do that here

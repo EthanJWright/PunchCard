@@ -14,5 +14,5 @@
    -->
 
     <color name="light_interface">#ffffff</color>
-    <color name="dark_interface">#80ffbf</color>
+    <color name="dark_interface">#4caf50</color>
 </resources>

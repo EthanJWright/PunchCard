@@ -31,9 +31,11 @@
 
     <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/current_card"
+        android:elevation="130dp"
         android:textAllCaps="false"
         android:layout_width="314dp"
         android:layout_height="170dp"
+        android:stateListAnimator="@drawable/button_elevation"
         android:layout_gravity="top|center_horizontal"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -70,11 +72,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.135" />
 
 
 
-    <Button
+    <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/clear_all"
         android:layout_width="42dp"
         android:layout_height="wrap_content"
@@ -90,7 +92,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.024"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.135" />
 
 
     <Button
@@ -108,8 +110,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintVertical_bias="0.135" />
 
     <Button
         android:id="@+id/remove_hour_goal"
@@ -126,8 +128,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintVertical_bias="0.135" />
 
         <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/add_hour"
@@ -155,7 +157,6 @@
         android:layout_gravity="bottom|right"
         android:backgroundTint="@color/light_interface"
         android:text="+1 min"
-        app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|left"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
