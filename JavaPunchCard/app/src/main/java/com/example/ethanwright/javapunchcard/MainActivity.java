@@ -125,11 +125,11 @@ public class MainActivity extends AppCompatActivity
     }
 
      public void addHourGoal() {
-         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + 3600000);
+         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + 1800000);
     }
     public void removeHourGoal(){
         if(punchCardInterface.getCurrent().getCard().getGoal() > 0) {
-            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - 3600000);
+            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - 1800000);
         }
     }
 
