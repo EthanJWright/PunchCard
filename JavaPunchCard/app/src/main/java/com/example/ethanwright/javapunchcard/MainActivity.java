@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     public Button but;
 
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
         // color the button correctly

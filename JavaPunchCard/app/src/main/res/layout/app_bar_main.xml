@@ -29,7 +29,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <Button
+    <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/current_card"
         android:textAllCaps="false"
         android:layout_width="314dp"
@@ -37,7 +37,6 @@
         android:layout_gravity="top|center_horizontal"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:background="@drawable/curve_button"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|center_horizontal" />
 
@@ -81,12 +80,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/add_hour"
         android:layout_width="90dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|left"
-        android:backgroundTint="@color/dark_interface"
+        android:backgroundTint="@color/light_interface"
         android:text="@string/hour"
         app:layout_anchorGravity="center_vertical|right"
             android:layout_marginRight="8dp"
@@ -100,12 +99,12 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="0.87" />
 
-        <Button
+        <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/add_one"
         android:layout_width="90dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|right"
-        android:backgroundTint="@color/dark_interface"
+        android:backgroundTint="@color/light_interface"
         android:text="+1 min"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|left"
@@ -120,12 +119,12 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.869" />
 
-        <Button
+        <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/add_thirty"
         android:layout_width="90dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|right"
-        android:backgroundTint="@color/dark_interface"
+        android:backgroundTint="@color/light_interface"
         android:text="+30 min"
         app:layout_anchorGravity="center_vertical|center_horizontal"
             app:layout_constraintTop_toTopOf="parent"
@@ -139,13 +138,13 @@
             app:layout_constraintHorizontal_bias="0.659"
             app:layout_constraintVertical_bias="0.87" />
 
-    <Button
+        <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/add_fifteen"
         android:layout_width="90dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|left"
         android:text="+15 min"
-        android:backgroundTint="@color/dark_interface"
+        android:backgroundTint="@color/light_interface"
         app:layout_anchorGravity="center_vertical|center_horizontal"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -158,7 +157,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintVertical_bias="0.87" />
 
-        <Button
+
+        <Button style="@style/Widget.AppCompat.Button"
             android:id="@+id/plus_sign"
             android:layout_width="42dp"
             android:layout_height="42dp"

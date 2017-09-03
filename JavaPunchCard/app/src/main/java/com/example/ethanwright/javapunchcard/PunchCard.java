@@ -49,17 +49,6 @@ public class PunchCard implements Parcelable {
     public void setNumberInCategory(int numberInCategory) {
         this.numberInCategory = numberInCategory;
     }
-/*
-    public boolean isModified(){
-        return modified;
-    }
-    */
-
-/*    public void setModified(Boolean _modified){
-        modified = _modified;
-    }
-*/
-
 
 
     public void generateNewCard(String _name, int day_number){
