@@ -5,6 +5,7 @@ package com.example.ethanwright.javapunchcard;
  */
 import android.app.Activity;
 import android.content.res.ColorStateList;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.widget.ArrayAdapter;
@@ -46,13 +47,17 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
         }
 
         final PunchCard p = getItem(position);
-
+        Typeface roboto_thin = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Thin.ttf");
+        Typeface roboto = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto.ttf");
         if (p != null) {
             int initial_color = Colors.light_color;
             v.setBackgroundColor(initial_color);
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             final TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_detail);
             final TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
+            tt1.setTypeface(roboto_thin);
+            tt2.setTypeface(roboto);
+            tt3.setTypeface(roboto_thin);
             Button cards_buttons = (Button) v.findViewById(R.id.list_view_button);
 //            cards_buttons.setBackgroundColor(p.color);
             cards_buttons.setBackgroundTintList(ColorStateList.valueOf(p.color));

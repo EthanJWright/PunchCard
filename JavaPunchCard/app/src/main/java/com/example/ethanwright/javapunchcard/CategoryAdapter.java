@@ -6,6 +6,7 @@ package com.example.ethanwright.javapunchcard;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
@@ -50,7 +51,7 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
         }
 
         final CardDeck p = getItem(position);
-
+        Typeface roboto = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Thin.ttf");
         if (p != null) {
 //            v.setBackgroundColor(p.getColor());
             int initial_color = Colors.light_color;
@@ -58,6 +59,11 @@ public class CategoryAdapter extends ArrayAdapter<CardDeck>{
             TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
             TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
             TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_detail);
+
+            tt1.setTypeface(roboto);
+            tt2.setTypeface(roboto);
+            tt3.setTypeface(roboto);
+
             ImageView image = (ImageView) v.findViewById(R.id.list_view_image);
 
             image.setColorFilter(p.getColor());

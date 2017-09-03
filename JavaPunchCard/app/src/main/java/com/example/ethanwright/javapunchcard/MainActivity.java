@@ -3,6 +3,7 @@ package com.example.ethanwright.javapunchcard;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -40,13 +41,13 @@ public class MainActivity extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     final public CardView punchCardInterface = new CardView();
-//    final TextView goalText = (TextView) findViewById(R.id.goal_text);
     public Button but;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
+        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
+        but.setTypeface(roboto);
         // color the button correctly
         int color = Colors.light_color;
         // If not active
@@ -80,13 +81,15 @@ public class MainActivity extends AppCompatActivity
         String extra;
         if(punchCardInterface.current.getCard().getGoal() != 0){
             extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
-            extra = "Accomplished: " + extra + "%";
+            String substr = extra.substring(0,extra.indexOf("."));
+            extra = "Accomplished: " + substr + "%" + "\n Total Goal: " + ftime.getTime(punchCardInterface.getCurrent().getCard().getGoal());
         }
         else{
             extra = "";
         }
 
         but.setText(name + "  " + category + "\n" + result + "\n" + extra);
+
 
 
     }
@@ -121,33 +124,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-     public void archivePrompt(final PunchCard card) {
-        if (punchCardInterface.model.getAllCards().size() == 1) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Last Card")
-                    .setMessage("You must have one card")
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create()
-                    .show();
-        } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Confirm Archive Card")
-                    .setMessage("Are you sure you want to archive this card?")
-                    .setNegativeButton(android.R.string.cancel, null) // dismisses by default
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // do the acknowledged action, beware, this is run on UI thread
-                            punchCardInterface.model.archive(card);
-                            punchCardInterface.getCurrent().setCurrentCard(punchCardInterface.model.getAllCards().get(0), punchCardInterface.model);
-                            updateUI();
-                        }
-                    })
-                    .create()
-                    .show();
-            //here
-            //here
+     public void addHourGoal() {
+         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + 3600000);
+    }
+    public void removeHourGoal(){
+        if(punchCardInterface.getCurrent().getCard().getGoal() > 0) {
+            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - 3600000);
         }
     }
 
@@ -260,7 +242,9 @@ public void punchInOut(){
         startInterfaceTimer();
 
 
+        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
         final Button addMin = (Button) findViewById(R.id.add_one);
+        addMin.setTypeface(roboto);
          addMin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,6 +255,7 @@ public void punchInOut(){
         });
 
         final Button addFifteen = (Button) findViewById(R.id.add_fifteen);
+        addFifteen.setTypeface(roboto);
          addFifteen.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,6 +266,7 @@ public void punchInOut(){
         });
 
         final Button addThirty = (Button) findViewById(R.id.add_thirty);
+        addThirty.setTypeface(roboto);
          addThirty.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -291,6 +277,7 @@ public void punchInOut(){
         });
 
         final Button addHour = (Button) findViewById(R.id.add_hour);
+        addHour.setTypeface(roboto);
          addHour.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -346,13 +333,21 @@ public void punchInOut(){
             }
         });
 
-        final Button archiveButton = (Button) findViewById(R.id.archive_button);
-        archiveButton.setOnClickListener(new OnClickListener() {
+        final Button addHourGoalButton = (Button) findViewById(R.id.add_hour_goal);
+        addHourGoalButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                final PunchCard archive_card = punchCardInterface.getCurrent().getCard();
-                archivePrompt(archive_card);
+                addHourGoal();
+                updateUI();
+            }
+        });
 
+        final Button removeHourGoalButton = (Button) findViewById(R.id.remove_hour_goal);
+        removeHourGoalButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeHourGoal();
+                updateUI();
             }
         });
 
