@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         String extra = "";
         if(punchCardInterface.current.getCard().getGoal() != 0){
             extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
-            extra = "  (%" + extra.substring(0,extra.indexOf(".")) + ")";
+            extra = "  (" + extra.substring(0,extra.indexOf(".")) + "%)";
         }
         FormatTime ftime = new FormatTime();
                 NotificationCompat.Builder mBuilder =
