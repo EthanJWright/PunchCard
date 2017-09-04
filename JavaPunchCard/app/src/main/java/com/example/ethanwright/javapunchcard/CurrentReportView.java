@@ -9,8 +9,8 @@ import java.util.Date;
  * Created by ethanwright on 5/29/17.
  */
 public class CurrentReportView implements Parcelable {
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
     private long totalTime;
 
     public CurrentReportView() {
@@ -25,27 +25,30 @@ public class CurrentReportView implements Parcelable {
         return totalTime;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
     public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss",startTime));
+        this.startTime = date;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
     public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss",endTime));
+        this.endTime = date;
     }
 
     protected CurrentReportView(Parcel in) {
         long tmpStartTime = in.readLong();
-        startTime = tmpStartTime != -1 ? new Date(tmpStartTime) : null;
+        String startTime = in.readString();
+        String endTime = in.readString();
         long tmpEndTime = in.readLong();
-        endTime = tmpEndTime != -1 ? new Date(tmpEndTime) : null;
+
         totalTime = in.readLong();
     }
 
@@ -56,8 +59,8 @@ public class CurrentReportView implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(startTime != null ? startTime.getTime() : -1L);
-        dest.writeLong(endTime != null ? endTime.getTime() : -1L);
+        dest.writeString(startTime);
+        dest.writeString(endTime);
         dest.writeLong(totalTime);
     }
 

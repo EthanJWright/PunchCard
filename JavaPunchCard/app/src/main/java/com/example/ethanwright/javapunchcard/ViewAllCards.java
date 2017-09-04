@@ -63,9 +63,6 @@ public class ViewAllCards extends AppCompatActivity {
         }
         manager.insertAll(user_parcel.getCards());
 
-// 1
-
-
         final ListView listView = (ListView)findViewById(R.id.card_list_view2);
         final CardAdapter CardAdapter = new CardAdapter(this, R.layout.list_item_recipe, cardList);
         listView.setAdapter(CardAdapter);
@@ -115,25 +112,23 @@ public class ViewAllCards extends AppCompatActivity {
     }
 
         @Override
-    protected void onStop(){
-        super .onStop();
-
-//            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences();
-//        SharedPreferences settings = getPreferences(0);
+    protected void onStop() {
+        super.onStop();
+        if (!getIntent().hasExtra("actual_all_cards")) {
             SharedPreferences settings = getSharedPreferences("cards", 0);
-        SharedPreferences.Editor editor = settings.edit();
+            SharedPreferences.Editor editor = settings.edit();
 
-        Gson gson = new Gson();
+            Gson gson = new Gson();
 
-        ArrayList<PunchCard> storeCards = cardList;
-        PunchCard current = currentCard;
-        String JSONcurrent = gson.toJson(current);
+            ArrayList<PunchCard> storeCards = allCards.getCards();
+            PunchCard current = currentCard;
+            String JSONcurrent = gson.toJson(current);
 
-        String json = gson.toJson(storeCards);
+            String json = gson.toJson(storeCards);
 
-        editor.putString("punchcard", json);
-        editor.putString("current", JSONcurrent);
-        editor.apply();
+            editor.putString("punchcard", json);
+            editor.putString("current", JSONcurrent);
+            editor.apply();
+        }
     }
-
 }

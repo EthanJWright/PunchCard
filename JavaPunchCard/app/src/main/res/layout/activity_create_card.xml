@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_interface"
+    android:background="@color/colorPrimary"
     tools:context="com.example.ethanwright.javapunchcard.CreateCard">
 
     <android.support.design.widget.AppBarLayout
@@ -46,7 +46,7 @@
 
     <Button style="@style/Widget.AppCompat.Button"
         android:id="@+id/set_goal"
-        android:backgroundTint="@color/light_interface"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Add Hour Goal"
         android:layout_width="140dp"
         android:layout_height="50dp"

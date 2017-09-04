@@ -103,7 +103,7 @@ public class PunchCard implements Parcelable {
     }
 
     public ArrayList<Date> getFirstPunch(){
-        return this.getLogger().getLastPunch();
+        return this.getLogger().getFirstPunch();
     }
 
     public ActivityLog getLogger() {

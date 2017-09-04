@@ -508,10 +508,6 @@ public void changeValues(Long amount){
             report.putExtra("parcelable_extra", current);
             report.putExtra("card_bundle", cards);
             startActivity(report);
-        } else if (id == R.id.nav_account) {
-
-        } else if (id == R.id.nav_settings){
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

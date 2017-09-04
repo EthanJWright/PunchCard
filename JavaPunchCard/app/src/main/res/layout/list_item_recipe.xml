@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/recipe_list_detail"
+        android:id="@+id/list_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -27,15 +27,15 @@
         android:layout_centerVertical="true" />
 
     <RelativeLayout
-        android:id="@+id/recipe_list_text_layout"
+        android:id="@+id/list_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/list_view_button"
-        android:layout_toEndOf="@id/recipe_list_detail">
+        android:layout_toEndOf="@id/list_detail">
 
         <TextView
-            android:id="@+id/recipe_list_title"
+            android:id="@+id/list_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -45,10 +45,10 @@
             />
 
         <TextView
-            android:id="@+id/recipe_list_subtitle"
+            android:id="@+id/list_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recipe_list_title"
+            android:layout_below="@+id/list_title"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="2dp"

@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -51,7 +52,12 @@ public class Report extends AppCompatActivity {
                         // Update the UI
                         FormatTime ftime = new FormatTime();
                         tv3.setText(ftime.getTime(current.getActiveDuration()));
-                        tv4.setText(ftime.getTime(current.getActiveDuration()));
+                        ArrayList<Long> total_worked = current.getAmountAccomplished();
+                        Long sum = Long.valueOf(0);
+                        for(int i = 0; i < total_worked.size(); i++){
+                           sum += total_worked.get(i);
+                        }
+                        tv4.setText(ftime.getTime(sum));
 
 
                     }

@@ -52,9 +52,9 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
         if (p != null) {
             int initial_color = Colors.light_color;
             v.setBackgroundColor(initial_color);
-            TextView tt1 = (TextView) v.findViewById(R.id.recipe_list_title);
-            final TextView tt2 = (TextView) v.findViewById(R.id.recipe_list_detail);
-            final TextView tt3 = (TextView) v.findViewById(R.id.recipe_list_subtitle);
+            TextView tt1 = (TextView) v.findViewById(R.id.list_title);
+            final TextView tt2 = (TextView) v.findViewById(R.id.list_detail);
+            final TextView tt3 = (TextView) v.findViewById(R.id.list_subtitle);
             tt1.setTypeface(roboto_thin);
             tt2.setTypeface(roboto);
             tt3.setTypeface(roboto_thin);
