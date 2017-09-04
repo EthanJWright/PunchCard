@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
 
     final public CardView punchCardInterface = new CardView();
     public Button but;
+    public boolean isSettingGoal = true;
 
 
     private void startNotification(){
@@ -79,8 +80,9 @@ public class MainActivity extends AppCompatActivity
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
-        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
-        but.setTypeface(roboto);
+        Typeface roboto_thin = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
+        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
+        but.setTypeface(roboto_thin);
         // color the button correctly
         int color = Colors.light_color;
         FormatTime ftime = new FormatTime();
@@ -161,12 +163,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-     public void addHourGoal() {
-         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + 1800000);
+     public void addGoal(Long amount) {
+         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + amount);
     }
-    public void removeHourGoal(){
+    public void removeGoal(Long amount){
         if(punchCardInterface.getCurrent().getCard().getGoal() > 0) {
-            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - 1800000);
+            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - amount);
         }
     }
 
@@ -227,6 +229,20 @@ public void punchInOut(){
 
 }
 
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public void changeValues(Long amount){
+    long adding = amount * subtracting;
+        if (isSettingGoal) {
+            Long changing = punchCardInterface.getCurrent().getCard().getGoal();
+            if(changing + adding > 0) {
+                punchCardInterface.getCurrent().getCard().setGoal(changing + adding);
+            }
+        } else {
+            punchCardInterface.getCurrent().getCard().addUserBuffer(adding);
+        }
+        updateUI();
+}
+
 
     private int subtracting = 1;
 
@@ -279,15 +295,14 @@ public void punchInOut(){
         startInterfaceTimer();
 
 
-        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
+
+        final Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
         final Button addMin = (Button) findViewById(R.id.add_one);
         addMin.setTypeface(roboto);
          addMin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                long mill_in_min = 60000 * subtracting;
-                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_min);
-                updateUI();
+                changeValues((long) 60000);
             }
         });
 
@@ -296,9 +311,7 @@ public void punchInOut(){
          addFifteen.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                long mill_in_fifteen = 900000 * subtracting;
-                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_fifteen);
-                updateUI();
+                changeValues((long) 900000 );
             }
         });
 
@@ -307,9 +320,7 @@ public void punchInOut(){
          addThirty.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                long mill_in_thirty_min = 1800000 * subtracting;
-                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_thirty_min);
-                updateUI();
+                changeValues((long) 1800000);
             }
         });
 
@@ -318,14 +329,18 @@ public void punchInOut(){
          addHour.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                long mill_in_hour = 3600000 * subtracting;
-                punchCardInterface.getCurrent().getCard().addUserBuffer(mill_in_hour);
-                updateUI();
+                changeValues((long) 3600000 );
             }
         });
 
 
         final Button setSubtract = (Button) findViewById(R.id.minus_sign);
+        final Button setAdd = (Button) findViewById(R.id.plus_sign);
+        setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
+        setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+        setAdd.setTypeface(roboto);
+        setSubtract.setTypeface(roboto);
+
         setSubtract.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -333,11 +348,12 @@ public void punchInOut(){
                 addFifteen.setText("-" + "15 min");
                 addThirty.setText("-" + "30 min");
                 addHour.setText("-" + "1 hour");
+                setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
                 subtracting = -1;
             }
         });
 
-        final Button setAdd = (Button) findViewById(R.id.plus_sign);
         setAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -346,6 +362,8 @@ public void punchInOut(){
                 addThirty.setText("+" + "30 min");
                 addHour.setText("+" + "1 hour");
                 subtracting = 1;
+                setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
+                setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
             }
         });
 
@@ -370,20 +388,31 @@ public void punchInOut(){
             }
         });
 
-        final Button addHourGoalButton = (Button) findViewById(R.id.add_hour_goal);
-        addHourGoalButton.setOnClickListener(new OnClickListener() {
+        // Set up Modify buttons
+        final Button removeGoalButton = (Button) findViewById(R.id.remove_hour_goal);
+        final Button addGoalButton = (Button) findViewById(R.id.add_hour_goal);
+
+        addGoalButton.setTypeface(roboto);
+        removeGoalButton.setTypeface(roboto);
+        addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+        removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.white));
+
+        addGoalButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                addHourGoal();
+                addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.white));
+                isSettingGoal = true;
                 updateUI();
             }
         });
 
-        final Button removeHourGoalButton = (Button) findViewById(R.id.remove_hour_goal);
-        removeHourGoalButton.setOnClickListener(new OnClickListener() {
+        removeGoalButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeHourGoal();
+                addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
+                removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                isSettingGoal = false;
                 updateUI();
             }
         });

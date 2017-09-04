@@ -29,18 +29,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/current_card"
-        android:elevation="130dp"
-        android:textAllCaps="false"
-        android:layout_width="314dp"
-        android:layout_height="170dp"
-        android:stateListAnimator="@drawable/button_elevation"
-        android:layout_gravity="top|center_horizontal"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="center_vertical|center_horizontal" />
+
 
 
 
@@ -52,16 +41,19 @@
 
 
 
+
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="42dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:background="@drawable/ic_delete"
+    <Button style="@style/Widget.AppCompat.Button"
+        android:id="@+id/current_card"
+        android:elevation="130dp"
+        android:textAllCaps="false"
+        android:layout_width="314dp"
+        android:layout_height="185dp"
+        android:stateListAnimator="@drawable/button_elevation"
         app:layout_anchorGravity="top|right"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -71,74 +63,92 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintVertical_bias="0.135" />
+                    app:layout_constraintVertical_bias="0.304" />
 
 
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/ic_delete"
+            app:layout_anchorGravity="top|right"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintHorizontal_bias="0.975"
+            app:layout_constraintVertical_bias="0.135" />
 
-    <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/clear_all"
-        android:layout_width="42dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:background="@drawable/ic_refresh"
-        app:layout_anchorGravity="top|left"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
-        app:layout_constraintVertical_bias="0.135" />
 
-
-    <Button
-        android:id="@+id/add_hour_goal"
-        android:layout_width="42dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:background="@drawable/ic_add_goal_hour"
-        app:layout_anchorGravity="top|center_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
-        app:layout_constraintVertical_bias="0.135" />
-
-    <Button
-        android:id="@+id/remove_hour_goal"
-        android:layout_width="42dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:background="@drawable/ic_remove_goal_hour"
-        app:layout_anchorGravity="bottom|center_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
-        app:layout_constraintVertical_bias="0.135" />
 
         <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/add_hour"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom|left"
-        android:backgroundTint="@color/light_interface"
-        android:text="@string/hour"
-        app:layout_anchorGravity="center_vertical|right"
+            android:id="@+id/clear_all"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/ic_refresh"
+            app:layout_anchorGravity="top|left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.024"
+            app:layout_constraintVertical_bias="0.135" />
+
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/add_hour_goal"
+            android:layout_width="185dp"
+            android:layout_height="65dp"
+            android:text="@string/modify_goal"
+            android:layout_gravity="bottom|center_horizontal"
+            app:layout_anchorGravity="top|center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/remove_hour_goal"
+            android:layout_width="185dp"
+            android:layout_height="65dp"
+            android:text="@string/modify_worked"
+            android:layout_gravity="bottom|center_horizontal"
+            app:layout_anchorGravity="bottom|center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/add_hour"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|left"
+            android:backgroundTint="@color/light_interface"
+            android:text="@string/hour"
+            app:layout_anchorGravity="center_vertical|right"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -151,13 +161,13 @@
             app:layout_constraintVertical_bias="0.87" />
 
         <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/add_one"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom|right"
-        android:backgroundTint="@color/light_interface"
-        android:text="+1 min"
-        app:layout_anchorGravity="center_vertical|left"
+            android:id="@+id/add_one"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|right"
+            android:backgroundTint="@color/light_interface"
+            android:text="+1 min"
+            app:layout_anchorGravity="center_vertical|left"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -170,13 +180,13 @@
             app:layout_constraintVertical_bias="0.869" />
 
         <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/add_thirty"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom|right"
-        android:backgroundTint="@color/light_interface"
-        android:text="+30 min"
-        app:layout_anchorGravity="center_vertical|center_horizontal"
+            android:id="@+id/add_thirty"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|right"
+            android:backgroundTint="@color/light_interface"
+            android:text="+30 min"
+            app:layout_anchorGravity="center_vertical|center_horizontal"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -189,30 +199,30 @@
             app:layout_constraintVertical_bias="0.87" />
 
         <Button style="@style/Widget.AppCompat.Button"
-        android:id="@+id/add_fifteen"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom|left"
-        android:text="+15 min"
-        android:backgroundTint="@color/light_interface"
-        app:layout_anchorGravity="center_vertical|center_horizontal"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.323"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.87" />
+            android:id="@+id/add_fifteen"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|left"
+            android:text="+15 min"
+            android:backgroundTint="@color/light_interface"
+            app:layout_anchorGravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.323"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintVertical_bias="0.87" />
 
 
         <Button style="@style/Widget.AppCompat.Button"
             android:id="@+id/plus_sign"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@drawable/ic_add_circle_in"
+            android:layout_width="185dp"
+            android:layout_height="65dp"
+            android:text="@string/add_time"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -221,14 +231,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.276"
-            app:layout_constraintVertical_bias="0.719" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.753" />
 
         <Button
             android:id="@+id/minus_sign"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@drawable/ic_remove_circle_in"
+            android:layout_width="185dp"
+            android:layout_height="65dp"
+            android:text="@string/remove_time"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
@@ -237,8 +247,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp"
-            app:layout_constraintHorizontal_bias="0.696"
-            app:layout_constraintVertical_bias="0.719" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.753" />
 
     </android.support.constraint.ConstraintLayout>
 
