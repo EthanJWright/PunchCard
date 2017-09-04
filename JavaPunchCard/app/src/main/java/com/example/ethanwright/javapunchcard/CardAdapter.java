@@ -84,7 +84,7 @@ public class CardAdapter extends ArrayAdapter<PunchCard>{
                 int color = Colors.black;
                 tt2.setTextColor(color);
                 if(p.isActive()) {
-                    int background_color = Colors.dark_color;
+                    int background_color = Colors.colorPrimaryDark;
                     v.setBackgroundColor(background_color);
 
                     color = Colors.white;

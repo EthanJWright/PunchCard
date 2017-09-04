@@ -51,12 +51,17 @@ public class MainActivity extends AppCompatActivity
 
 
     private void startNotification(){
+        String extra = "";
+        if(punchCardInterface.current.getCard().getGoal() != 0){
+            extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
+            extra = "  (%" + extra.substring(0,extra.indexOf(".")) + ")";
+        }
         FormatTime ftime = new FormatTime();
                 NotificationCompat.Builder mBuilder =
                         (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.ic_stat_current_card)
                                 .setContentTitle(punchCardInterface.getCurrent().getName())
-                                .setContentText(ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration()));
+                                .setContentText(ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration()) + extra);
                 int mNotificationId = 001;
 
                 NotificationManager mNotifyMgr =
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity
             but.setTextColor(text);
         } else {
             startNotification();
-            int background_color = Colors.dark_color;
+            int background_color = Colors.colorPrimaryDark;
             but.setBackgroundTintList(ColorStateList.valueOf(background_color));
             int text = Colors.white;
             but.setTextColor(text);
@@ -155,7 +160,7 @@ public void startInterfaceTimer(){
     Timer timer = new Timer();
     // Check to see if it has been set to active or not
     if(punchCardInterface.current.isActive()) {
-        int background_color = Colors.dark_color;
+        int background_color = Colors.colorPrimaryDark;
         but.setBackgroundTintList(ColorStateList.valueOf(background_color));
         int color = Colors.white; //white
         but.setTextColor(color);
@@ -210,10 +215,7 @@ public void punchInOut(){
 public void changeValues(Long amount){
     long adding = amount * subtracting;
         if (isSettingGoal) {
-            Long changing = punchCardInterface.getCurrent().getCard().getGoal();
-            if(changing + adding >= 0) {
-                punchCardInterface.getCurrent().getCard().setGoal(changing + adding);
-            }
+            punchCardInterface.getCurrent().getCard().addGoal(adding);
         } else {
             punchCardInterface.getCurrent().getCard().addUserBuffer(adding);
         }
@@ -230,6 +232,7 @@ public void changeValues(Long amount){
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         // Create Button
         final Button card = (Button) findViewById(R.id.current_card);
@@ -314,7 +317,7 @@ public void changeValues(Long amount){
         final Button setSubtract = (Button) findViewById(R.id.minus_sign);
         final Button setAdd = (Button) findViewById(R.id.plus_sign);
         setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
-        setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+        setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
         setAdd.setTypeface(roboto);
         setSubtract.setTypeface(roboto);
 
@@ -325,7 +328,7 @@ public void changeValues(Long amount){
                 addFifteen.setText("-" + "15 min");
                 addThirty.setText("-" + "30 min");
                 addHour.setText("-" + "1 hour");
-                setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
                 setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
                 subtracting = -1;
             }
@@ -340,7 +343,7 @@ public void changeValues(Long amount){
                 addHour.setText("+" + "1 hour");
                 subtracting = 1;
                 setSubtract.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
-                setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                setAdd.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
             }
         });
 
@@ -369,13 +372,13 @@ public void changeValues(Long amount){
 
         addGoalButton.setTypeface(roboto);
         removeGoalButton.setTypeface(roboto);
-        addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+        addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
         removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.white));
 
         addGoalButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
                 removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.white));
                 isSettingGoal = true;
                 updateUI();
@@ -386,7 +389,7 @@ public void changeValues(Long amount){
             @Override
             public void onClick(View v) {
                 addGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.light_color));
-                removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.dark_color));
+                removeGoalButton.setBackgroundTintList(ColorStateList.valueOf(Colors.colorPrimaryDark));
                 isSettingGoal = false;
                 updateUI();
             }
@@ -528,7 +531,7 @@ public void changeValues(Long amount){
                 but.setText(category);
                 // Add the results to our cards
                 PunchCard new_card = new PunchCard();
-                new_card.setGoal(newGoal);
+                new_card.addGoal(newGoal);
                 new_card.generateNewCard(name, 4);
                 new_card.setCategoryName(category);
                 new_card.setActive(false);

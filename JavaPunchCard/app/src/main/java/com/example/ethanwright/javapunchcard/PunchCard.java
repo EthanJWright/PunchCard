@@ -132,9 +132,16 @@ public class PunchCard implements Parcelable {
     public long getGoal() {
         return goal;
     }
-    public void setGoal(long goal) {
-        this.goal = goal;
+
+    public void addGoal(long _goal) {
+        if((this.goal + _goal) < 0){
+           long extra = this.goal + _goal;
+           this.goal += (_goal - extra);
+        }else{
+            this.goal = _goal;
+        }
     }
+
     public String getName() {
         return name;
     }
