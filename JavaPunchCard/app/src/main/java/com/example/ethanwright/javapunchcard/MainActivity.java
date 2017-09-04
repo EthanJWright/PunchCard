@@ -52,24 +52,16 @@ public class MainActivity extends AppCompatActivity
 
     private void startNotification(){
         FormatTime ftime = new FormatTime();
-                // Set notification
                 NotificationCompat.Builder mBuilder =
                         (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.ic_stat_current_card)
                                 .setContentTitle(punchCardInterface.getCurrent().getName())
                                 .setContentText(ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration()));
-                // Sets an ID for the notification
                 int mNotificationId = 001;
 
-            // Create pending intent, mention the Activity which needs to be
-            //triggered when user clicks on notification(StopScript.class in this case)
-                // Gets an instance of the NotificationManager service
                 NotificationManager mNotifyMgr =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                 // Builds the notification and issues it.
-
                 mNotifyMgr.notify(mNotificationId, mBuilder.build());
-
             }
 
     private void stopNotification(){
@@ -83,19 +75,15 @@ public class MainActivity extends AppCompatActivity
         Typeface roboto_thin = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
         Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
         but.setTypeface(roboto_thin);
-        // color the button correctly
         int color = Colors.light_color;
         FormatTime ftime = new FormatTime();
-        // If not active
         if (!punchCardInterface.getCurrent().isActive()) {
             stopNotification();
-            // Color with dark colors
             but.setBackgroundTintList(ColorStateList.valueOf(color));
             int text = Colors.black;
             but.setTextColor(text);
         } else {
             startNotification();
-            // Otherwise color with light colors
             int background_color = Colors.dark_color;
             but.setBackgroundTintList(ColorStateList.valueOf(background_color));
             int text = Colors.white;
@@ -114,7 +102,6 @@ public class MainActivity extends AppCompatActivity
 
         String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration());
 
-        // Add TextView for Goal
         String extra;
         String returning;
         if(punchCardInterface.current.getCard().getGoal() != 0){
@@ -158,17 +145,7 @@ public class MainActivity extends AppCompatActivity
                     })
                     .create()
                     .show();
-            //here
-            //here
-        }
-    }
 
-     public void addGoal(Long amount) {
-         punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() + amount);
-    }
-    public void removeGoal(Long amount){
-        if(punchCardInterface.getCurrent().getCard().getGoal() > 0) {
-            punchCardInterface.getCurrent().getCard().setGoal(punchCardInterface.getCurrent().getCard().getGoal() - amount);
         }
     }
 
@@ -234,7 +211,7 @@ public void changeValues(Long amount){
     long adding = amount * subtracting;
         if (isSettingGoal) {
             Long changing = punchCardInterface.getCurrent().getCard().getGoal();
-            if(changing + adding > 0) {
+            if(changing + adding >= 0) {
                 punchCardInterface.getCurrent().getCard().setGoal(changing + adding);
             }
         } else {
@@ -368,7 +345,6 @@ public void changeValues(Long amount){
         });
 
 
-        // Set up delete button
         final Button deleteButton = (Button) findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -388,7 +364,6 @@ public void changeValues(Long amount){
             }
         });
 
-        // Set up Modify buttons
         final Button removeGoalButton = (Button) findViewById(R.id.remove_hour_goal);
         final Button addGoalButton = (Button) findViewById(R.id.add_hour_goal);
 
