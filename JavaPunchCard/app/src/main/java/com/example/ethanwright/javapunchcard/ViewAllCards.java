@@ -87,16 +87,8 @@ public class ViewAllCards extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 timer.cancel();
                 PunchCard card = (PunchCard) listView.getItemAtPosition(position);
-//                ArrayList<PunchCard> returnCards = new ArrayList<>();
-//                returnCards.add(card);
-
                 BundleCards cards = new BundleCards();
-//                ArrayList<PunchCard> make_stack = returnCards;
-//                cards.setCards(make_stack);
                 cards.setCards(cardList);
-
-
-
                 doFinish(cards, card, "listclicked");
                 return;
             }

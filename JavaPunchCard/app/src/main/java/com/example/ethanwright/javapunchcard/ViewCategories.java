@@ -44,15 +44,28 @@ public class ViewCategories extends AppCompatActivity {
                     returnedCards = card_parcel;
                     // If a listclick was executed return to home screen
                     if(returnStyle.equals("listclicked")) {
-                        returnedSet = true;
-                        // Get data from view
-                        // Package simulating ViewAllCards
-                        Intent intent = new Intent();
-                        intent.putExtra("card_parcel", all_cards);
-                        intent.putExtra("current_card", currentCard);
-                        intent.putExtra("return_style", returnStyle);
-                        setResult(RESULT_OK, intent);
-                        finish();
+                         // Insert the list of all cards to the punch card interface
+                        CardView punchCardInterface = new CardView();
+                        for(int i = 0; i < all_cards.getCards().size(); i++){
+                            punchCardInterface.addCard(all_cards.getCards().get(i));
+                        }
+                        // Get the list of all cards modified in ViewAllCards
+                        ArrayList<PunchCard> list = card_parcel.getCards();
+                        // Take the original cards, insert the newly changed cards from the return
+                        for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+                            PunchCard a = iter.next();
+                            punchCardInterface.removeCard(a);
+                            punchCardInterface.addCard(a);
+                        }
+
+                        // Send the list of all cards with the newly modified cards to the listView
+                        BundleCards cardsWithChanges = new BundleCards();
+                        cardsWithChanges.setCards(punchCardInterface.model.getAllCards());
+                        returnedCards = cardsWithChanges;
+                        user_parcel = cardsWithChanges;
+                        buildListView();
+
+                        backPressFinish();
                    }
                     else{
                         // Insert the list of all cards to the punch card interface
@@ -149,9 +162,8 @@ public class ViewCategories extends AppCompatActivity {
         buildListView();
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent();
+    public void backPressFinish(){
+         Intent intent = new Intent();
         if(!returnedSet){
             returnedCards.setCards(user_parcel.getCards());
         }
@@ -160,7 +172,11 @@ public class ViewCategories extends AppCompatActivity {
         intent.putExtra("return_style", "backpressed");
         setResult(RESULT_OK, intent);
         finish();
+    }
 
+    @Override
+    public void onBackPressed() {
+        backPressFinish();
     }
 
 }
