@@ -138,7 +138,7 @@ public class PunchCard implements Parcelable {
            long extra = this.goal + _goal;
            this.goal += (_goal - extra);
         }else{
-            this.goal = _goal;
+            this.goal += _goal;
         }
     }
 
