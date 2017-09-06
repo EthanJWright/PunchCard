@@ -11,6 +11,16 @@ public class User {
 	private int number_of_decks = 0;
 	private CardDeck active = new CardDeck();
 
+	public ArrayList<Long> getDailyActivity(){
+		ArrayList<CardDeck> list = deck_set;
+		ArrayList<Long> worked = new ArrayList<>();
+		for(Iterator<CardDeck> iter = list.listIterator(); iter.hasNext();){
+			CardDeck a = iter.next();
+			worked.add(a.getTimeWorked());
+		}
+        return worked;
+    }
+
 
 	public void archive(PunchCard card){
 		archive.add(card);

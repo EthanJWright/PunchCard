@@ -13,6 +13,9 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -32,7 +35,20 @@ public class Report extends AppCompatActivity {
         Intent get = getIntent();
         final PunchCard current  = get.getParcelableExtra("parcelable_extra");
         final BundleCards cards = get.getParcelableExtra("card_bundle");
+        // in this example, a LineChart is initialized from xml
+        LineChart chart = (LineChart) findViewById(R.id.chart);
+//        YourData[] dataObjects = ...
+//        int[] dataObjects = (1, 2, 3);
 
+        List<Entry> entries = new ArrayList<Entry>();
+/*
+        for (int data : dataObjects) {
+
+            // turn your data into Entry objects
+ //           entries.add(new Entry(data.getValueX(), data.getValueY()));
+        }
+
+*/
 
 
         final Intent viewPunch = new Intent(this, ViewPunchHistory.class);

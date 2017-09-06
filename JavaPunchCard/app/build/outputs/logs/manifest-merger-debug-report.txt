@@ -1,174 +1,174 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:2:1-65:12
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:2:1-65:12
 	package
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:3:5-52
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:3:5-52
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.VIBRATE
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:5:5-66
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:5:22-63
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:5:22-63
 application
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:7:5-63:19
-MERGED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b1aa495e8957bb053c6bb712c300618526672b07\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\e048778cbd21f8e72ec6f01b64d5cb9e383cf7eb\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\d425773f7ba58ea709de49c20ec95daba6634746\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Ethan\.android\build-cache\598e613291d6f96820cad1039b8453c105051ec7\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Ethan\.android\build-cache\7ca15e53cbaeff05ec1485a2d8595679cb947d36\output\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Ethan\.android\build-cache\27984176c9a7302d5ebaa75ebb02988b8d2aedb2\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Ethan\.android\build-cache\70a5fa82468686da33f05ded8de596de2201795f\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Ethan\.android\build-cache\d49b442f01a7dfcf3d47e7ee4eb059e1c5c8b39b\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Ethan\.android\build-cache\a7def6a6015835671473ae42b3f63eb3d1ab210f\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Ethan\.android\build-cache\67d19e707d337671f423423592bc0577b3c6413c\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Ethan\.android\build-cache\cbcf1a9146acc40ae13bb18c602ad74e76772c96\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Ethan\.android\build-cache\4f0ec9f68b31dd2acb6f31de7342d1b728b29649\output\AndroidManifest.xml:29:5-20
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:7:5-63:19
+MERGED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/1542ac5a756a0efcedf804a79068556946aad4e0/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/2ed6cad394c46d24c5295b3435f45a456370648f/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /Users/ethanwright/.android/build-cache/fb3a8181cf74b6ebab8cc7fe7d07fa9f220fb37c/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/ethanwright/.android/build-cache/a7f2b4d92ad15be40328b491b7795e6af6ea774a/output/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Users/ethanwright/.android/build-cache/33c720cc3b79855c97456cee629cb644ea92b920/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/ethanwright/.android/build-cache/f44b9abda91a89cee355b774f940c49f8934bd6a/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/ethanwright/.android/build-cache/4bce89ce06e12eb45c0a0120f9160ce08bf5ec3e/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/ethanwright/.android/build-cache/b3f224769b7ca7b1df2317f45e3c17ea936c6559/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:gridlayout-v7:25.3.1] /Users/ethanwright/.android/build-cache/fc05d37f5876dfaa9af4921d5a42c05d1406710a/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/ethanwright/.android/build-cache/fbefb2e7a1e25ab3513b07db705876f01ac8b049/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/ethanwright/.android/build-cache/48219b125116432d10cc6af9759d1cb9217c6937/output/AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:10:9-34
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:10:9-34
 	android:supportsRtl
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:12:9-35
 	android:roundIcon
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:11:9-54
 	android:allowBackup
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:8:9-35
 	android:icon
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:9:9-43
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:13:9-40
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:13:9-40
 activity#com.example.ethanwright.javapunchcard.MainActivity
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:14:9-24:20
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:14:9-24:20
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:17:13-47
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:17:13-47
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:16:13-38
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:16:13-38
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:18:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:18:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:15:13-41
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:15:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:22:27-74
 activity#com.example.ethanwright.javapunchcard.CreateCard
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:25:9-29:59
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:25:9-29:59
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:28:13-47
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:28:13-47
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:27:13-63
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:27:13-63
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:29:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:29:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:26:13-39
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:26:13-39
 activity#com.example.ethanwright.javapunchcard.ResetByCategory
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:30:9-34:59
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:30:9-34:59
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:33:13-47
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:33:13-47
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:32:13-44
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:32:13-44
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:34:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:34:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:31:13-44
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:31:13-44
 activity#com.example.ethanwright.javapunchcard.ViewAllCards
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:35:9-39:59
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:35:9-39:59
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:38:13-47
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:38:13-47
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:37:13-66
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:37:13-66
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:39:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:36:13-41
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:36:13-41
 activity#com.example.ethanwright.javapunchcard.ViewCategories
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:40:9-44:59
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:40:9-44:59
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:43:13-47
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:43:13-47
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:42:13-43
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:42:13-43
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:44:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:44:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:41:13-43
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:41:13-43
 activity#com.example.ethanwright.javapunchcard.Report
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:45:9-54:20
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:45:9-54:20
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:47:13-35
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:47:13-35
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:48:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:48:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:46:13-35
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:46:13-35
 activity#com.example.ethanwright.javapunchcard.ViewPunchHistory
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:49:13-53:51
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:49:13-53:51
 	android:screenOrientation
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:52:17-51
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:52:17-51
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:51:17-49
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:51:17-49
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:53:17-48
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:53:17-48
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:50:17-49
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:50:17-49
 activity#com.example.ethanwright.javapunchcard.EditCardLog
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:59:9-62:59
+ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:59:9-62:59
 	android:label
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:61:13-65
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:61:13-65
 	android:theme
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:62:13-56
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:62:13-56
 	android:name
-		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:60:13-40
+		ADDED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml:60:13-40
 uses-sdk
-INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b1aa495e8957bb053c6bb712c300618526672b07\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\e048778cbd21f8e72ec6f01b64d5cb9e383cf7eb\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\d425773f7ba58ea709de49c20ec95daba6634746\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b2e7da6b6c3fe32b3694deabd12c7648740c0756\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Ethan\.android\build-cache\598e613291d6f96820cad1039b8453c105051ec7\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Ethan\.android\build-cache\7ca15e53cbaeff05ec1485a2d8595679cb947d36\output\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Ethan\.android\build-cache\27984176c9a7302d5ebaa75ebb02988b8d2aedb2\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Ethan\.android\build-cache\70a5fa82468686da33f05ded8de596de2201795f\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Ethan\.android\build-cache\d49b442f01a7dfcf3d47e7ee4eb059e1c5c8b39b\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Ethan\.android\build-cache\a7def6a6015835671473ae42b3f63eb3d1ab210f\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Ethan\.android\build-cache\67d19e707d337671f423423592bc0577b3c6413c\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Ethan\.android\build-cache\cbcf1a9146acc40ae13bb18c602ad74e76772c96\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Ethan\.android\build-cache\4f0ec9f68b31dd2acb6f31de7342d1b728b29649\output\AndroidManifest.xml:21:5-23:58
+INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/1542ac5a756a0efcedf804a79068556946aad4e0/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/2ed6cad394c46d24c5295b3435f45a456370648f/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/ethanwright/.android/build-cache/44514df0086cc7809c30f11d601e3e392edf7536/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /Users/ethanwright/.android/build-cache/fb3a8181cf74b6ebab8cc7fe7d07fa9f220fb37c/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/ethanwright/.android/build-cache/a7f2b4d92ad15be40328b491b7795e6af6ea774a/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:25.3.1] /Users/ethanwright/.android/build-cache/33c720cc3b79855c97456cee629cb644ea92b920/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/ethanwright/.android/build-cache/f44b9abda91a89cee355b774f940c49f8934bd6a/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/ethanwright/.android/build-cache/4bce89ce06e12eb45c0a0120f9160ce08bf5ec3e/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/ethanwright/.android/build-cache/b3f224769b7ca7b1df2317f45e3c17ea936c6559/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:gridlayout-v7:25.3.1] /Users/ethanwright/.android/build-cache/fc05d37f5876dfaa9af4921d5a42c05d1406710a/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/ethanwright/.android/build-cache/fbefb2e7a1e25ab3513b07db705876f01ac8b049/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /Users/ethanwright/.android/build-cache/48219b125116432d10cc6af9759d1cb9217c6937/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b1aa495e8957bb053c6bb712c300618526672b07\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\e048778cbd21f8e72ec6f01b64d5cb9e383cf7eb\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\d425773f7ba58ea709de49c20ec95daba6634746\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b2e7da6b6c3fe32b3694deabd12c7648740c0756\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Ethan\.android\build-cache\598e613291d6f96820cad1039b8453c105051ec7\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Ethan\.android\build-cache\27984176c9a7302d5ebaa75ebb02988b8d2aedb2\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Ethan\.android\build-cache\70a5fa82468686da33f05ded8de596de2201795f\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Ethan\.android\build-cache\d49b442f01a7dfcf3d47e7ee4eb059e1c5c8b39b\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Ethan\.android\build-cache\a7def6a6015835671473ae42b3f63eb3d1ab210f\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Ethan\.android\build-cache\67d19e707d337671f423423592bc0577b3c6413c\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Ethan\.android\build-cache\cbcf1a9146acc40ae13bb18c602ad74e76772c96\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Ethan\.android\build-cache\4f0ec9f68b31dd2acb6f31de7342d1b728b29649\output\AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/1542ac5a756a0efcedf804a79068556946aad4e0/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/ethanwright/.android/build-cache/2ed6cad394c46d24c5295b3435f45a456370648f/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/ethanwright/.android/build-cache/44514df0086cc7809c30f11d601e3e392edf7536/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /Users/ethanwright/.android/build-cache/fb3a8181cf74b6ebab8cc7fe7d07fa9f220fb37c/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/ethanwright/.android/build-cache/33c720cc3b79855c97456cee629cb644ea92b920/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/ethanwright/.android/build-cache/f44b9abda91a89cee355b774f940c49f8934bd6a/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/ethanwright/.android/build-cache/4bce89ce06e12eb45c0a0120f9160ce08bf5ec3e/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/ethanwright/.android/build-cache/b3f224769b7ca7b1df2317f45e3c17ea936c6559/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:gridlayout-v7:25.3.1] /Users/ethanwright/.android/build-cache/fc05d37f5876dfaa9af4921d5a42c05d1406710a/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/ethanwright/.android/build-cache/fbefb2e7a1e25ab3513b07db705876f01ac8b049/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/ethanwright/.android/build-cache/48219b125116432d10cc6af9759d1cb9217c6937/output/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:25.3.1] /Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/AndroidManifest.xml:26:9-47
