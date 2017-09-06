@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+    <ImageView
+        android:id="@+id/list_view_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/ic_button_circle"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:id="@+id/list_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:paddingEnd="4dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="Detail"
+        android:paddingLeft="8dp"
+        android:layout_alignBottom="@+id/list_text_layout" />
+
+    <RelativeLayout
+        android:id="@+id/list_text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/list_detail"
+        android:layout_toEndOf="@+id/list_detail"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
+
+        <TextView
+            android:id="@+id/list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp"
+            tools:text="Title"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/list_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:text="Subtitle"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

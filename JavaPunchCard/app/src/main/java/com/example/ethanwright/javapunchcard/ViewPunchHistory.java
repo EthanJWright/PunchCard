@@ -25,12 +25,13 @@ public class ViewPunchHistory extends AppCompatActivity {
         final BundleCards card_parcel = get.getParcelableExtra("card_parcel");
 
         ArrayList<CurrentReportView> report = new ArrayList<>();
-        for(int i = 0; i < current.getLogger().getFirstPunch().size(); i++){
+        for(int i = current.getLogger().getStart_log().size() - 1; i >= 0; i--){
             CurrentReportView newReport = new CurrentReportView();
-            /* Get values for report */
-            newReport.setStartTime(current.getFirstPunch().get(i));
-            newReport.setEndTime(current.getLastPunch().get(i));
+
+            newReport.setStartTime(current.getPunchIn(i));
+            newReport.setEndTime(current.getPunchOut(i));
             newReport.setTotalTime(current.getAmountAccomplished().get(i));
+
             report.add(newReport);
         }
 

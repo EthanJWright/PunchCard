@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Date;
 
+import static android.R.id.list;
+
 public class CardDeck {
 	private ArrayList<PunchCard> deck = new ArrayList<>();
 	private String category;
@@ -20,6 +22,15 @@ public class CardDeck {
     public void setColor(int color) {
         this.color = color;
     }
+
+    public void clearAll(){
+		ArrayList<PunchCard> list = deck;
+		for(Iterator<PunchCard> iter = list.listIterator(); iter.hasNext();){
+			PunchCard a = iter.next();
+			a.clearProgress();
+		}
+		deck = list;
+	}
 
     public void setNewDeck(String... args){
 		if(args.length == 0){

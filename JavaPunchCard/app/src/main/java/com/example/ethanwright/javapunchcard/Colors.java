@@ -8,7 +8,7 @@ import android.graphics.Color;
 
 public class Colors {
     public static int light_color = Color.argb(255, 255, 255, 255);
-    public static int colorPrimaryDark = Color.argb(255, 76, 175, 80);
+    public static int colorPrimaryDark = Color.argb(255, 76,175,80);
 //    public static int light_color = Color.argb(255, 255, 255, 255);
 //    public static int colorPrimaryDark = Color.argb(255, 168, 168, 168);
     public static int black = Color.argb(255, 0, 0, 0);

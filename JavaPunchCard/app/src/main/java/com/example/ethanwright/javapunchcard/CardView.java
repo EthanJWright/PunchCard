@@ -1,6 +1,7 @@
 package com.example.ethanwright.javapunchcard;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,12 @@ class CardView {
     public CurrentCard current = new CurrentCard();
     // 272 total colors to randomly choose from
    List<String> colorList = new ArrayList<>(Arrays.asList(
+      "#EF9A9A", "#D50000", "#EC407A", "#880E4F", "#D500F9", "#7B1FA2", "#311B92", "#304FFE", "#1A237E",
+            "#64B5F6", "#0097A7", "#18FFFF", "#26A69A", "#1DE9B6", "#4CAF50", "#2E7D32",
+            "#AED581", "#CDDC39", "#AFB42B", "#F57F17", "#FBC02D", "#212121", "#DD2C00"
+    ));
+
+   List<String> overFlowList = new ArrayList<>(Arrays.asList(
              "#000000", "#FFFF00", "#1CE6FF", "#FF34FF", "#FF4A46", "#008941", "#006FA6", "#A30059",
             "#FFDBE5", "#7A4900", "#0000A6", "#63FFAC", "#B79762", "#004D43", "#8FB0FF", "#997D87",
             "#5A0007", "#809693", "#FEFFE6", "#1B4400", "#4FC601", "#3B5DFF", "#4A3B53", "#FF2F80",
@@ -51,7 +58,6 @@ class CardView {
             "#2F5D9B", "#6C5E46", "#D25B88", "#5B656C", "#00B57F", "#545C46", "#866097", "#365D25",
             "#252F99", "#00CCFF", "#674E60", "#FC009C", "#92896B"
     ));
-
         // Add a new card to the model (given a deck)
     public void removeCard(PunchCard card){
         String category = card.getCategoryName();
@@ -81,6 +87,12 @@ class CardView {
             int getColor = (int) (rand.nextDouble() * colorList.size());
             int returning = Color.parseColor(colorList.get(getColor));
             colorList.remove(getColor);
+            return returning;
+        }else if(!overFlowList.isEmpty()) {
+            Random rand = new Random();
+            int getColor = (int) (rand.nextDouble() * overFlowList.size());
+            int returning = Color.parseColor(colorList.get(getColor));
+            overFlowList.remove(getColor);
             return returning;
         }
         else{

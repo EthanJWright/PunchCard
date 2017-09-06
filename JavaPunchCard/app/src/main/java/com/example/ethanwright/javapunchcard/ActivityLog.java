@@ -26,6 +26,9 @@ public class ActivityLog implements Parcelable {
     // This allows for user to punch in and out without issue
     private long previousActive = 0;
 
+    private Date punchIn = null;
+    private Date punchOut = null;
+
     public ArrayList<Long> getAmountAccomplished(){
         return amountAccomplished;
     }
@@ -40,13 +43,26 @@ public class ActivityLog implements Parcelable {
 
     public void reset(){
         amountAccomplished.add(activeDuration + userOffset);
-        firstPunch.add(startLog.get(0));
-        lastPunch.add(new Date());
+//        firstPunch.add(startLog.get(0));
+//        lastPunch.add(new Date());
         totalWorked += activeDuration + userOffset;
         increasing = 0;
         activeDuration = 0;
         previousActive = 0;
         userOffset = 0;
+        if(punchIn == null){
+            startLog.add(new Date());
+        }else{
+            startLog.add(punchIn);
+        }
+        if(punchOut == null){
+            endLog.add(new Date());
+        }
+        else{
+            endLog.add(punchOut);
+        }
+        punchIn = null;
+        punchOut = null;
     }
 
     public void addToActive(long addMills){
@@ -70,17 +86,21 @@ public class ActivityLog implements Parcelable {
 
     // To be run when a card timer is supposed to start
     public void punchIn(){
+        if(punchIn == null){
+            punchIn = new Date();
+        }
         increasing = 1;
         startActive = new Date();
-        startLog.add(new Date());
+//        startLog.add(new Date());
     }
 
     // Run when card timer is supposed to end
     public void punchOut(){
+        punchOut = new Date();
         increasing = 0;
         previousActive = activeDuration;
         // log the changes
-        endLog.add(new Date());
+//        endLog.add(new Date());
     }
 
     // This will return the difference in time between when card was punched in  and now
@@ -120,7 +140,11 @@ public class ActivityLog implements Parcelable {
             endLog = null;
         }
         long tmpStart_active = in.readLong();
+        long tmpPunch_in = in.readLong();
+        long tmpPunch_out = in.readLong();
         startActive = tmpStart_active != -1 ? new Date(tmpStart_active) : null;
+        punchIn = tmpPunch_in != -1 ? new Date(tmpPunch_in) : null;
+        punchOut = tmpPunch_out != -1 ? new Date(tmpPunch_out) : null;
         activeDuration = in.readLong();
         increasing = in.readInt();
         previousActive = in.readLong();
@@ -169,6 +193,8 @@ public class ActivityLog implements Parcelable {
             dest.writeList(endLog);
         }
         dest.writeLong(startActive != null ? startActive.getTime() : -1L);
+        dest.writeLong(punchIn != null ? punchIn.getTime() : -1L);
+        dest.writeLong(punchOut != null ? punchOut.getTime() : -1L);
         dest.writeLong(activeDuration);
         dest.writeInt(increasing);
         dest.writeLong(previousActive);

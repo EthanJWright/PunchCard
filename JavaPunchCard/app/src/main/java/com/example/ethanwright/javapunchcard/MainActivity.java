@@ -500,7 +500,6 @@ public void changeValues(Long amount){
             categories.putExtra("card_parcel", cards);
             categories.putExtra("current_card", punchCardInterface.getCurrent().getCard());
             startActivityForResult(categories, 2);
-//            startActivity(categories);
 
         } else if (id == R.id.nav_stats) {
             Intent report = new Intent(this, Report.class);
@@ -511,6 +510,14 @@ public void changeValues(Long amount){
             report.putExtra("parcelable_extra", current);
             report.putExtra("card_bundle", cards);
             startActivity(report);
+        } else if (id == R.id.nav_reset_category){
+            Intent categories = new Intent(this, ResetByCategory.class);
+            BundleCards cards = new BundleCards();
+            ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
+            cards.setCards(make_stack);
+            categories.putExtra("card_parcel", cards);
+            categories.putExtra("current_card", punchCardInterface.getCurrent().getCard());
+            startActivityForResult(categories, 2);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

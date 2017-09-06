@@ -28,6 +28,11 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ResetByCategory"
+            android:label="ResetByCategory"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ViewAllCards"
             android:label="@string/title_activity_view_all_cards"
             android:screenOrientation="locked"
@@ -45,7 +50,7 @@
                 android:name=".ViewPunchHistory"
                 android:label="ViewPunchHistory"
                 android:screenOrientation="locked"
-                android:theme="@style/AppTheme.NoActionBar" />
+                android:theme="@style/AppTheme" />
         </activity>
         <activity
             android:name=".ViewPunchHistory"

@@ -98,12 +98,12 @@ public class PunchCard implements Parcelable {
         return this.getLogger().getAmountAccomplished();
     }
 
-    public ArrayList<Date> getLastPunch(){
-        return this.getLogger().getLastPunch();
+    public Date getPunchIn(int index){
+        return logger.getStart_log().get(index);
     }
 
-    public ArrayList<Date> getFirstPunch(){
-        return this.getLogger().getFirstPunch();
+    public Date getPunchOut(int index){
+        return logger.getEnd_log().get(index);
     }
 
     public ActivityLog getLogger() {

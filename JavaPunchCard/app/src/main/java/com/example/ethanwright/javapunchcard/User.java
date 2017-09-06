@@ -35,6 +35,18 @@ public class User {
 
 	}
 
+	public void removeDeck(String category){
+		ArrayList<CardDeck> list = deck_set;
+		ArrayList<CardDeck> newDeckSet = new ArrayList();
+		for(Iterator<CardDeck> iter = list.listIterator(); iter.hasNext();){
+			CardDeck a = iter.next();
+			if(!category.equals(a.getCategory())){
+				newDeckSet.add(a);
+			}
+		}
+		deck_set = newDeckSet;
+	}
+
 	public ArrayList<PunchCard> getArchive(){
 		return archive;
 	}

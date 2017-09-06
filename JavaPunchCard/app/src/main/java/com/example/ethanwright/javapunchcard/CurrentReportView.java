@@ -30,7 +30,7 @@ public class CurrentReportView implements Parcelable {
     }
 
     public void setStartTime(Date startTime) {
-        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss",startTime));
+        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy hh:mm:ss a",startTime));
         this.startTime = date;
     }
 
@@ -39,7 +39,7 @@ public class CurrentReportView implements Parcelable {
     }
 
     public void setEndTime(Date endTime) {
-        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss",endTime));
+        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy hh:mm:ss a",endTime));
         this.endTime = date;
     }
 

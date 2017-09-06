@@ -7,6 +7,7 @@ package com.example.ethanwright.javapunchcard;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
@@ -49,11 +50,15 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
         final CurrentReportView p = getItem(position);
 
         if (p != null) {
-            int initial_color = Colors.colorPrimaryDark;
+            int initial_color = Colors.light_color;
             v.setBackgroundColor(initial_color);
+            Typeface roboto_thin = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Thin.ttf");
             TextView tt1 = (TextView) v.findViewById(R.id.list_title);
             TextView tt2 = (TextView) v.findViewById(R.id.list_subtitle);
             TextView tt3 = (TextView) v.findViewById(R.id.list_detail);
+            tt1.setTypeface(roboto_thin);
+            tt2.setTypeface(roboto_thin);
+            tt3.setTypeface(roboto_thin);
 
 
 
@@ -69,7 +74,7 @@ public class ViewPunchAdapter extends ArrayAdapter<CurrentReportView>{
             if(tt3 != null){
                 FormatTime ftime = new FormatTime();
                 long time = p.getTotalTime();
-                tt3.setText(ftime.getTime(time));
+                tt3.setText("Worked: " + ftime.getTime(time));
             }
 
 
