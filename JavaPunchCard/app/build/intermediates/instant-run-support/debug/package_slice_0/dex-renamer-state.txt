@@ -1,4 +1,4 @@
-#Tue Sep 05 23:57:19 MDT 2017
+#Wed Sep 06 01:00:50 MDT 2017
 base.0=C\:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0
 renamed.0=classes.dex
 file.0=C\:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0\\classes.dex

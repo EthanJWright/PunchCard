@@ -1,71 +1,23 @@
 [
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_remove_circle_in.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_remove_circle_in.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_card_stack.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_card_stack.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_layers.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_layers.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_remove_circle.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_remove_circle.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_circle_button.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_circle_button.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_archive.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_archive.png"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_stat_reply.png",
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_stat_reply.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_reset_category.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_reset_category.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_settings_gear.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings_gear.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_cards.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_cards.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add_goal_hour.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_goal_hour.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_refresh.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_refresh.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_button_circle.png",
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_button_circle.png"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_remove_goal_hour.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_remove_goal_hour.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_clear_all.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_clear_all.png"
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_folder.png",
+        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_folder.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add_car.png",
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_car.png"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_add.png"
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_info.png",
+        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_info.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_done.png",
@@ -74,26 +26,6 @@
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_done_all.png",
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_done_all.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_adding.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_adding.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_punch_card.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_punch_card.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add_goal.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_goal.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_categories.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_categories.png"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add_circle_in.png",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_circle_in.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_delete.png",

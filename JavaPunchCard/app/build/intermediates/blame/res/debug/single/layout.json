@@ -8,10 +8,6 @@
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\activity_view_punch_history.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_screen.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\activity_create_screen.xml"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
@@ -24,12 +20,12 @@
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_create_card.xml",
@@ -38,10 +34,6 @@
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_view_categories.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\content_view_categories.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
@@ -224,10 +216,6 @@
         "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_view_all_cards.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\content_view_all_cards.xml"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
@@ -250,10 +238,6 @@
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\layout\\design_layout_tab_icon.xml"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_view_punch_history.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\layout\\content_view_punch_history.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",

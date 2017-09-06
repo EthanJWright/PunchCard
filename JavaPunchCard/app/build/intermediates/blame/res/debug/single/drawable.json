@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
@@ -124,16 +124,8 @@
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_large_circle.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable\\ic_large_circle.xml"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\curve_button.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable\\curve_button.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -154,10 +146,6 @@
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable\\abc_dialog_material_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_circle_vector.xml",
-        "source": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\src\\main\\res\\drawable\\ic_circle_vector.xml"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",

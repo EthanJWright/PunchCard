@@ -44,12 +44,12 @@
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\design_ic_visibility_off.png",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",

@@ -8,11 +8,11 @@
             android:title="Create New Card" />
         <item
             android:id="@+id/nav_categories"
-            android:icon="@drawable/ic_categories"
+            android:icon="@drawable/ic_folder"
             android:title="Categories" />
         <item
             android:id="@+id/nav_stats"
-            android:icon="@drawable/ic_layers"
+            android:icon="@drawable/ic_info"
             android:title="Current Card Info" />
         <item
             android:id="@+id/nav_reset_category"
