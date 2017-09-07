@@ -762,6 +762,7 @@
     <string name="title_activity_view_all_cards">View All Cards</string>
     <string name="title_activity_view_punch_history">View Punch History</string>
     <string name="view_log">View Log</string>
+    <string name="view_overview_graphs">View Overview Graphs</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

@@ -1,6 +1,8 @@
 package com.example.ethanwright.javapunchcard;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+
 import android.os.Parcelable;
 import android.os.Parcel;
 
@@ -82,6 +84,20 @@ public class PunchCard implements Parcelable {
 
     public boolean isActive() {
         return active;
+    }
+
+    public Long getTotalWorked(){
+        long sum = 0;
+        ArrayList<Long> accomplished = getAmountAccomplished();
+        for(int i = 0; i < accomplished.size(); i++){
+            sum += accomplished.get(i);
+        }
+        sum += logger.getActive_duration() + logger.getCurrentAccomplished();
+        return sum;
+    }
+
+    public Long getCurrentAccomplished(){
+        return logger.getCurrentAccomplished();
     }
 
     public void setActive(boolean _active) {

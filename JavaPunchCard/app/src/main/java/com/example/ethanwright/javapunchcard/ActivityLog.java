@@ -29,6 +29,10 @@ public class ActivityLog implements Parcelable {
     private Date punchIn = null;
     private Date punchOut = null;
 
+    public long getCurrentAccomplished(){
+        return activeDuration + userOffset;
+    }
+
     public ArrayList<Long> getAmountAccomplished(){
         return amountAccomplished;
     }

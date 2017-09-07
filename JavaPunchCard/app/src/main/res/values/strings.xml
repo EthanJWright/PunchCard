@@ -29,4 +29,5 @@
     <string name="remove_time">Remove Time</string>
     <string name="add_time">Add Time</string>
     <string name="view_log">View Log</string>
+    <string name="view_overview_graphs">View Overview Graphs</string>
 </resources>

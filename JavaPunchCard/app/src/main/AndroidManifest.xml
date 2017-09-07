@@ -60,6 +60,10 @@
             android:name=".EditCardLog"
             android:label="@string/title_activity_edit_card_log"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewOverviewGraphs"
+            android:label="@string/view_overview_graphs"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

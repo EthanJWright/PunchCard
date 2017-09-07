@@ -1,5 +1,6 @@
 package com.example.ethanwright.javapunchcard;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -13,10 +14,6 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import java.util.List;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,20 +32,6 @@ public class Report extends AppCompatActivity {
         Intent get = getIntent();
         final PunchCard current  = get.getParcelableExtra("parcelable_extra");
         final BundleCards cards = get.getParcelableExtra("card_bundle");
-        // in this example, a LineChart is initialized from xml
-        LineChart chart = (LineChart) findViewById(R.id.chart);
-//        YourData[] dataObjects = ...
-//        int[] dataObjects = (1, 2, 3);
-
-        List<Entry> entries = new ArrayList<Entry>();
-/*
-        for (int data : dataObjects) {
-
-            // turn your data into Entry objects
- //           entries.add(new Entry(data.getValueX(), data.getValueY()));
-        }
-
-*/
 
 
         final Intent viewPunch = new Intent(this, ViewPunchHistory.class);
@@ -69,10 +52,7 @@ public class Report extends AppCompatActivity {
                         FormatTime ftime = new FormatTime();
                         tv3.setText(ftime.getTime(current.getActiveDuration()));
                         ArrayList<Long> total_worked = current.getAmountAccomplished();
-                        Long sum = Long.valueOf(0);
-                        for(int i = 0; i < total_worked.size(); i++){
-                           sum += total_worked.get(i);
-                        }
+                        Long sum = current.getTotalWorked();
                         tv4.setText(ftime.getTime(sum));
 
 

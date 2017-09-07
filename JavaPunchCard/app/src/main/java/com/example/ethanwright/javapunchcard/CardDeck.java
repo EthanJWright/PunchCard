@@ -1,5 +1,9 @@
 package com.example.ethanwright.javapunchcard;
 
+import android.text.format.DateUtils;
+
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Date;
@@ -45,6 +49,35 @@ public class CardDeck {
 		dateCreated = _dateCreated;
 		totalCount = 0;
 	
+	}
+
+	public Long getTimeWorkedToday(){
+		ArrayList<PunchCard> list = deck;
+		Date currentDate = new Date();
+		Long timeWorkedToday = (long) 0;
+		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+		    PunchCard a = iter.next();
+			for(int i = a.getLogger().getStart_log().size() - 1; i >= 0; i--){
+				Long punchedIn = a.getLogger().getStart_log().get(i).getTime();
+//				Long punchedOut = a.getPunchOut(i).getTime();
+				Long punchedOut = a.getLogger().getEnd_log().get(i).getTime();
+				if(DateUtils.isToday(punchedIn) && DateUtils.isToday(punchedOut)){
+					timeWorkedToday += a.getLogger().getAmountAccomplished().get(i);
+				}
+			  }
+			timeWorkedToday += a.getCurrentAccomplished();
+		    }
+		    return timeWorkedToday;
+	}
+
+	public Long getTotalTimeWorked(){
+		Long totalTime = (long) 0;
+		ArrayList<PunchCard> list = deck;
+		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
+		    PunchCard a = iter.next();
+			totalTime += a.getTotalWorked();
+		    }
+		    return totalTime;
 	}
 
 	public Long getTimeWorked(){

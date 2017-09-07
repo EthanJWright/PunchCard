@@ -503,6 +503,14 @@ public void changeValues(Long amount){
             categories.putExtra("card_parcel", cards);
             categories.putExtra("current_card", punchCardInterface.getCurrent().getCard());
             startActivityForResult(categories, 2);
+        } else if (id == R.id.nav_charts){
+            Intent intent = new Intent(this, ViewOverviewGraphs.class);
+            BundleCards cards = new BundleCards();
+            ArrayList<PunchCard> make_stack = punchCardInterface.model.getAllCards();
+            cards.setCards(make_stack);
+            intent.putExtra("card_parcel", cards);
+            intent.putExtra("current_card", punchCardInterface.getCurrent().getCard());
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
