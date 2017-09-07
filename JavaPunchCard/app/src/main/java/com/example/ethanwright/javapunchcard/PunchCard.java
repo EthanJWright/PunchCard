@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 
 import android.os.Parcelable;
 import android.os.Parcel;
+import android.text.format.DateUtils;
 
 
 public class PunchCard implements Parcelable {
@@ -94,6 +95,20 @@ public class PunchCard implements Parcelable {
         }
         sum += logger.getActive_duration() + logger.getCurrentAccomplished();
         return sum;
+    }
+
+    public Long getTimeWorkedToday(){
+        Long timeWorkedToday = (long) 0;
+        for(int i = logger.getStart_log().size() -1; i >=0; i--) {
+            Long punchedIn = logger.getStart_log().get(i).getTime();
+//				Long punchedOut = a.getPunchOut(i).getTime();
+            Long punchedOut = logger.getEnd_log().get(i).getTime();
+            if (DateUtils.isToday(punchedIn) && DateUtils.isToday(punchedOut)) {
+                timeWorkedToday += logger.getAmountAccomplished().get(i);
+            }
+            timeWorkedToday += getCurrentAccomplished();
+        }
+        return timeWorkedToday;
     }
 
     public Long getCurrentAccomplished(){

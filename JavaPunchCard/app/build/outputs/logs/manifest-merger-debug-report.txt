@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:2:1-69:12
+ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:2:1-77:12
 	package
 		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:3:5-52
 		INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\m
 	android:name
 		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:5:22-63
 application
-ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:7:5-67:19
+ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:7:5-75:19
 MERGED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Ethan\.android\build-cache\b1aa495e8957bb053c6bb712c300618526672b07\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Ethan\.android\build-cache\e048778cbd21f8e72ec6f01b64d5cb9e383cf7eb\output\AndroidManifest.xml:26:5-20
@@ -138,6 +138,22 @@ ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\m
 		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:66:13-56
 	android:name
 		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:64:13-47
+activity#com.example.ethanwright.javapunchcard.SelectCategoryGraphs
+ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:67:9-70:59
+	android:label
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:69:13-44
+	android:theme
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:70:13-56
+	android:name
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:68:13-49
+activity#com.example.ethanwright.javapunchcard.ViewCategoryGraphs
+ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:71:9-74:59
+	android:label
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:73:13-49
+	android:theme
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:74:13-56
+	android:name
+		ADDED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml:72:13-47
 uses-sdk
 INJECTED from C:\Users\Ethan\Dropbox\workspace\PunchCardApp\JavaPunchCard\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.3.1] C:\Users\Ethan\.android\build-cache\6cab544120155ebf60fe0b6555ff20d7fa896d7b\output\AndroidManifest.xml:21:5-23:62

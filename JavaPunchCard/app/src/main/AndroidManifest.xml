@@ -64,6 +64,14 @@
             android:name=".ViewOverviewGraphs"
             android:label="@string/view_overview_graphs"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SelectCategoryGraphs"
+            android:label="Select Category"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewCategoryGraphs"
+            android:label="View Category Graphs"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

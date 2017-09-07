@@ -57,15 +57,7 @@ public class CardDeck {
 		Long timeWorkedToday = (long) 0;
 		for (Iterator<PunchCard> iter = list.listIterator(); iter.hasNext(); ) {
 		    PunchCard a = iter.next();
-			for(int i = a.getLogger().getStart_log().size() - 1; i >= 0; i--){
-				Long punchedIn = a.getLogger().getStart_log().get(i).getTime();
-//				Long punchedOut = a.getPunchOut(i).getTime();
-				Long punchedOut = a.getLogger().getEnd_log().get(i).getTime();
-				if(DateUtils.isToday(punchedIn) && DateUtils.isToday(punchedOut)){
-					timeWorkedToday += a.getLogger().getAmountAccomplished().get(i);
-				}
-			  }
-			timeWorkedToday += a.getCurrentAccomplished();
+			timeWorkedToday += a.getTimeWorkedToday();
 		    }
 		    return timeWorkedToday;
 	}
