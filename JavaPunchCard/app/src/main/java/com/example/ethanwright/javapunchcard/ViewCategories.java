@@ -40,7 +40,7 @@ public class ViewCategories extends AppCompatActivity {
                     String returnStyle = data.getStringExtra("return_style");
                     BundleCards all_cards = data.getParcelableExtra("actual_all_cards");
                     BundleCards card_parcel = data.getParcelableExtra("card_parcel");
-                    PunchCard currentCard = data.getParcelableExtra("current_card");
+                    currentCard = data.getParcelableExtra("current_card");
                     returnedCards = card_parcel;
                     // If a listclick was executed return to home screen
                     if(returnStyle.equals("listclicked")) {
@@ -63,8 +63,6 @@ public class ViewCategories extends AppCompatActivity {
                         cardsWithChanges.setCards(punchCardInterface.model.getAllCards());
                         returnedCards = cardsWithChanges;
                         user_parcel = cardsWithChanges;
-                        buildListView();
-
                         backPressFinish();
                    }
                     else{

@@ -11,6 +11,8 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.NotificationCompat;
+import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +34,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity
     public TextView cardText;
     public TextView cardCategoryText;
     public TextView cardActiveDuration;
+    public TextView cardGoal;
     public boolean isSettingGoal = true;
 
 
@@ -84,29 +88,32 @@ public class MainActivity extends AppCompatActivity
         text.setTextSize(25);
     }
 
+    private void configureTextBold(TextView text){
+        Typeface roboto= Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
+        text.setTypeface(roboto);
+        text.setTextColor(Colors.black);
+        text.setTextSize(27);
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateUI() {
-        Typeface roboto_thin = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
-        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
-        cardText.setTypeface(roboto_thin);
+        configureTextBold(cardText);
         int color = Colors.light_color;
         FormatTime ftime = new FormatTime();
         if (!punchCardInterface.getCurrent().isActive()) {
             stopNotification();
-//            but.setBackgroundTintList(ColorStateList.valueOf(color));
             card.setBackgroundTintList(ColorStateList.valueOf(color));
-            int text = Colors.black;
-//            but.setTextColor(text);
+                int text = Colors.black;
             cardText.setTextColor(text);
+            configureText(cardActiveDuration);
         } else {
             startNotification();
             int background_color = Colors.colorPrimaryDark;
-//            but.setBackgroundTintList(ColorStateList.valueOf(background_color));
             card.setBackgroundTintList(ColorStateList.valueOf(background_color));
             int text = Colors.white;
- //           but.setTextColor(text);
             cardText.setTextColor(Colors.white);
+            configureTextBold(cardActiveDuration);
         }
         String name = punchCardInterface.getCurrent().getCard().getName();
 
@@ -118,26 +125,26 @@ public class MainActivity extends AppCompatActivity
 
         String result = ftime.getTime(punchCardInterface.getCurrent().getCard().getActiveDuration());
 
-        String extra;
+        String extra = "";
         String returning;
+        String goal = "";
         if(punchCardInterface.current.getCard().getGoal() != 0){
             extra = punchCardInterface.getGoalPercent(punchCardInterface.getCurrent().getCard());
             String substr = extra.substring(0,extra.indexOf("."));
             extra = "Accomplished: " + substr + "%" + "\n Total Goal: " + ftime.getTime(punchCardInterface.getCurrent().getCard().getGoal());
+            goal = "Accomplished: " + substr + "%" + "     Total Goal: " + ftime.getTime(punchCardInterface.getCurrent().getCard().getGoal());
             returning = name + "  " + category + "\n" + result + "\n" + extra;
         }
         else{
             returning = name +  category + "\n" + result;
         }
-        configureText(cardText);
+        configureTextBold(cardText);
         configureText(cardCategoryText);
-        configureText(cardActiveDuration);
+        cardGoal.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf"));
         cardText.setText(name);
         cardCategoryText.setText(category);
         cardActiveDuration.setText(result);
-//        but.setText(returning);
-
-
+        cardGoal.setText(goal);
 
     }
 
@@ -221,10 +228,12 @@ public void punchInOut(){
     Timer timer = new Timer();
     // Check to see if it has been set to active or not
     if(!punchCardInterface.current.isActive()) {
+        card.setElevation(2);
         punchCardInterface.PunchIn();
         startInterfaceTimer();
     }
     else {
+        card.setElevation(8);
         punchCardInterface.PunchOut();
         startInterfaceTimer();
     }
@@ -255,17 +264,18 @@ public void changeValues(Long amount){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         // Create Button
 //        final Button card = (Button) findViewById(R.id.current_card);
         final android.support.v7.widget.CardView temp = (android.support.v7.widget.CardView) findViewById(R.id.current_card);
         final TextView tempText = (TextView) findViewById(R.id.info_text);
         final TextView tempTextCategory = (TextView) findViewById(R.id.card_category);
         final TextView tempTextDuration = (TextView) findViewById(R.id.card_active_duration);
+        final TextView tempTextGoal = (TextView) findViewById(R.id.card_goal);
         card = temp;
         cardText = tempText;
         cardCategoryText = tempTextCategory;
         cardActiveDuration = tempTextDuration;
+        cardGoal = tempTextGoal;
 
 
 
@@ -301,22 +311,8 @@ public void changeValues(Long amount){
             punchCardInterface.addCard(default_card);
         }
 
-        // Get values set up for button
-//        card.setTextSize(20);
-        cardText.setTextSize(20);
-
         // Setup the UI
         startInterfaceTimer();
-
-
-        final Button tester = (Button) findViewById(R.id.button);
-        tester.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new PickTime();
-                newFragment.show(getSupportFragmentManager(), "timePicker");
-            }
-        });
 
         final Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
         final Button addMin = (Button) findViewById(R.id.add_one);
@@ -439,20 +435,9 @@ public void changeValues(Long amount){
 
         // Set up options on
         card.setOnClickListener(new OnClickListener() {
-
             public void onClick(View v) {
-                // Create an animation for button when clicked
-                final Animation animation = new TranslateAnimation(0,5,0,0);
-                // set Animation for 5 sec
-                animation.setDuration(200);
-                //for button stops in the new position.
-                animation.setFillAfter(true);
-                card.startAnimation(animation);
                 punchInOut();
-
             }
-
-
         });
 
         // Create our Floating Action Button
