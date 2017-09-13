@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "C:\\Users\\Ethan\\.android\\build-cache\\b527d22caf34295f96b09c8c4794cae6a202d844\\output\\res\\values\\values.xml",
+                    "file": "/Users/ethanwright/.android/build-cache/fc8c03b99f9e3552ef49cec7da81c7c1a12978cc/output/res/values/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

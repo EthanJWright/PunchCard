@@ -15,7 +15,7 @@ class CardView {
    List<String> colorList = new ArrayList<>(Arrays.asList(
       "#EF9A9A", "#D50000", "#EC407A", "#880E4F", "#D500F9", "#7B1FA2", "#311B92", "#304FFE", "#1A237E",
             "#64B5F6", "#0097A7", "#18FFFF", "#26A69A", "#1DE9B6", "#4CAF50", "#2E7D32",
-            "#AED581", "#CDDC39", "#AFB42B", "#F57F17", "#FBC02D", "#212121", "#DD2C00"
+            "#AED581", "#CDDC39", "#AFB42B", "#F57F17", "#FBC02D", "#DD2C00"
     ));
 
    List<String> overFlowList = new ArrayList<>(Arrays.asList(

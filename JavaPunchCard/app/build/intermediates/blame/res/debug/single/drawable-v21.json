@@ -1,34 +1,34 @@
 [
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/res/drawable-v21/avd_show_password.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_password_eye.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\drawable-v21\\design_password_eye.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\drawable-v21\\avd_show_password.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/res/drawable-v21/avd_hide_password.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\b1aa495e8957bb053c6bb712c300618526672b07\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/ethanwright/.android/build-cache/8afe4285be52cdcfa8425e0a8267c7e74f4d2b9a/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\Ethan\\Dropbox\\workspace\\PunchCardApp\\JavaPunchCard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
-        "source": "C:\\Users\\Ethan\\.android\\build-cache\\6cab544120155ebf60fe0b6555ff20d7fa896d7b\\output\\res\\drawable-v21\\avd_hide_password.xml"
+        "merged": "/Users/ethanwright/AndroidStudioProjects/PunchCardApp/PunchCardApp/JavaPunchCard/app/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/Users/ethanwright/.android/build-cache/1b2366d9145a848affb688bfcd0ffe1b37c12262/output/res/drawable-v21/design_password_eye.xml"
     }
 ]

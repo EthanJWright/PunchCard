@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="gridlayout-v7-25.3.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/67d19e707d337671f423423592bc0577b3c6413c/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/67d19e707d337671f423423592bc0577b3c6413c/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/fc05d37f5876dfaa9af4921d5a42c05d1406710a/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/fc05d37f5876dfaa9af4921d5a42c05d1406710a/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

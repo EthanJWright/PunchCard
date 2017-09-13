@@ -15,8 +15,8 @@ public class Colors {
 
 
     // Removing white option for text, if this is set this changes when cards are active
-    public static int white = Color.argb(255, 255, 255, 255);
 //    public static int white = Color.argb(255, 255, 255, 255);
+    public static int white = Color.argb(255, 0, 0, 0);
 
 
 }

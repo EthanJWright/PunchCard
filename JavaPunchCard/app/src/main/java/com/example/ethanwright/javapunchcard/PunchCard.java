@@ -106,8 +106,8 @@ public class PunchCard implements Parcelable {
             if (DateUtils.isToday(punchedIn) && DateUtils.isToday(punchedOut)) {
                 timeWorkedToday += logger.getAmountAccomplished().get(i);
             }
-            timeWorkedToday += getCurrentAccomplished();
         }
+        timeWorkedToday += getActiveDuration();
         return timeWorkedToday;
     }
 

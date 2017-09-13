@@ -1,14 +1,8 @@
 package com.example.ethanwright.javapunchcard;
-
-import android.text.format.DateUtils;
-
-import org.joda.time.DateTime;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Date;
 
-import static android.R.id.list;
 
 public class CardDeck {
 	private ArrayList<PunchCard> deck = new ArrayList<>();
